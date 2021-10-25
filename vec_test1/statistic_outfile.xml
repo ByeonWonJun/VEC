@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- generated on 2021-10-20 16:28:55 by Eclipse SUMO sumo Version 1.10.0
+<configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/sumoConfiguration.xsd">
+
+    <input>
+        <net-file value="network.net.xml"/>
+        <route-files value="route.rou.xml"/>
+    </input>
+
+    <output>
+        <netstate-dump value="netstate_outfile.xml"/>
+        <fcd-output value="fcd_outfile.xml"/>
+        <queue-output value="queue_outfile.xml"/>
+        <vehroute-output value="vehroute_outfile.xml"/>
+        <lanechange-output value="lanechange_outfile.xml"/>
+        <statistic-output value="statistic_outfile.xml"/>
+    </output>
+
+    <time>
+        <begin value="0"/>
+        <end value="100"/>
+    </time>
+
+    <traci_server>
+        <remote-port value="58315"/>
+    </traci_server>
+
+</configuration>
+-->
+
+<statistics xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/statistic_file.xsd">
+    <vehicles loaded="4" inserted="4" running="0" waiting-->
+
+<statistics xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/statistic_file.xsd">
+    <vehicles loaded="4" inserted="4" running="4" waiting="0"/>
+    <teleports total="0" jam="0" yield="0" wrongLane="0"/>
+    <safety collisions="0" emergencyStops="0"/>
+    <persons loaded="0" running="0" jammed="0"/>
+</statistics>

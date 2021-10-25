@@ -1,0 +1,5 @@
+tripinfo_arrival;tripinfo_arrivalLane;tripinfo_arrivalPos;tripinfo_arrivalSpeed;tripinfo_depart;tripinfo_departDelay;tripinfo_departLane;tripinfo_departPos;tripinfo_departSpeed;tripinfo_devices;tripinfo_duration;tripinfo_id;tripinfo_rerouteNo;tripinfo_routeLength;tripinfo_speedFactor;tripinfo_stopTime;tripinfo_timeLoss;tripinfo_vType;tripinfo_vaporized;tripinfo_waitingCount;tripinfo_waitingTime
+61.00;gneE8_0;100.00;15.00;1.00;0.00;gneE0_0;2.10;0.00;tripinfo_v1 routing_v1;60.00;v1;0;898.70;1.06;0.00;-1.13;Car;;0;0.00
+71.00;gneE8_1;100.00;15.04;4.00;0.00;gneE0_3;2.10;0.00;tripinfo_v4 routing_v4;67.00;v4;0;898.70;1.08;0.00;7.02;Car;;0;0.00
+74.00;gneE8_0;100.00;14.03;3.00;0.00;gneE0_2;2.10;0.00;tripinfo_v3 routing_v3;71.00;v3;0;898.70;1.01;0.00;6.52;Car;;0;0.00
+77.00;gneE8_0;100.00;13.03;2.00;0.00;gneE0_1;2.10;0.00;tripinfo_v2 routing_v2;75.00;v2;0;898.70;0.94;0.00;6.02;Car;;0;0.00

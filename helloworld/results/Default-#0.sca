@@ -1,0 +1,556 @@
+version 2
+run Default-0-20211025-17:42:51-25824
+attr configname Default
+attr datetime 20211025-17:42:51
+attr experiment Default
+attr inifile omnetpp.ini
+attr iterationvars ""
+attr iterationvarsf ""
+attr measurement ""
+attr network helloNetwork
+attr processid 25824
+attr repetition 0
+attr replication #0
+attr resultdir results
+attr runnumber 0
+attr seedset 0
+param *.playgroundSizeX 2500m
+param *.playgroundSizeY 2500m
+param *.playgroundSizeZ 50m
+param *.annotations.draw true
+param *.obstacles.debug false
+param *.manager.updateInterval 1s
+param *.manager.host "\"localhost\""
+param *.manager.port 9999
+param *.manager.autoShutdown true
+param *.manager.launchConfig "xmldoc(\"helloworld.launchd.xml\")"
+param *.rsu[0].mobility.x 50
+param *.rsu[0].mobility.y 0
+param *.rsu[0].mobility.z 0
+param *.rsu[1].mobility.x 150
+param *.rsu[1].mobility.y 0
+param *.rsu[1].mobility.z 0
+param *.rsu[2].mobility.x 250
+param *.rsu[2].mobility.y 0
+param *.rsu[2].mobility.z 0
+param *.rsu[3].mobility.x 350
+param *.rsu[3].mobility.y 0
+param *.rsu[3].mobility.z 0
+param *.rsu[4].mobility.x 450
+param *.rsu[4].mobility.y 0
+param *.rsu[4].mobility.z 0
+param *.rsu[5].mobility.x 550
+param *.rsu[5].mobility.y 0
+param *.rsu[5].mobility.z 0
+param *.rsu[6].mobility.x 650
+param *.rsu[6].mobility.y 0
+param *.rsu[6].mobility.z 0
+param *.rsu[7].mobility.x 750
+param *.rsu[7].mobility.y 0
+param *.rsu[7].mobility.z 0
+param *.rsu[8].mobility.x 850
+param *.rsu[8].mobility.y 0
+param *.rsu[8].mobility.z 0
+param *.rsu[9].mobility.x 950
+param *.rsu[9].mobility.y 0
+param *.rsu[9].mobility.z 0
+param *.rsu[*].applType "\"TraCIDemoRSU11p\""
+param *.rsu[*].appl.headerLength "80 bit"
+param *.rsu[*].appl.sendBeacons false
+param *.rsu[*].appl.dataOnSch false
+param *.rsu[*].appl.beaconInterval 5s
+param *.rsu[*].appl.beaconUserPriority 7
+param *.rsu[*].appl.dataUserPriority 5
+param *.rsu[*].nic.phy80211p.antennaOffsetZ "0 m"
+param *.connectionManager.sendDirect true
+param *.connectionManager.maxInterfDist 2600m
+param *.connectionManager.drawMaxIntfDist false
+param *.**.nic.mac1609_4.useServiceChannel false
+param *.**.nic.mac1609_4.txPower 20mW
+param *.**.nic.mac1609_4.bitrate 6Mbps
+param *.**.nic.phy80211p.minPowerLevel -110dBm
+param *.**.nic.phy80211p.useNoiseFloor true
+param *.**.nic.phy80211p.noiseFloor -98dBm
+param *.**.nic.phy80211p.decider "xmldoc(\"config.xml\")"
+param *.**.nic.phy80211p.analogueModels "xmldoc(\"config.xml\")"
+param *.**.nic.phy80211p.usePropagationDelay true
+param *.**.nic.phy80211p.antenna "xmldoc(\"antenna.xml\", \"/root/Antenna[@id='monopole']\")"
+param *.node[*].nic.phy80211p.antennaOffsetY "0 m"
+param *.node[*].nic.phy80211p.antennaOffsetZ "1.895 m"
+param *.node[*].applType "\"MyVeinsApp\""
+param *.node[*].appl.headerLength "80 bit"
+param *.node[*].appl.sendBeacons false
+param *.node[*].appl.dataOnSch false
+param *.node[*].appl.beaconInterval 1s
+param *.node[*].veinsmobility.x 0
+param *.node[*].veinsmobility.y 0
+param *.node[*].veinsmobility.z 0
+param *.node[*].veinsmobility.setHostSpeed false
+param *.node[*0].veinsmobility.accidentCount 0
+param *.node[*0].veinsmobility.accidentStart 73s
+param *.node[*0].veinsmobility.accidentDuration 50s
+
+scalar helloNetwork.node[0].appl generatedWSMs 0
+scalar helloNetwork.node[0].appl receivedWSMs 0
+scalar helloNetwork.node[0].appl generatedBSMs 0
+scalar helloNetwork.node[0].appl receivedBSMs 0
+scalar helloNetwork.node[0].appl generatedWSAs 0
+scalar helloNetwork.node[0].appl receivedWSAs 0
+scalar helloNetwork.node[0].nic.phy80211p busyTime 0
+scalar helloNetwork.node[0].nic.mac1609_4 ReceivedUnicastPackets 0
+scalar helloNetwork.node[0].nic.mac1609_4 ReceivedBroadcasts 0
+scalar helloNetwork.node[0].nic.mac1609_4 SentPackets 0
+scalar helloNetwork.node[0].nic.mac1609_4 SentAcknowledgements 0
+scalar helloNetwork.node[0].nic.mac1609_4 RetriesExceeded 0
+scalar helloNetwork.node[0].nic.mac1609_4 SNIRLostPackets 0
+scalar helloNetwork.node[0].nic.mac1609_4 RXTXLostPackets 0
+scalar helloNetwork.node[0].nic.mac1609_4 TotalLostPackets 0
+scalar helloNetwork.node[0].nic.mac1609_4 DroppedPacketsInMac 0
+scalar helloNetwork.node[0].nic.mac1609_4 TooLittleTime 0
+scalar helloNetwork.node[0].nic.mac1609_4 TimesIntoBackoff 0
+scalar helloNetwork.node[0].nic.mac1609_4 SlotsBackoff 0
+scalar helloNetwork.node[0].nic.mac1609_4 NumInternalContention 0
+scalar helloNetwork.node[0].nic.mac1609_4 totalBusyTime 0
+scalar helloNetwork.node[0].nic.mac1609_4 retriesExceeded:count 0
+attr source org_car2x_veins_modules_mac_sigRetriesExceeded
+scalar helloNetwork.node[0].nic.mac1609_4 sentAcks:count 0
+attr source org_car2x_veins_modules_mac_sigSentAck
+scalar helloNetwork.node[0].nic.mac1609_4 sentPackets:count 0
+attr source org_car2x_veins_modules_mac_sigSentPacket
+scalar helloNetwork.node[0].nic.mac1609_4 collisions:count 0
+attr source org_car2x_veins_modules_mac_sigCollision
+scalar helloNetwork.node[0].nic.mac1609_4 channelBusy:timeavg 0
+attr source org_car2x_veins_modules_mac_sigChannelBusy
+scalar helloNetwork.node[0].veinsmobility startTime 2
+scalar helloNetwork.node[0].veinsmobility totalTime 65
+scalar helloNetwork.node[0].veinsmobility stopTime 68
+scalar helloNetwork.node[0].veinsmobility minSpeed 1
+scalar helloNetwork.node[0].veinsmobility maxSpeed 15.505515474636
+scalar helloNetwork.node[0].veinsmobility totalDistance 894.47577373182
+scalar helloNetwork.node[0].veinsmobility totalCO2Emission 163.29679003004
+scalar helloNetwork.node[1].appl generatedWSMs 0
+scalar helloNetwork.node[1].appl receivedWSMs 0
+scalar helloNetwork.node[1].appl generatedBSMs 0
+scalar helloNetwork.node[1].appl receivedBSMs 0
+scalar helloNetwork.node[1].appl generatedWSAs 0
+scalar helloNetwork.node[1].appl receivedWSAs 0
+scalar helloNetwork.node[1].nic.phy80211p busyTime 0
+scalar helloNetwork.node[1].nic.mac1609_4 ReceivedUnicastPackets 0
+scalar helloNetwork.node[1].nic.mac1609_4 ReceivedBroadcasts 0
+scalar helloNetwork.node[1].nic.mac1609_4 SentPackets 0
+scalar helloNetwork.node[1].nic.mac1609_4 SentAcknowledgements 0
+scalar helloNetwork.node[1].nic.mac1609_4 RetriesExceeded 0
+scalar helloNetwork.node[1].nic.mac1609_4 SNIRLostPackets 0
+scalar helloNetwork.node[1].nic.mac1609_4 RXTXLostPackets 0
+scalar helloNetwork.node[1].nic.mac1609_4 TotalLostPackets 0
+scalar helloNetwork.node[1].nic.mac1609_4 DroppedPacketsInMac 0
+scalar helloNetwork.node[1].nic.mac1609_4 TooLittleTime 0
+scalar helloNetwork.node[1].nic.mac1609_4 TimesIntoBackoff 0
+scalar helloNetwork.node[1].nic.mac1609_4 SlotsBackoff 0
+scalar helloNetwork.node[1].nic.mac1609_4 NumInternalContention 0
+scalar helloNetwork.node[1].nic.mac1609_4 totalBusyTime 0
+scalar helloNetwork.node[1].nic.mac1609_4 retriesExceeded:count 0
+attr source org_car2x_veins_modules_mac_sigRetriesExceeded
+scalar helloNetwork.node[1].nic.mac1609_4 sentAcks:count 0
+attr source org_car2x_veins_modules_mac_sigSentAck
+scalar helloNetwork.node[1].nic.mac1609_4 sentPackets:count 0
+attr source org_car2x_veins_modules_mac_sigSentPacket
+scalar helloNetwork.node[1].nic.mac1609_4 collisions:count 0
+attr source org_car2x_veins_modules_mac_sigCollision
+scalar helloNetwork.node[1].nic.mac1609_4 channelBusy:timeavg 0
+attr source org_car2x_veins_modules_mac_sigChannelBusy
+scalar helloNetwork.node[1].veinsmobility startTime 3
+scalar helloNetwork.node[1].veinsmobility totalTime 68
+scalar helloNetwork.node[1].veinsmobility stopTime 72
+scalar helloNetwork.node[1].veinsmobility minSpeed 1
+scalar helloNetwork.node[1].veinsmobility maxSpeed 14.562004700384
+scalar helloNetwork.node[1].veinsmobility totalDistance 891.24550928854
+scalar helloNetwork.node[1].veinsmobility totalCO2Emission 160.7789819157
+scalar helloNetwork.node[2].appl generatedWSMs 0
+scalar helloNetwork.node[2].appl receivedWSMs 0
+scalar helloNetwork.node[2].appl generatedBSMs 0
+scalar helloNetwork.node[2].appl receivedBSMs 0
+scalar helloNetwork.node[2].appl generatedWSAs 0
+scalar helloNetwork.node[2].appl receivedWSAs 0
+scalar helloNetwork.node[2].nic.phy80211p busyTime 0
+scalar helloNetwork.node[2].nic.mac1609_4 ReceivedUnicastPackets 0
+scalar helloNetwork.node[2].nic.mac1609_4 ReceivedBroadcasts 0
+scalar helloNetwork.node[2].nic.mac1609_4 SentPackets 0
+scalar helloNetwork.node[2].nic.mac1609_4 SentAcknowledgements 0
+scalar helloNetwork.node[2].nic.mac1609_4 RetriesExceeded 0
+scalar helloNetwork.node[2].nic.mac1609_4 SNIRLostPackets 0
+scalar helloNetwork.node[2].nic.mac1609_4 RXTXLostPackets 0
+scalar helloNetwork.node[2].nic.mac1609_4 TotalLostPackets 0
+scalar helloNetwork.node[2].nic.mac1609_4 DroppedPacketsInMac 0
+scalar helloNetwork.node[2].nic.mac1609_4 TooLittleTime 0
+scalar helloNetwork.node[2].nic.mac1609_4 TimesIntoBackoff 0
+scalar helloNetwork.node[2].nic.mac1609_4 SlotsBackoff 0
+scalar helloNetwork.node[2].nic.mac1609_4 NumInternalContention 0
+scalar helloNetwork.node[2].nic.mac1609_4 totalBusyTime 0
+scalar helloNetwork.node[2].nic.mac1609_4 retriesExceeded:count 0
+attr source org_car2x_veins_modules_mac_sigRetriesExceeded
+scalar helloNetwork.node[2].nic.mac1609_4 sentAcks:count 0
+attr source org_car2x_veins_modules_mac_sigSentAck
+scalar helloNetwork.node[2].nic.mac1609_4 sentPackets:count 0
+attr source org_car2x_veins_modules_mac_sigSentPacket
+scalar helloNetwork.node[2].nic.mac1609_4 collisions:count 0
+attr source org_car2x_veins_modules_mac_sigCollision
+scalar helloNetwork.node[2].nic.mac1609_4 channelBusy:timeavg 0
+attr source org_car2x_veins_modules_mac_sigChannelBusy
+scalar helloNetwork.node[2].veinsmobility startTime 4
+scalar helloNetwork.node[2].veinsmobility totalTime 69
+scalar helloNetwork.node[2].veinsmobility stopTime 74
+scalar helloNetwork.node[2].veinsmobility minSpeed 1
+scalar helloNetwork.node[2].veinsmobility maxSpeed 14.306093716571
+scalar helloNetwork.node[2].veinsmobility totalDistance 892.45166818645
+scalar helloNetwork.node[2].veinsmobility totalCO2Emission 160.46803799309
+scalar helloNetwork.node[3].appl generatedWSMs 0
+scalar helloNetwork.node[3].appl receivedWSMs 0
+scalar helloNetwork.node[3].appl generatedBSMs 0
+scalar helloNetwork.node[3].appl receivedBSMs 0
+scalar helloNetwork.node[3].appl generatedWSAs 0
+scalar helloNetwork.node[3].appl receivedWSAs 0
+scalar helloNetwork.node[3].nic.phy80211p busyTime 0
+scalar helloNetwork.node[3].nic.mac1609_4 ReceivedUnicastPackets 0
+scalar helloNetwork.node[3].nic.mac1609_4 ReceivedBroadcasts 0
+scalar helloNetwork.node[3].nic.mac1609_4 SentPackets 0
+scalar helloNetwork.node[3].nic.mac1609_4 SentAcknowledgements 0
+scalar helloNetwork.node[3].nic.mac1609_4 RetriesExceeded 0
+scalar helloNetwork.node[3].nic.mac1609_4 SNIRLostPackets 0
+scalar helloNetwork.node[3].nic.mac1609_4 RXTXLostPackets 0
+scalar helloNetwork.node[3].nic.mac1609_4 TotalLostPackets 0
+scalar helloNetwork.node[3].nic.mac1609_4 DroppedPacketsInMac 0
+scalar helloNetwork.node[3].nic.mac1609_4 TooLittleTime 0
+scalar helloNetwork.node[3].nic.mac1609_4 TimesIntoBackoff 0
+scalar helloNetwork.node[3].nic.mac1609_4 SlotsBackoff 0
+scalar helloNetwork.node[3].nic.mac1609_4 NumInternalContention 0
+scalar helloNetwork.node[3].nic.mac1609_4 totalBusyTime 0
+scalar helloNetwork.node[3].nic.mac1609_4 retriesExceeded:count 0
+attr source org_car2x_veins_modules_mac_sigRetriesExceeded
+scalar helloNetwork.node[3].nic.mac1609_4 sentAcks:count 0
+attr source org_car2x_veins_modules_mac_sigSentAck
+scalar helloNetwork.node[3].nic.mac1609_4 sentPackets:count 0
+attr source org_car2x_veins_modules_mac_sigSentPacket
+scalar helloNetwork.node[3].nic.mac1609_4 collisions:count 0
+attr source org_car2x_veins_modules_mac_sigCollision
+scalar helloNetwork.node[3].nic.mac1609_4 channelBusy:timeavg 0
+attr source org_car2x_veins_modules_mac_sigChannelBusy
+scalar helloNetwork.node[3].veinsmobility startTime 5
+scalar helloNetwork.node[3].veinsmobility totalTime 70
+scalar helloNetwork.node[3].veinsmobility stopTime 76
+scalar helloNetwork.node[3].veinsmobility minSpeed 1
+scalar helloNetwork.node[3].veinsmobility maxSpeed 14.102552264791
+scalar helloNetwork.node[3].veinsmobility totalDistance 895.37941571162
+scalar helloNetwork.node[3].veinsmobility totalCO2Emission 160.64463715215
+scalar helloNetwork.manager roiArea 0
+scalar helloNetwork.rsu[0].appl generatedWSMs 0
+scalar helloNetwork.rsu[0].appl receivedWSMs 0
+scalar helloNetwork.rsu[0].appl generatedBSMs 0
+scalar helloNetwork.rsu[0].appl receivedBSMs 0
+scalar helloNetwork.rsu[0].appl generatedWSAs 0
+scalar helloNetwork.rsu[0].appl receivedWSAs 0
+scalar helloNetwork.rsu[0].nic.phy80211p busyTime 0
+scalar helloNetwork.rsu[0].nic.mac1609_4 ReceivedUnicastPackets 0
+scalar helloNetwork.rsu[0].nic.mac1609_4 ReceivedBroadcasts 0
+scalar helloNetwork.rsu[0].nic.mac1609_4 SentPackets 0
+scalar helloNetwork.rsu[0].nic.mac1609_4 SentAcknowledgements 0
+scalar helloNetwork.rsu[0].nic.mac1609_4 RetriesExceeded 0
+scalar helloNetwork.rsu[0].nic.mac1609_4 SNIRLostPackets 0
+scalar helloNetwork.rsu[0].nic.mac1609_4 RXTXLostPackets 0
+scalar helloNetwork.rsu[0].nic.mac1609_4 TotalLostPackets 0
+scalar helloNetwork.rsu[0].nic.mac1609_4 DroppedPacketsInMac 0
+scalar helloNetwork.rsu[0].nic.mac1609_4 TooLittleTime 0
+scalar helloNetwork.rsu[0].nic.mac1609_4 TimesIntoBackoff 0
+scalar helloNetwork.rsu[0].nic.mac1609_4 SlotsBackoff 0
+scalar helloNetwork.rsu[0].nic.mac1609_4 NumInternalContention 0
+scalar helloNetwork.rsu[0].nic.mac1609_4 totalBusyTime 0
+scalar helloNetwork.rsu[0].nic.mac1609_4 retriesExceeded:count 0
+attr source org_car2x_veins_modules_mac_sigRetriesExceeded
+scalar helloNetwork.rsu[0].nic.mac1609_4 sentAcks:count 0
+attr source org_car2x_veins_modules_mac_sigSentAck
+scalar helloNetwork.rsu[0].nic.mac1609_4 sentPackets:count 0
+attr source org_car2x_veins_modules_mac_sigSentPacket
+scalar helloNetwork.rsu[0].nic.mac1609_4 collisions:count 0
+attr source org_car2x_veins_modules_mac_sigCollision
+scalar helloNetwork.rsu[0].nic.mac1609_4 channelBusy:timeavg 0
+attr source org_car2x_veins_modules_mac_sigChannelBusy
+scalar helloNetwork.rsu[1].appl generatedWSMs 0
+scalar helloNetwork.rsu[1].appl receivedWSMs 0
+scalar helloNetwork.rsu[1].appl generatedBSMs 0
+scalar helloNetwork.rsu[1].appl receivedBSMs 0
+scalar helloNetwork.rsu[1].appl generatedWSAs 0
+scalar helloNetwork.rsu[1].appl receivedWSAs 0
+scalar helloNetwork.rsu[1].nic.phy80211p busyTime 0
+scalar helloNetwork.rsu[1].nic.mac1609_4 ReceivedUnicastPackets 0
+scalar helloNetwork.rsu[1].nic.mac1609_4 ReceivedBroadcasts 0
+scalar helloNetwork.rsu[1].nic.mac1609_4 SentPackets 0
+scalar helloNetwork.rsu[1].nic.mac1609_4 SentAcknowledgements 0
+scalar helloNetwork.rsu[1].nic.mac1609_4 RetriesExceeded 0
+scalar helloNetwork.rsu[1].nic.mac1609_4 SNIRLostPackets 0
+scalar helloNetwork.rsu[1].nic.mac1609_4 RXTXLostPackets 0
+scalar helloNetwork.rsu[1].nic.mac1609_4 TotalLostPackets 0
+scalar helloNetwork.rsu[1].nic.mac1609_4 DroppedPacketsInMac 0
+scalar helloNetwork.rsu[1].nic.mac1609_4 TooLittleTime 0
+scalar helloNetwork.rsu[1].nic.mac1609_4 TimesIntoBackoff 0
+scalar helloNetwork.rsu[1].nic.mac1609_4 SlotsBackoff 0
+scalar helloNetwork.rsu[1].nic.mac1609_4 NumInternalContention 0
+scalar helloNetwork.rsu[1].nic.mac1609_4 totalBusyTime 0
+scalar helloNetwork.rsu[1].nic.mac1609_4 retriesExceeded:count 0
+attr source org_car2x_veins_modules_mac_sigRetriesExceeded
+scalar helloNetwork.rsu[1].nic.mac1609_4 sentAcks:count 0
+attr source org_car2x_veins_modules_mac_sigSentAck
+scalar helloNetwork.rsu[1].nic.mac1609_4 sentPackets:count 0
+attr source org_car2x_veins_modules_mac_sigSentPacket
+scalar helloNetwork.rsu[1].nic.mac1609_4 collisions:count 0
+attr source org_car2x_veins_modules_mac_sigCollision
+scalar helloNetwork.rsu[1].nic.mac1609_4 channelBusy:timeavg 0
+attr source org_car2x_veins_modules_mac_sigChannelBusy
+scalar helloNetwork.rsu[2].appl generatedWSMs 0
+scalar helloNetwork.rsu[2].appl receivedWSMs 0
+scalar helloNetwork.rsu[2].appl generatedBSMs 0
+scalar helloNetwork.rsu[2].appl receivedBSMs 0
+scalar helloNetwork.rsu[2].appl generatedWSAs 0
+scalar helloNetwork.rsu[2].appl receivedWSAs 0
+scalar helloNetwork.rsu[2].nic.phy80211p busyTime 0
+scalar helloNetwork.rsu[2].nic.mac1609_4 ReceivedUnicastPackets 0
+scalar helloNetwork.rsu[2].nic.mac1609_4 ReceivedBroadcasts 0
+scalar helloNetwork.rsu[2].nic.mac1609_4 SentPackets 0
+scalar helloNetwork.rsu[2].nic.mac1609_4 SentAcknowledgements 0
+scalar helloNetwork.rsu[2].nic.mac1609_4 RetriesExceeded 0
+scalar helloNetwork.rsu[2].nic.mac1609_4 SNIRLostPackets 0
+scalar helloNetwork.rsu[2].nic.mac1609_4 RXTXLostPackets 0
+scalar helloNetwork.rsu[2].nic.mac1609_4 TotalLostPackets 0
+scalar helloNetwork.rsu[2].nic.mac1609_4 DroppedPacketsInMac 0
+scalar helloNetwork.rsu[2].nic.mac1609_4 TooLittleTime 0
+scalar helloNetwork.rsu[2].nic.mac1609_4 TimesIntoBackoff 0
+scalar helloNetwork.rsu[2].nic.mac1609_4 SlotsBackoff 0
+scalar helloNetwork.rsu[2].nic.mac1609_4 NumInternalContention 0
+scalar helloNetwork.rsu[2].nic.mac1609_4 totalBusyTime 0
+scalar helloNetwork.rsu[2].nic.mac1609_4 retriesExceeded:count 0
+attr source org_car2x_veins_modules_mac_sigRetriesExceeded
+scalar helloNetwork.rsu[2].nic.mac1609_4 sentAcks:count 0
+attr source org_car2x_veins_modules_mac_sigSentAck
+scalar helloNetwork.rsu[2].nic.mac1609_4 sentPackets:count 0
+attr source org_car2x_veins_modules_mac_sigSentPacket
+scalar helloNetwork.rsu[2].nic.mac1609_4 collisions:count 0
+attr source org_car2x_veins_modules_mac_sigCollision
+scalar helloNetwork.rsu[2].nic.mac1609_4 channelBusy:timeavg 0
+attr source org_car2x_veins_modules_mac_sigChannelBusy
+scalar helloNetwork.rsu[3].appl generatedWSMs 0
+scalar helloNetwork.rsu[3].appl receivedWSMs 0
+scalar helloNetwork.rsu[3].appl generatedBSMs 0
+scalar helloNetwork.rsu[3].appl receivedBSMs 0
+scalar helloNetwork.rsu[3].appl generatedWSAs 0
+scalar helloNetwork.rsu[3].appl receivedWSAs 0
+scalar helloNetwork.rsu[3].nic.phy80211p busyTime 0
+scalar helloNetwork.rsu[3].nic.mac1609_4 ReceivedUnicastPackets 0
+scalar helloNetwork.rsu[3].nic.mac1609_4 ReceivedBroadcasts 0
+scalar helloNetwork.rsu[3].nic.mac1609_4 SentPackets 0
+scalar helloNetwork.rsu[3].nic.mac1609_4 SentAcknowledgements 0
+scalar helloNetwork.rsu[3].nic.mac1609_4 RetriesExceeded 0
+scalar helloNetwork.rsu[3].nic.mac1609_4 SNIRLostPackets 0
+scalar helloNetwork.rsu[3].nic.mac1609_4 RXTXLostPackets 0
+scalar helloNetwork.rsu[3].nic.mac1609_4 TotalLostPackets 0
+scalar helloNetwork.rsu[3].nic.mac1609_4 DroppedPacketsInMac 0
+scalar helloNetwork.rsu[3].nic.mac1609_4 TooLittleTime 0
+scalar helloNetwork.rsu[3].nic.mac1609_4 TimesIntoBackoff 0
+scalar helloNetwork.rsu[3].nic.mac1609_4 SlotsBackoff 0
+scalar helloNetwork.rsu[3].nic.mac1609_4 NumInternalContention 0
+scalar helloNetwork.rsu[3].nic.mac1609_4 totalBusyTime 0
+scalar helloNetwork.rsu[3].nic.mac1609_4 retriesExceeded:count 0
+attr source org_car2x_veins_modules_mac_sigRetriesExceeded
+scalar helloNetwork.rsu[3].nic.mac1609_4 sentAcks:count 0
+attr source org_car2x_veins_modules_mac_sigSentAck
+scalar helloNetwork.rsu[3].nic.mac1609_4 sentPackets:count 0
+attr source org_car2x_veins_modules_mac_sigSentPacket
+scalar helloNetwork.rsu[3].nic.mac1609_4 collisions:count 0
+attr source org_car2x_veins_modules_mac_sigCollision
+scalar helloNetwork.rsu[3].nic.mac1609_4 channelBusy:timeavg 0
+attr source org_car2x_veins_modules_mac_sigChannelBusy
+scalar helloNetwork.rsu[4].appl generatedWSMs 0
+scalar helloNetwork.rsu[4].appl receivedWSMs 0
+scalar helloNetwork.rsu[4].appl generatedBSMs 0
+scalar helloNetwork.rsu[4].appl receivedBSMs 0
+scalar helloNetwork.rsu[4].appl generatedWSAs 0
+scalar helloNetwork.rsu[4].appl receivedWSAs 0
+scalar helloNetwork.rsu[4].nic.phy80211p busyTime 0
+scalar helloNetwork.rsu[4].nic.mac1609_4 ReceivedUnicastPackets 0
+scalar helloNetwork.rsu[4].nic.mac1609_4 ReceivedBroadcasts 0
+scalar helloNetwork.rsu[4].nic.mac1609_4 SentPackets 0
+scalar helloNetwork.rsu[4].nic.mac1609_4 SentAcknowledgements 0
+scalar helloNetwork.rsu[4].nic.mac1609_4 RetriesExceeded 0
+scalar helloNetwork.rsu[4].nic.mac1609_4 SNIRLostPackets 0
+scalar helloNetwork.rsu[4].nic.mac1609_4 RXTXLostPackets 0
+scalar helloNetwork.rsu[4].nic.mac1609_4 TotalLostPackets 0
+scalar helloNetwork.rsu[4].nic.mac1609_4 DroppedPacketsInMac 0
+scalar helloNetwork.rsu[4].nic.mac1609_4 TooLittleTime 0
+scalar helloNetwork.rsu[4].nic.mac1609_4 TimesIntoBackoff 0
+scalar helloNetwork.rsu[4].nic.mac1609_4 SlotsBackoff 0
+scalar helloNetwork.rsu[4].nic.mac1609_4 NumInternalContention 0
+scalar helloNetwork.rsu[4].nic.mac1609_4 totalBusyTime 0
+scalar helloNetwork.rsu[4].nic.mac1609_4 retriesExceeded:count 0
+attr source org_car2x_veins_modules_mac_sigRetriesExceeded
+scalar helloNetwork.rsu[4].nic.mac1609_4 sentAcks:count 0
+attr source org_car2x_veins_modules_mac_sigSentAck
+scalar helloNetwork.rsu[4].nic.mac1609_4 sentPackets:count 0
+attr source org_car2x_veins_modules_mac_sigSentPacket
+scalar helloNetwork.rsu[4].nic.mac1609_4 collisions:count 0
+attr source org_car2x_veins_modules_mac_sigCollision
+scalar helloNetwork.rsu[4].nic.mac1609_4 channelBusy:timeavg 0
+attr source org_car2x_veins_modules_mac_sigChannelBusy
+scalar helloNetwork.rsu[5].appl generatedWSMs 0
+scalar helloNetwork.rsu[5].appl receivedWSMs 0
+scalar helloNetwork.rsu[5].appl generatedBSMs 0
+scalar helloNetwork.rsu[5].appl receivedBSMs 0
+scalar helloNetwork.rsu[5].appl generatedWSAs 0
+scalar helloNetwork.rsu[5].appl receivedWSAs 0
+scalar helloNetwork.rsu[5].nic.phy80211p busyTime 0
+scalar helloNetwork.rsu[5].nic.mac1609_4 ReceivedUnicastPackets 0
+scalar helloNetwork.rsu[5].nic.mac1609_4 ReceivedBroadcasts 0
+scalar helloNetwork.rsu[5].nic.mac1609_4 SentPackets 0
+scalar helloNetwork.rsu[5].nic.mac1609_4 SentAcknowledgements 0
+scalar helloNetwork.rsu[5].nic.mac1609_4 RetriesExceeded 0
+scalar helloNetwork.rsu[5].nic.mac1609_4 SNIRLostPackets 0
+scalar helloNetwork.rsu[5].nic.mac1609_4 RXTXLostPackets 0
+scalar helloNetwork.rsu[5].nic.mac1609_4 TotalLostPackets 0
+scalar helloNetwork.rsu[5].nic.mac1609_4 DroppedPacketsInMac 0
+scalar helloNetwork.rsu[5].nic.mac1609_4 TooLittleTime 0
+scalar helloNetwork.rsu[5].nic.mac1609_4 TimesIntoBackoff 0
+scalar helloNetwork.rsu[5].nic.mac1609_4 SlotsBackoff 0
+scalar helloNetwork.rsu[5].nic.mac1609_4 NumInternalContention 0
+scalar helloNetwork.rsu[5].nic.mac1609_4 totalBusyTime 0
+scalar helloNetwork.rsu[5].nic.mac1609_4 retriesExceeded:count 0
+attr source org_car2x_veins_modules_mac_sigRetriesExceeded
+scalar helloNetwork.rsu[5].nic.mac1609_4 sentAcks:count 0
+attr source org_car2x_veins_modules_mac_sigSentAck
+scalar helloNetwork.rsu[5].nic.mac1609_4 sentPackets:count 0
+attr source org_car2x_veins_modules_mac_sigSentPacket
+scalar helloNetwork.rsu[5].nic.mac1609_4 collisions:count 0
+attr source org_car2x_veins_modules_mac_sigCollision
+scalar helloNetwork.rsu[5].nic.mac1609_4 channelBusy:timeavg 0
+attr source org_car2x_veins_modules_mac_sigChannelBusy
+scalar helloNetwork.rsu[6].appl generatedWSMs 0
+scalar helloNetwork.rsu[6].appl receivedWSMs 0
+scalar helloNetwork.rsu[6].appl generatedBSMs 0
+scalar helloNetwork.rsu[6].appl receivedBSMs 0
+scalar helloNetwork.rsu[6].appl generatedWSAs 0
+scalar helloNetwork.rsu[6].appl receivedWSAs 0
+scalar helloNetwork.rsu[6].nic.phy80211p busyTime 0
+scalar helloNetwork.rsu[6].nic.mac1609_4 ReceivedUnicastPackets 0
+scalar helloNetwork.rsu[6].nic.mac1609_4 ReceivedBroadcasts 0
+scalar helloNetwork.rsu[6].nic.mac1609_4 SentPackets 0
+scalar helloNetwork.rsu[6].nic.mac1609_4 SentAcknowledgements 0
+scalar helloNetwork.rsu[6].nic.mac1609_4 RetriesExceeded 0
+scalar helloNetwork.rsu[6].nic.mac1609_4 SNIRLostPackets 0
+scalar helloNetwork.rsu[6].nic.mac1609_4 RXTXLostPackets 0
+scalar helloNetwork.rsu[6].nic.mac1609_4 TotalLostPackets 0
+scalar helloNetwork.rsu[6].nic.mac1609_4 DroppedPacketsInMac 0
+scalar helloNetwork.rsu[6].nic.mac1609_4 TooLittleTime 0
+scalar helloNetwork.rsu[6].nic.mac1609_4 TimesIntoBackoff 0
+scalar helloNetwork.rsu[6].nic.mac1609_4 SlotsBackoff 0
+scalar helloNetwork.rsu[6].nic.mac1609_4 NumInternalContention 0
+scalar helloNetwork.rsu[6].nic.mac1609_4 totalBusyTime 0
+scalar helloNetwork.rsu[6].nic.mac1609_4 retriesExceeded:count 0
+attr source org_car2x_veins_modules_mac_sigRetriesExceeded
+scalar helloNetwork.rsu[6].nic.mac1609_4 sentAcks:count 0
+attr source org_car2x_veins_modules_mac_sigSentAck
+scalar helloNetwork.rsu[6].nic.mac1609_4 sentPackets:count 0
+attr source org_car2x_veins_modules_mac_sigSentPacket
+scalar helloNetwork.rsu[6].nic.mac1609_4 collisions:count 0
+attr source org_car2x_veins_modules_mac_sigCollision
+scalar helloNetwork.rsu[6].nic.mac1609_4 channelBusy:timeavg 0
+attr source org_car2x_veins_modules_mac_sigChannelBusy
+scalar helloNetwork.rsu[7].appl generatedWSMs 0
+scalar helloNetwork.rsu[7].appl receivedWSMs 0
+scalar helloNetwork.rsu[7].appl generatedBSMs 0
+scalar helloNetwork.rsu[7].appl receivedBSMs 0
+scalar helloNetwork.rsu[7].appl generatedWSAs 0
+scalar helloNetwork.rsu[7].appl receivedWSAs 0
+scalar helloNetwork.rsu[7].nic.phy80211p busyTime 0
+scalar helloNetwork.rsu[7].nic.mac1609_4 ReceivedUnicastPackets 0
+scalar helloNetwork.rsu[7].nic.mac1609_4 ReceivedBroadcasts 0
+scalar helloNetwork.rsu[7].nic.mac1609_4 SentPackets 0
+scalar helloNetwork.rsu[7].nic.mac1609_4 SentAcknowledgements 0
+scalar helloNetwork.rsu[7].nic.mac1609_4 RetriesExceeded 0
+scalar helloNetwork.rsu[7].nic.mac1609_4 SNIRLostPackets 0
+scalar helloNetwork.rsu[7].nic.mac1609_4 RXTXLostPackets 0
+scalar helloNetwork.rsu[7].nic.mac1609_4 TotalLostPackets 0
+scalar helloNetwork.rsu[7].nic.mac1609_4 DroppedPacketsInMac 0
+scalar helloNetwork.rsu[7].nic.mac1609_4 TooLittleTime 0
+scalar helloNetwork.rsu[7].nic.mac1609_4 TimesIntoBackoff 0
+scalar helloNetwork.rsu[7].nic.mac1609_4 SlotsBackoff 0
+scalar helloNetwork.rsu[7].nic.mac1609_4 NumInternalContention 0
+scalar helloNetwork.rsu[7].nic.mac1609_4 totalBusyTime 0
+scalar helloNetwork.rsu[7].nic.mac1609_4 retriesExceeded:count 0
+attr source org_car2x_veins_modules_mac_sigRetriesExceeded
+scalar helloNetwork.rsu[7].nic.mac1609_4 sentAcks:count 0
+attr source org_car2x_veins_modules_mac_sigSentAck
+scalar helloNetwork.rsu[7].nic.mac1609_4 sentPackets:count 0
+attr source org_car2x_veins_modules_mac_sigSentPacket
+scalar helloNetwork.rsu[7].nic.mac1609_4 collisions:count 0
+attr source org_car2x_veins_modules_mac_sigCollision
+scalar helloNetwork.rsu[7].nic.mac1609_4 channelBusy:timeavg 0
+attr source org_car2x_veins_modules_mac_sigChannelBusy
+scalar helloNetwork.rsu[8].appl generatedWSMs 0
+scalar helloNetwork.rsu[8].appl receivedWSMs 0
+scalar helloNetwork.rsu[8].appl generatedBSMs 0
+scalar helloNetwork.rsu[8].appl receivedBSMs 0
+scalar helloNetwork.rsu[8].appl generatedWSAs 0
+scalar helloNetwork.rsu[8].appl receivedWSAs 0
+scalar helloNetwork.rsu[8].nic.phy80211p busyTime 0
+scalar helloNetwork.rsu[8].nic.mac1609_4 ReceivedUnicastPackets 0
+scalar helloNetwork.rsu[8].nic.mac1609_4 ReceivedBroadcasts 0
+scalar helloNetwork.rsu[8].nic.mac1609_4 SentPackets 0
+scalar helloNetwork.rsu[8].nic.mac1609_4 SentAcknowledgements 0
+scalar helloNetwork.rsu[8].nic.mac1609_4 RetriesExceeded 0
+scalar helloNetwork.rsu[8].nic.mac1609_4 SNIRLostPackets 0
+scalar helloNetwork.rsu[8].nic.mac1609_4 RXTXLostPackets 0
+scalar helloNetwork.rsu[8].nic.mac1609_4 TotalLostPackets 0
+scalar helloNetwork.rsu[8].nic.mac1609_4 DroppedPacketsInMac 0
+scalar helloNetwork.rsu[8].nic.mac1609_4 TooLittleTime 0
+scalar helloNetwork.rsu[8].nic.mac1609_4 TimesIntoBackoff 0
+scalar helloNetwork.rsu[8].nic.mac1609_4 SlotsBackoff 0
+scalar helloNetwork.rsu[8].nic.mac1609_4 NumInternalContention 0
+scalar helloNetwork.rsu[8].nic.mac1609_4 totalBusyTime 0
+scalar helloNetwork.rsu[8].nic.mac1609_4 retriesExceeded:count 0
+attr source org_car2x_veins_modules_mac_sigRetriesExceeded
+scalar helloNetwork.rsu[8].nic.mac1609_4 sentAcks:count 0
+attr source org_car2x_veins_modules_mac_sigSentAck
+scalar helloNetwork.rsu[8].nic.mac1609_4 sentPackets:count 0
+attr source org_car2x_veins_modules_mac_sigSentPacket
+scalar helloNetwork.rsu[8].nic.mac1609_4 collisions:count 0
+attr source org_car2x_veins_modules_mac_sigCollision
+scalar helloNetwork.rsu[8].nic.mac1609_4 channelBusy:timeavg 0
+attr source org_car2x_veins_modules_mac_sigChannelBusy
+scalar helloNetwork.rsu[9].appl generatedWSMs 0
+scalar helloNetwork.rsu[9].appl receivedWSMs 0
+scalar helloNetwork.rsu[9].appl generatedBSMs 0
+scalar helloNetwork.rsu[9].appl receivedBSMs 0
+scalar helloNetwork.rsu[9].appl generatedWSAs 0
+scalar helloNetwork.rsu[9].appl receivedWSAs 0
+scalar helloNetwork.rsu[9].nic.phy80211p busyTime 0
+scalar helloNetwork.rsu[9].nic.mac1609_4 ReceivedUnicastPackets 0
+scalar helloNetwork.rsu[9].nic.mac1609_4 ReceivedBroadcasts 0
+scalar helloNetwork.rsu[9].nic.mac1609_4 SentPackets 0
+scalar helloNetwork.rsu[9].nic.mac1609_4 SentAcknowledgements 0
+scalar helloNetwork.rsu[9].nic.mac1609_4 RetriesExceeded 0
+scalar helloNetwork.rsu[9].nic.mac1609_4 SNIRLostPackets 0
+scalar helloNetwork.rsu[9].nic.mac1609_4 RXTXLostPackets 0
+scalar helloNetwork.rsu[9].nic.mac1609_4 TotalLostPackets 0
+scalar helloNetwork.rsu[9].nic.mac1609_4 DroppedPacketsInMac 0
+scalar helloNetwork.rsu[9].nic.mac1609_4 TooLittleTime 0
+scalar helloNetwork.rsu[9].nic.mac1609_4 TimesIntoBackoff 0
+scalar helloNetwork.rsu[9].nic.mac1609_4 SlotsBackoff 0
+scalar helloNetwork.rsu[9].nic.mac1609_4 NumInternalContention 0
+scalar helloNetwork.rsu[9].nic.mac1609_4 totalBusyTime 0
+scalar helloNetwork.rsu[9].nic.mac1609_4 retriesExceeded:count 0
+attr source org_car2x_veins_modules_mac_sigRetriesExceeded
+scalar helloNetwork.rsu[9].nic.mac1609_4 sentAcks:count 0
+attr source org_car2x_veins_modules_mac_sigSentAck
+scalar helloNetwork.rsu[9].nic.mac1609_4 sentPackets:count 0
+attr source org_car2x_veins_modules_mac_sigSentPacket
+scalar helloNetwork.rsu[9].nic.mac1609_4 collisions:count 0
+attr source org_car2x_veins_modules_mac_sigCollision
+scalar helloNetwork.rsu[9].nic.mac1609_4 channelBusy:timeavg 0
+attr source org_car2x_veins_modules_mac_sigChannelBusy
+

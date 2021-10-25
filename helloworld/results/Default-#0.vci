@@ -1,0 +1,134 @@
+file 30424 1635151381                                           
+version 2
+run Default-0-20211025-17:42:51-25824
+attr configname Default
+attr datetime 20211025-17:42:51
+attr experiment Default
+attr inifile omnetpp.ini
+attr iterationvars ""
+attr iterationvarsf ""
+attr measurement ""
+attr network helloNetwork
+attr processid 25824
+attr repetition 0
+attr replication #0
+attr resultdir results
+attr runnumber 0
+attr seedset 0
+param *.playgroundSizeX 2500m
+param *.playgroundSizeY 2500m
+param *.playgroundSizeZ 50m
+param *.annotations.draw true
+param *.obstacles.debug false
+param *.manager.updateInterval 1s
+param *.manager.host "\"localhost\""
+param *.manager.port 9999
+param *.manager.autoShutdown true
+param *.manager.launchConfig "xmldoc(\"helloworld.launchd.xml\")"
+param *.rsu[0].mobility.x 50
+param *.rsu[0].mobility.y 0
+param *.rsu[0].mobility.z 0
+param *.rsu[1].mobility.x 150
+param *.rsu[1].mobility.y 0
+param *.rsu[1].mobility.z 0
+param *.rsu[2].mobility.x 250
+param *.rsu[2].mobility.y 0
+param *.rsu[2].mobility.z 0
+param *.rsu[3].mobility.x 350
+param *.rsu[3].mobility.y 0
+param *.rsu[3].mobility.z 0
+param *.rsu[4].mobility.x 450
+param *.rsu[4].mobility.y 0
+param *.rsu[4].mobility.z 0
+param *.rsu[5].mobility.x 550
+param *.rsu[5].mobility.y 0
+param *.rsu[5].mobility.z 0
+param *.rsu[6].mobility.x 650
+param *.rsu[6].mobility.y 0
+param *.rsu[6].mobility.z 0
+param *.rsu[7].mobility.x 750
+param *.rsu[7].mobility.y 0
+param *.rsu[7].mobility.z 0
+param *.rsu[8].mobility.x 850
+param *.rsu[8].mobility.y 0
+param *.rsu[8].mobility.z 0
+param *.rsu[9].mobility.x 950
+param *.rsu[9].mobility.y 0
+param *.rsu[9].mobility.z 0
+param *.rsu[*].applType "\"TraCIDemoRSU11p\""
+param *.rsu[*].appl.headerLength "80 bit"
+param *.rsu[*].appl.sendBeacons false
+param *.rsu[*].appl.dataOnSch false
+param *.rsu[*].appl.beaconInterval 5s
+param *.rsu[*].appl.beaconUserPriority 7
+param *.rsu[*].appl.dataUserPriority 5
+param *.rsu[*].nic.phy80211p.antennaOffsetZ "0 m"
+param *.connectionManager.sendDirect true
+param *.connectionManager.maxInterfDist 2600m
+param *.connectionManager.drawMaxIntfDist false
+param *.**.nic.mac1609_4.useServiceChannel false
+param *.**.nic.mac1609_4.txPower 20mW
+param *.**.nic.mac1609_4.bitrate 6Mbps
+param *.**.nic.phy80211p.minPowerLevel -110dBm
+param *.**.nic.phy80211p.useNoiseFloor true
+param *.**.nic.phy80211p.noiseFloor -98dBm
+param *.**.nic.phy80211p.decider "xmldoc(\"config.xml\")"
+param *.**.nic.phy80211p.analogueModels "xmldoc(\"config.xml\")"
+param *.**.nic.phy80211p.usePropagationDelay true
+param *.**.nic.phy80211p.antenna "xmldoc(\"antenna.xml\", \"/root/Antenna[@id='monopole']\")"
+param *.node[*].nic.phy80211p.antennaOffsetY "0 m"
+param *.node[*].nic.phy80211p.antennaOffsetZ "1.895 m"
+param *.node[*].applType "\"MyVeinsApp\""
+param *.node[*].appl.headerLength "80 bit"
+param *.node[*].appl.sendBeacons false
+param *.node[*].appl.dataOnSch false
+param *.node[*].appl.beaconInterval 1s
+param *.node[*].veinsmobility.x 0
+param *.node[*].veinsmobility.y 0
+param *.node[*].veinsmobility.z 0
+param *.node[*].veinsmobility.setHostSpeed false
+param *.node[*0].veinsmobility.accidentCount 0
+param *.node[*0].veinsmobility.accidentStart 73s
+param *.node[*0].veinsmobility.accidentDuration 50s
+
+vector 0 helloNetwork.node[0].veinsmobility posx ETV
+vector 1 helloNetwork.node[0].veinsmobility posy ETV
+vector 2 helloNetwork.node[1].veinsmobility posx ETV
+vector 3 helloNetwork.node[1].veinsmobility posy ETV
+vector 4 helloNetwork.node[0].veinsmobility speed ETV
+vector 5 helloNetwork.node[2].veinsmobility posx ETV
+vector 6 helloNetwork.node[2].veinsmobility posy ETV
+vector 7 helloNetwork.node[0].veinsmobility acceleration ETV
+vector 8 helloNetwork.node[0].veinsmobility co2emission ETV
+vector 9 helloNetwork.node[1].veinsmobility speed ETV
+vector 10 helloNetwork.node[3].veinsmobility posx ETV
+vector 11 helloNetwork.node[3].veinsmobility posy ETV
+vector 12 helloNetwork.node[1].veinsmobility acceleration ETV
+vector 13 helloNetwork.node[1].veinsmobility co2emission ETV
+vector 14 helloNetwork.node[2].veinsmobility speed ETV
+vector 15 helloNetwork.node[2].veinsmobility acceleration ETV
+vector 16 helloNetwork.node[2].veinsmobility co2emission ETV
+vector 17 helloNetwork.node[3].veinsmobility speed ETV
+vector 18 helloNetwork.node[3].veinsmobility acceleration ETV
+vector 19 helloNetwork.node[3].veinsmobility co2emission ETV
+8	4407 1551 5 68 4 67 64 1.68921903104 5.76037872 163.29679003004 464.46591489299
+7	5958 708 5 68 4 67 64 0 1 14.505515474636 14.255545895097
+4	6666 1408 4 68 3 67 65 1 15.505515474636 895.27577373182 13261.05050671
+1	8074 909 3 68 2 67 66 36.2 36.2 2389.2 86489.04
+0	8983 1452 3 68 2 67 66 27.1 921.57577373182 28214.632230162 17288566.481551
+13	10435 1701 6 72 5 71 67 1.68921903104 5.41284764672 160.7789819157 426.66509841371
+12	12136 810 6 72 5 71 67 0 1 13.562004700384 13.315849283253
+9	12946 1498 5 72 4 71 68 1 14.562004700384 891.34825382072 12465.806968276
+3	14444 863 4 72 3 71 69 33 36.2 2353.8 80455.56
+2	15307 1542 4 72 3 71 69 27.1 917.64825382072 29699.77698007 18144091.018719
+16	16849 1729 7 74 6 73 68 1.68921903104 5.41284764672 160.46803799309 418.16697892162
+15	18578 824 7 74 6 73 68 0 1 13.306093716571 13.093693363324
+14	19402 1594 6 74 5 73 69 1 14.306093716571 891.83515441141 12271.537458502
+6	20996 919 5 74 4 73 70 29.8 36.2 2172.4 67609.2
+5	21915 1569 5 74 4 73 70 27.1 918.13515441141 30238.184323519 18488933.051217
+19	23484 1757 8 76 7 75 69 1.68921903104 5.41284764672 160.64463715215 413.62903448735
+18	25241 838 8 76 7 75 69 0 1 13.102552264791 13.010516967014
+17	26079 1622 7 76 6 75 70 1 14.102552264791 894.74292682831 12152.390901345
+11	27701 1054 6 76 5 75 71 26.6 33 1978.2 55310.68
+10	28755 1667 6 76 5 75 71 27.1 921.04292682831 30845.973414607 18925636.168551
+

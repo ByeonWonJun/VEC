@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <meta property="og:image" content="../images/image-facebook.jpg">
+        <meta property="og:image:type" content="image/jpeg">
+        <meta property="og:image:width" content="1080">
+        <meta property="og:image:height" content="1080">
+
+        
+        
+        <link rel="canonical" href="https://sumo.dlr.de/docs/Netedit/editModesCommon.html">
+        <link rel="shortcut icon" href="../images/favicon.ico">
+        <title>editModesCommon - SUMO Documentation</title>
+        <link href="../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../css/font-awesome.min.css" rel="stylesheet">
+        <link href="../css/base.css" rel="stylesheet">
+        <link rel="apple-touch-icon" href="../images/apple-touch-icon.png">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+
+        <script src="../js/jquery-1.10.2.min.js" defer></script>
+        <script src="../js/bootstrap.min.js" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script> 
+
+      <script>
+        // DARK MODE
+        function detectColorScheme(){
+          var theme="light";
+
+          if(localStorage.getItem("sumo-docs-theme")){
+              if(localStorage.getItem("sumo-docs-theme") == "dark"){
+                  var theme = "dark";
+              }
+          } else if(!window.matchMedia) {
+              return false;
+          } else if(window.matchMedia("(prefers-color-scheme: dark)").matches) {
+              var theme = "dark";
+          }
+
+          if (theme=="dark") {
+              document.documentElement.setAttribute("data-theme", "dark");
+          }
+        }
+        detectColorScheme();
+      </script>
+
+    </head>
+
+    <body>
+
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary text-center">
+            <div class="container-fluid">
+                <!-- Collapsed navigation -->
+                <div class="navbar-header">
+                    <!-- Expander button -->
+                    <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                </div>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="navitem">
+                                <a href="../index.html" class="nav-link">Documentation</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="../Tutorials/index.html" class="nav-link">Tutorials</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="../FAQ.html" class="nav-link">FAQ</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="../Downloads.html" class="nav-link">Downloads</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="../Publications.html" class="nav-link">Publications</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="../Developer/index.html" class="nav-link">Developer</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="../ChangeLog.html" class="nav-link">ChangeLog</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="https://github.com/eclipse/sumo/commits/master/docs/web" class="nav-link">Recent Changes</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="https://eclipse.org/sumo/contact/" class="nav-link">Contact</a>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-toggle="modal" data-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> <u>S</u>earch
+                            </a>
+                        </li>
+                            <li class="nav-item">
+                                <a rel="edit" href="https://github.com/eclipse/sumo/edit/master/docs/web/docs/Netedit/editModesCommon.md" class="nav-link"><i class="fa fa-github"></i> <u>E</u>dit on GitHub</a>
+                            </li>
+                      <li class="nav-item dropdown">
+                          <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+                            More <i class="fa fa-chevron-circle-down"></i>
+                          </a>
+                          <div class="dropdown-menu dropdown-menu-right">
+                            <a class="dropdown-item no-arrow-link" href="https://github.com/eclipse/sumo/issues">Report a Bug / Issue / Typo</a>
+                            <a class="dropdown-item" href="../Editing_Articles.html">Help on editing articles</a>
+                            <a class="dropdown-item" href="#" data-toggle="modal" data-target="#mkdocs_keyboard_modal">Keyboard Shortcuts</a>
+                            <a class="dropdown-item no-arrow-link" href="https://sumo.dlr.de/sumo_documentation.zip">Download the Documentation</a>
+                            <span class="dropdown-item" id="dark-mode-div">Dark mode <label id="theme-switch" class="theme-switch" for="checkbox_theme">
+                              <input type="checkbox" id="checkbox_theme">
+                          </label></span>
+                          </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container-fluid">
+          <div class="row">
+                <div class="col-md-3">
+                  <div class="text-center"><a href="../index.html" style="display: inline-block; margin-top: 5px;"><img src="../images/sumo-logo.png" class="sumoLogo" alt="SUMO Logo" width="120px"></a></div>
+                  
+<div class="navbar-light navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#toc-collapse" title="Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary toc-scroll toc">
+        <ul class="nav flex-column bs-sidenav">
+            <p style="margin-top:5px; color:#777777;" class="text-center">Contents</p>
+            <li class="nav-item main"><a href="#netedit_common_edit_modes">Netedit common edit modes</a></li>
+            <li class="nav-item main"><a href="#inspect">Inspect</a></li>
+                <li class="nav-item" style="text-indent: 5px;">
+                    <a href="#generic_parameters" class="nav-link">• Generic Parameters</a>
+                </li>
+                <li class="nav-item" style="text-indent: 5px;">
+                    <a href="#edge_template" class="nav-link">• Edge template</a>
+                </li>
+            <li class="nav-item main"><a href="#delete">Delete</a></li>
+            <li class="nav-item main"><a href="#select">Select</a></li>
+                <li class="nav-item" style="text-indent: 5px;">
+                    <a href="#methods_for_selecting" class="nav-link">• Methods for selecting</a>
+                </li>
+                <li class="nav-item" style="text-indent: 5px;">
+                    <a href="#modification_mode" class="nav-link">• Modification Mode</a>
+                </li>
+                <li class="nav-item" style="text-indent: 5px;">
+                    <a href="#match_attribute" class="nav-link">• Match Attribute</a>
+                </li>
+                <li class="nav-item" style="text-indent: 25px;">
+                    <a href="#matching_rules" class="nav-link">&rarr; Matching rules</a>
+                </li>
+                <li class="nav-item" style="text-indent: 25px;">
+                    <a href="#special_cases" class="nav-link">&rarr; Special Cases</a>
+                </li>
+                <li class="nav-item" style="text-indent: 25px;">
+                    <a href="#examples" class="nav-link">&rarr; Examples</a>
+                </li>
+                <li class="nav-item" style="text-indent: 5px;">
+                    <a href="#selection_operations" class="nav-link">• Selection Operations</a>
+                </li>
+            <li class="nav-item main"><a href="#move">Move</a></li>
+                <li class="nav-item" style="text-indent: 5px;">
+                    <a href="#changing_elevation" class="nav-link">• Changing Elevation</a>
+                </li>
+                <li class="nav-item" style="text-indent: 5px;">
+                    <a href="#moving_object_selections" class="nav-link">• Moving Object Selections</a>
+                </li>
+                <li class="nav-item" style="text-indent: 5px;">
+                    <a href="#moving_polygons_and_tazs" class="nav-link">• Moving Polygons and TAZs</a>
+                </li>
+        </ul>
+    </div>
+
+    <div class="admonition conference" style="position: sticky; margin-top: 20px; margin-bottom:10px;">
+        <p>visit <a href="https://eclipse.org/sumo">eclipse.org/sumo</a></p>
+        </div>
+
+</div>
+                  <!--  -->
+                </div>
+                <div class="col-md-9 main-area" role="main">
+                   <!-- page.is_homepage seems to be broken in Mkdocs > 1.1.0 -->
+                  <ul class="breadcrumbs">
+    <script>
+        var pagePath = "/docs/Netedit/editModesCommon.html";
+        var splitUrl = pagePath.split("/");
+        splitUrl.pop();
+        splitUrl.shift();
+        if (splitUrl[0] == 'docs') splitUrl.shift();
+        var homeLink = "../index.html";
+        document.write('<li class="breadcrumb-item"><a href="' + homeLink + '"><i class="fa fa-home"></i></a></li>');
+        var prev = '';
+        
+        var dirLink = splitUrl.map(function (el) {
+        el = prev + el; prev = el + '/'; return el;
+        });
+
+        for (i = 0; i < splitUrl.length; i++) {
+            document.write("<li class=\"breadcrumb-item\"><a class=\"no-arrow-link\" href=\"../" + dirLink[i] + "\">" + splitUrl[i] + "</a></li>");
+        }
+    </script>
+    <li class="breadcrumb-item active">editModesCommon</li>
+</ul>
+                  <hTitles>editModesCommon<hr style="border: 0.5px solid #338033; margin-top: 5px !important;"></hTitles>
+                  
+                  
+
+<h1 id="netedit_common_edit_modes">Netedit common edit modes<a class="headerlink" href="#netedit_common_edit_modes" title="Permanent link">#</a></h1>
+<p>The following modes are available in all super modes (Network, Demand and Data).</p>
+<h1 id="inspect">Inspect<a class="headerlink" href="#inspect" title="Permanent link">#</a></h1>
+<p>Inspect and modify attributes of edges, lanes, junctions, connections and additional network items (i.e. bus stops). Modifications have to be confirmed by hitting &lt;Enter> (except for Boolean attributes). If the entered value is not appropriate for the modified attribute, the value will turn red to indicate the problem.</p>
+<p>When inspecting an element that is <a href="#select">selected</a> along with multiple elements of the same type this mode behaves differently:</p>
+<ul>
+<li>Only non-unique attributes are listed (i.e. lane-width but not lane-ID)</li>
+<li>If the elements differ in their attributes, the whole range of occurring values is shown</li>
+<li>All selected elements of the same type are modified at the same time when setting a new value</li>
+</ul>
+<p><img alt="" src="../images/InspectMode1.png" /> <br />
+Changing the number of lanes of an edge</p>
+<p><img alt="" src="../images/InspectMode2.png" /> <br />
+Number of lanes of the edge changed</p>
+<p><img alt="" src="../images/InspectMode3.png" /> <br />
+Changing the width of a lane. Note that option "select edges" is disabled</p>
+<p><img alt="" src="../images/InspectMode4.png" /> <br />
+Width of lane changed (gaps will disappear upon triggering recomputation with <strong>F5</strong>)</p>
+<h2 id="generic_parameters">Generic Parameters<a class="headerlink" href="#generic_parameters" title="Permanent link">#</a></h2>
+<p>Most simulation objects support <a href="../Simulation/GenericParameters.html">Generic Parameters</a> to express custom user data and supplemental configurations. They can be edited with the 'Edit parameters' dialog which is accessible with the 'Edit parameters' button. </p>
+<p>In inspect mode, a serialized form of the parameters is also given. In this form, all parameters are concatenated using the '=' sign between key and value and by using the '|' sign between parameters. Serialization of key value pars that use these separating characters in their key or value is currently not supported by netedit (though permitted by SUMO). 
+The serialized form is useful in select mode when selecting objects with a particular parameter.</p>
+<h2 id="edge_template">Edge template<a class="headerlink" href="#edge_template" title="Permanent link">#</a></h2>
+<p>When inspecting an edge, the extra buttons <em>set Edge ... as Template</em> and <em>Copy ... into edge ...</em> appear in the inspection frame. These can be used to set default attributes for <a href="editModesNetwork.html#create_edges">Create Edges</a> and to copy attributes between edges.</p>
+<p>The following (non-unique) attributes are set/copied:</p>
+<ul>
+<li>speed</li>
+<li>priority</li>
+<li>numLanes</li>
+<li>allow/disallow</li>
+<li>type</li>
+<li>spreadType</li>
+<li>width</li>
+</ul>
+<p>When copying attributes from one edge to another, lane-specific attributes will be copied as well.</p>
+<h1 id="delete">Delete<a class="headerlink" href="#delete" title="Permanent link">#</a></h1>
+<p>The Delete mode is used to remove an element of your network. The following is possible:</p>
+<ul>
+<li>Delete junctions (and all adjoining edges)</li>
+<li>Delete edges</li>
+<li>Delete geometry points of an edge</li>
+<li>Delete a lane (when option <em>selection edges</em> is disabled)</li>
+<li>Delete connections (available, when <em>show connections</em> is enabled)</li>
+<li>Delete crossings</li>
+<li>Delete additionals</li>
+</ul>
+<p>The delete frame own a list of elements that is filled automatically with the childs of the current element under the cursor. This list of child elements can be marked using Control + left-Click, and every child can be centered, inspected or removed individually with a right click over an element.</p>
+<p><img alt="" src="../images/GNEDeleteFrame1.png" /> <br />
+General view of the delete frame</p>
+<p>Additionally, the delete frame has a list of options to avoid undesirable deletes:</p>
+<ul>
+<li>Force deletion of additionals: Used to avoid undesirable deletion of additionals.</li>
+</ul>
+<p><img alt="" src="../images/GNEDeleteFrame5.png" /> <br />
+If the user tries to remove an element with additional childs and 'Force deletion of additionals' is disabled, netedit shows a warning dialog and the element isn't deleted.</p>
+<ul>
+<li>Delete only geometry points: Used to remove only geometry points</li>
+</ul>
+<p><img alt="" src="../images/GNEDeleteFrame6.png" /> <br />
+Only Geometry points can be deleted</p>
+<h1 id="select">Select<a class="headerlink" href="#select" title="Permanent link">#</a></h1>
+<p>Select network objects according to various criteria. Selected objects can be moved or deleted together. It is also possible to set attributes for all selected junctions (or all edges) at the same time using <strong>inspect mode</strong>.</p>
+<p><img alt="" src="../images/ModeSelect1.png" /> <br />
+The left frame shows information about the current selected elements</p>
+<p><img alt="" src="../images/ModeSelect2.png" /> <br />
+Selected elements are painted with a different color</p>
+<h2 id="methods_for_selecting">Methods for selecting<a class="headerlink" href="#methods_for_selecting" title="Permanent link">#</a></h2>
+<ul>
+<li>the selection status of objects is toggled by left-clicking. When the <em>select edges</em> check-box is unset, lanes, rather than edges will
+  be selected/deselected.</li>
+<li>by rectangle-selection via shift+leftClick+drag (When the checkbox <em>auto-select junctions</em> is enabled, junctions of selected edges will be selected automatically)</li>
+<li>by matching object attributes <a href="#match_attribute">(see below)</a></li>
+<li>by loading a saved selection</li>
+<li>by inverting an existing selection</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Junctions and lanes can also be selected by &lt;ctrl>+&lt;left click> regardless of editing mode</p>
+</div>
+<h2 id="modification_mode">Modification Mode<a class="headerlink" href="#modification_mode" title="Permanent link">#</a></h2>
+<p>The <em>Modification Mode</em> changes how a new group selection is applied to the existing selection. A new group selection can be:</p>
+<ul>
+<li>a loaded selection</li>
+<li>a rectangle selection</li>
+<li>a <a href="#match_attribute">match-attribute</a>-selection</li>
+</ul>
+<p>The modification modes have the following functions</p>
+<ul>
+<li><strong>add</strong>: both selections are added together (in set theory this would be called <em>union</em>)</li>
+<li><strong>remove</strong>: all elements from the new selection are removed from the old selection. (in set-theory <em>subtraction</em>)</li>
+<li><strong>keep</strong>: only elements common to both selections are kept. (in set theory <em>intersection</em>)</li>
+<li><strong>replace</strong>: the existing selection is replaced by the new selection</li>
+</ul>
+<h2 id="match_attribute">Match Attribute<a class="headerlink" href="#match_attribute" title="Permanent link">#</a></h2>
+<p>The 'Match Attribute' controls allow to specify a set of objects by matching their attributes against a given expression. When combining this set with the current selection, the <em>Modification Mode</em> is also applied.</p>
+<ol>
+<li>Select an object type from the first input box</li>
+<li>Select an attribute from the second input box</li>
+<li>Enter a 'match expression' in the third input box and press &lt;return></li>
+</ol>
+<h3 id="matching_rules">Matching rules<a class="headerlink" href="#matching_rules" title="Permanent link">#</a></h3>
+<ul>
+<li>The empty expression matches all objects</li>
+<li>For numerical attributes the match expression must consist of a comparison operator ('&lt;', '>', '=') and a number.</li>
+<li>the attribute matches if the comparison between its attribute and the given number by the given operator evaluates to 'true'</li>
+<li>For string attributes the match expression must consist of a comparison operator ('', '=', '!', '^') and a string.</li>
+<li><em>(no operator) matches if string is a substring of that object's attribute.</em><ul>
+<li>'=' matches if string is an exact match.</li>
+<li>'!' matches if string is not a substring.</li>
+<li>'^' matches if string is not an exact match.</li>
+</ul>
+</li>
+</ul>
+<h3 id="special_cases">Special Cases<a class="headerlink" href="#special_cases" title="Permanent link">#</a></h3>
+<ul>
+<li>For attributes <em>allow</em> and <em>disallow</em>, the attribute value <strong>all</strong> is shown in <a href="#inspect">Inspect</a>-mode when all classes are allowed (or disallowed). In this case an edge (or lane) will also be selected when using any vClass as match string (and edge with attribute <code>disallow="all"</code> will also match when filtering for disallow with string <strong>passenger</strong>). However, for technical reasons the match
+  string <strong>=all</strong> will not match this edge (<strong>all</strong> is expanded to <strong>all private emergency passenger bus ... custom1 custom2</strong>).</li>
+</ul>
+<h3 id="examples">Examples<a class="headerlink" href="#examples" title="Permanent link">#</a></h3>
+<p><img alt="" src="../images/ModeSelect3.png" />We want to select the most external lane of every edge (i.e. lanes which contains _0 in their id)</p>
+<p><img alt="" src="../images/ModeSelect4.png" />We can do it selecting lane as type of element, and using the match over the attribute "id".</p>
+<p><img alt="" src="../images/ModeSelect3.png" />We want now to select the second lane of every edge (i.e. lanes which contains _1 in their id)</p>
+<p><img alt="" src="../images/ModeSelect5.png" />Only two lanes are selected because the rest of edges only have one lane.</p>
+<p><img alt="" src="../images/ModeSelect5.png" />We can select all lanes of our net using the previous selection and the operator "add". </p>
+<p><img alt="" src="../images/ModeSelect6.png" />All lanes of the net are selected using selection of lanes which contains _0 in their id with the "add" operator</p>
+<p><img alt="" src="../images/ModeSelect6.png" />With the previous element and the operator invert, we can select all junctions of the network. </p>
+<p><img alt="" src="../images/ModeSelect7.png" />Invert operation select all elements of the net and subtract the current selected elements</p>
+<p><img alt="" src="../images/ModeSelect3.png" />If we have a empty selection, we can select easy all elements of net . </p>
+<p><img alt="" src="../images/ModeSelect8.png" />With the invert button, we select all elements of net.</p>
+<h2 id="selection_operations">Selection Operations<a class="headerlink" href="#selection_operations" title="Permanent link">#</a></h2>
+<p>The following operations can be performed on the whole selection</p>
+<ul>
+<li><strong>Clear</strong> : Clear the whole selection except for "locked" object types (shortcut <code>&lt;ESC&gt;</code>)</li>
+<li><strong>Invert</strong> : Invert selection status for all object types except "locked". Can be used to delete everything <em>except</em> the selected elements</li>
+<li><strong>Save</strong>: Save selection to a text file. This can be loaded in sumo-gui and also used by some <a href="../netconvert.html">netconvert</a> options</li>
+<li><strong>Load</strong>: Load selection from text file. This is combined with the current selection according to the active <a href="#modification_mode">Modification Mode</a>.</li>
+<li><strong>Delete</strong>: Delete all selected objects including "locked". (shortcut <code>&lt;DEL&gt;</code>)   </li>
+</ul>
+<h1 id="move">Move<a class="headerlink" href="#move" title="Permanent link">#</a></h1>
+<p>Move junctions by dragging with the left mouse button. Dragging edges creates or moves geometry points. Dragging a junction on top of another junction joins them into a single junction. By default, the junction shape is updated while moving. However the
+final shape after saving or activating full recomputation (F5) may be slightly different.</p>
+<p><img alt="" src="../images/CreateEdge7.png" />By setting the option "show junctions as bubbles", circles are drawn instead of detailed junction shapes which can improve visibility.</p>
+<h2 id="changing_elevation">Changing Elevation<a class="headerlink" href="#changing_elevation" title="Permanent link">#</a></h2>
+<p>When checking the 'Elevation' checkbox, elevation of junctions and existing geometry points can be modified by dragging the with the mouse (with their x,y coordinates remaining unchanged).  At the same time, the numerical elevation value will be displayed for every junction and geometry point.  It is useful to combine this with <a href="../Networks/Elevation.html#visualizing_elevation_data">elevation or slope coloring</a>.</p>
+<h2 id="moving_object_selections">Moving Object Selections<a class="headerlink" href="#moving_object_selections" title="Permanent link">#</a></h2>
+<ul>
+<li>When selecting neighboring edges and dragging one of them, the neighboring edge will receive the same shape modifications</li>
+<li>When selecting an edge and its junctions and dragging any part of the selection, all parts including edge geometry will be moved in parallel</li>
+<li>When selecting an edge an one if its junctions:<ul>
+<li>When dragging the junction, only the junction will move</li>
+<li>When dragging the edge, the edge will move locally and the junction will move in parallel</li>
+</ul>
+</li>
+</ul>
+<h2 id="moving_polygons_and_tazs">Moving Polygons and TAZs<a class="headerlink" href="#moving_polygons_and_tazs" title="Permanent link">#</a></h2>
+<ul>
+<li>When clicking over an Polygon/TAZ edge or vertex, contour will be moved</li>
+<li>If Polygon/TAZ is inspected an option "block shape" is enabled, then entire shape will be moved</li>
+</ul>
+                </div>
+          </div>
+          <button onclick="goTopFunction()" id="goToTop" title="Go to top"><i class="fa fa-arrow-up"></i></button>
+        </div>
+
+        <footer class="col-md-12">
+          
+            <br><small><i>This page was last edited on: 05 August 2021</i></small>
+          
+          <hr>
+            <p>Copyright &copy; 2001-2021 German Aerospace Center (DLR) and others.</p>
+          <p>Follow us on <a class="no-arrow-link" href="https://www.twitter.com/eclipsesumo/"><i class="fa fa-twitter"></i></a> <a class="no-arrow-link" href="https://www.facebook.com/simulationofurbanmobility/"><i class="fa fa-facebook-square"></i></a> <a class="no-arrow-link" href="https://www.instagram.com/eclipse.sumo/"><i class="fa fa-instagram"></i></a>
+          | Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a></p>
+        </footer>
+
+      <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body" style="color: #495057 !important;">
+                <p>Enter your search terms:</p>
+                <script async src="https://cse.google.com/cse.js?cx=004302551366764109984:1kpgtzrm6kv"></script>
+                <div class="gcse-search"></div>
+            </div>
+            <div class="modal-footer" style="color: #495057 !important;">
+                or search the sumo-user mailing list archive&nbsp;<a class="no-arrow-link" href="http://sumo-user.90755.n8.nabble.com/template/NamlServlet.jtp?macro=search_page&node=1&query=">here</a>
+            </div>
+        </div>
+    </div>
+</div>
+      <script>
+        window.onscroll = function() {scrollFunction()};
+        
+        function scrollFunction() {
+          if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+            document.getElementById("goToTop").style.display = "block";
+          } else {
+            document.getElementById("goToTop").style.display = "none";
+          }
+        }
+    
+        function goTopFunction() {
+          document.body.scrollTop = 0;
+          document.documentElement.scrollTop = 0;
+        }
+
+        var base_url = "..",
+            shortcuts = {"help": 191, "search": 83, "edit": 69};
+        </script>
+        <script src="../js/base.js" defer></script>
+
+        <script>
+          const toggleSwitch = document.querySelector('#theme-switch input[type="checkbox"]');
+  
+          function switchTheme(e) {
+              if (e.target.checked) {
+                  localStorage.setItem('sumo-docs-theme', 'dark');
+                  document.documentElement.setAttribute('data-theme', 'dark');
+                  toggleSwitch.checked = true;
+              } else {
+                  localStorage.setItem('sumo-docs-theme', 'light');
+                  document.documentElement.setAttribute('data-theme', 'light');
+                  toggleSwitch.checked = false;
+              }    
+          }
+  
+          toggleSwitch.addEventListener('change', switchTheme, false);
+  
+          if (document.documentElement.getAttribute("data-theme") == "dark"){
+              toggleSwitch.checked = true;
+          }
+          </script>
+
+      <div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Key</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody style="color: #495057 !important;">
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help dialog</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search the Documentation</td>
+                  </tr>
+                  <tr>
+                    <td class="edit shortcut"><kbd>e</kbd></td>
+                    <td>Edit current page on GitHub</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+        </div>
+    </div>
+</div>
+    </body>
+</html>

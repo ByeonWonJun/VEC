@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <meta property="og:image" content="../images/image-facebook.jpg">
+        <meta property="og:image:type" content="image/jpeg">
+        <meta property="og:image:width" content="1080">
+        <meta property="og:image:height" content="1080">
+
+        
+        
+        <link rel="canonical" href="https://sumo.dlr.de/docs/Developer/Github_Actions_CI_Test.html">
+        <link rel="shortcut icon" href="../images/favicon.ico">
+        <title>How To create a CI Test with GitHub Actions - SUMO Documentation</title>
+        <link href="../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../css/font-awesome.min.css" rel="stylesheet">
+        <link href="../css/base.css" rel="stylesheet">
+        <link rel="apple-touch-icon" href="../images/apple-touch-icon.png">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+
+        <script src="../js/jquery-1.10.2.min.js" defer></script>
+        <script src="../js/bootstrap.min.js" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script> 
+
+      <script>
+        // DARK MODE
+        function detectColorScheme(){
+          var theme="light";
+
+          if(localStorage.getItem("sumo-docs-theme")){
+              if(localStorage.getItem("sumo-docs-theme") == "dark"){
+                  var theme = "dark";
+              }
+          } else if(!window.matchMedia) {
+              return false;
+          } else if(window.matchMedia("(prefers-color-scheme: dark)").matches) {
+              var theme = "dark";
+          }
+
+          if (theme=="dark") {
+              document.documentElement.setAttribute("data-theme", "dark");
+          }
+        }
+        detectColorScheme();
+      </script>
+
+    </head>
+
+    <body>
+
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary text-center">
+            <div class="container-fluid">
+                <!-- Collapsed navigation -->
+                <div class="navbar-header">
+                    <!-- Expander button -->
+                    <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                </div>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="navitem">
+                                <a href="../index.html" class="nav-link">Documentation</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="../Tutorials/index.html" class="nav-link">Tutorials</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="../FAQ.html" class="nav-link">FAQ</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="../Downloads.html" class="nav-link">Downloads</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="../Publications.html" class="nav-link">Publications</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="index.html" class="nav-link">Developer</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="../ChangeLog.html" class="nav-link">ChangeLog</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="https://github.com/eclipse/sumo/commits/master/docs/web" class="nav-link">Recent Changes</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="https://eclipse.org/sumo/contact/" class="nav-link">Contact</a>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-toggle="modal" data-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> <u>S</u>earch
+                            </a>
+                        </li>
+                            <li class="nav-item">
+                                <a rel="edit" href="https://github.com/eclipse/sumo/edit/master/docs/web/docs/Developer/Github_Actions_CI_Test.md" class="nav-link"><i class="fa fa-github"></i> <u>E</u>dit on GitHub</a>
+                            </li>
+                      <li class="nav-item dropdown">
+                          <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+                            More <i class="fa fa-chevron-circle-down"></i>
+                          </a>
+                          <div class="dropdown-menu dropdown-menu-right">
+                            <a class="dropdown-item no-arrow-link" href="https://github.com/eclipse/sumo/issues">Report a Bug / Issue / Typo</a>
+                            <a class="dropdown-item" href="../Editing_Articles.html">Help on editing articles</a>
+                            <a class="dropdown-item" href="#" data-toggle="modal" data-target="#mkdocs_keyboard_modal">Keyboard Shortcuts</a>
+                            <a class="dropdown-item no-arrow-link" href="https://sumo.dlr.de/sumo_documentation.zip">Download the Documentation</a>
+                            <span class="dropdown-item" id="dark-mode-div">Dark mode <label id="theme-switch" class="theme-switch" for="checkbox_theme">
+                              <input type="checkbox" id="checkbox_theme">
+                          </label></span>
+                          </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container-fluid">
+          <div class="row">
+                <div class="col-md-3">
+                  <div class="text-center"><a href="../index.html" style="display: inline-block; margin-top: 5px;"><img src="../images/sumo-logo.png" class="sumoLogo" alt="SUMO Logo" width="120px"></a></div>
+                  
+<div class="navbar-light navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#toc-collapse" title="Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary toc-scroll toc">
+        <ul class="nav flex-column bs-sidenav">
+            <p style="margin-top:5px; color:#777777;" class="text-center">Contents</p>
+            <li class="nav-item main"><a href="#continuous_integration_tests">Continuous Integration Tests</a></li>
+                <li class="nav-item" style="text-indent: 5px;">
+                    <a href="#using_github_actions" class="nav-link">• Using GitHub Actions</a>
+                </li>
+        </ul>
+    </div>
+
+    <div class="admonition conference" style="position: sticky; margin-top: 20px; margin-bottom:10px;">
+        <p>visit <a href="https://eclipse.org/sumo">eclipse.org/sumo</a></p>
+        </div>
+
+</div>
+                  <!--  -->
+                </div>
+                <div class="col-md-9 main-area" role="main">
+                   <!-- page.is_homepage seems to be broken in Mkdocs > 1.1.0 -->
+                  <ul class="breadcrumbs">
+    <script>
+        var pagePath = "/docs/Developer/Github_Actions_CI_Test.html";
+        var splitUrl = pagePath.split("/");
+        splitUrl.pop();
+        splitUrl.shift();
+        if (splitUrl[0] == 'docs') splitUrl.shift();
+        var homeLink = "../index.html";
+        document.write('<li class="breadcrumb-item"><a href="' + homeLink + '"><i class="fa fa-home"></i></a></li>');
+        var prev = '';
+        
+        var dirLink = splitUrl.map(function (el) {
+        el = prev + el; prev = el + '/'; return el;
+        });
+
+        for (i = 0; i < splitUrl.length; i++) {
+            document.write("<li class=\"breadcrumb-item\"><a class=\"no-arrow-link\" href=\"../" + dirLink[i] + "\">" + splitUrl[i] + "</a></li>");
+        }
+    </script>
+    <li class="breadcrumb-item active">How To create a CI Test with GitHub Actions</li>
+</ul>
+                  <hTitles>How To create a CI Test with GitHub Actions<hr style="border: 0.5px solid #338033; margin-top: 5px !important;"></hTitles>
+                  
+                  
+
+<h2 id="continuous_integration_tests">Continuous Integration Tests<a class="headerlink" href="#continuous_integration_tests" title="Permanent link">#</a></h2>
+<p>If you have a project that depends on SUMO, maintaining compatibility with newer SUMO versions can pose an issue.
+While striving to keep backwards compatibility, breaking changes for your project might still be introduced.
+Since we cannot possibly test integration with all projects out there that depend on SUMO, this document shall assist you in setting up CI tests for your project.</p>
+<h3 id="using_github_actions">Using GitHub Actions<a class="headerlink" href="#using_github_actions" title="Permanent link">#</a></h3>
+<p>One popular way to perform CI tests is to create a <a href="https://docs.github.com/en/actions">GitHub Actions</a> workflow.
+A GitHub Actions workflow is defined by a <a href="https://yaml.org/">YAML</a> file in your GitHub <code>master/main</code> branch, under directory <code>.github/workflows</code>.
+In the following, we will go through an example workflow (from the <a href="https://github.com/sommer/veins">Veins project</a>), commenting on the code (for a complete GitHub Actions guide, see the <a href="https://docs.github.com/en/actions/learn-github-actions">official documentation</a>):</p>
+<div class="codehilite"><pre><span></span><span class="n">name</span><span class="o">:</span> <span class="n">linux</span><span class="o">-</span><span class="n">build</span>  <span class="err">#</span> <span class="n">workflow</span> <span class="n">name</span> <span class="k">as</span> <span class="n">stated</span> <span class="n">under</span> <span class="n">your</span> <span class="n">project</span><span class="s1">&#39;s GitHub &#39;</span><span class="n">Actions</span><span class="s1">&#39; tab</span>
+
+<span class="s1">on:  # define triggers on which to run this workflow</span>
+<span class="s1">  push:</span>
+<span class="s1">  pull_request:</span>
+<span class="s1">  schedule:</span>
+<span class="s1">    - cron:  &#39;</span><span class="mi">42</span> <span class="mi">0</span> <span class="o">*</span> <span class="o">*</span> <span class="o">*</span><span class="s1">&#39;</span>
+
+<span class="s1">jobs:  # define individual jobs to run</span>
+<span class="s1">  build:  # ID of this job</span>
+<span class="s1">    runs-on: ubuntu-latest  # VM type to run this job on</span>
+<span class="s1">    env:  # define environment variables for this job</span>
+<span class="s1">      OMNET_VERSION: 5.6.2</span>
+<span class="s1">    strategy:  # define job variations</span>
+<span class="s1">      fail-fast: false  # do not cancel all in-progress jobs if any job variation fails</span>
+<span class="s1">      matrix:  # define variation parameters and their values</span>
+<span class="s1">        sumo_build: [ubuntu, ppa, nightly]</span>
+
+<span class="s1">    steps:  # define this job&#39;</span><span class="n">s</span> <span class="n">individual</span> <span class="n">steps</span>
+    <span class="o">-</span> <span class="n">name</span><span class="o">:</span> <span class="n">Cloning</span> <span class="n">Veins</span>  <span class="err">#</span> <span class="k">this</span> <span class="n">step</span><span class="s1">&#39;s name</span>
+<span class="s1">      uses: actions/checkout@v2  # predefined and reusable action for this step (see https://github.com/actions/checkout)</span>
+<span class="s1">      with:  # set values for the predefined action&#39;</span><span class="n">s</span> <span class="n">parameters</span>
+        <span class="n">path</span><span class="o">:</span> <span class="n">src</span><span class="o">/</span><span class="n">veins</span>
+
+    <span class="o">-</span> <span class="n">name</span><span class="o">:</span> <span class="n">Cloning</span> <span class="n">OMNeT</span><span class="o">++</span>
+      <span class="n">uses</span><span class="o">:</span> <span class="n">actions</span><span class="o">/</span><span class="n">checkout</span><span class="err">@</span><span class="n">v2</span>
+      <span class="k">with</span><span class="o">:</span>
+        <span class="n">repository</span><span class="o">:</span> <span class="n">omnetpp</span><span class="o">/</span><span class="n">omnetpp</span>
+        <span class="n">ref</span><span class="o">:</span> <span class="n">omnetpp</span><span class="o">-</span><span class="n">$</span><span class="o">{{</span> <span class="n">env</span><span class="o">.</span><span class="na">OMNET_VERSION</span> <span class="o">}}</span>  <span class="err">#</span> <span class="n">evaluate</span> <span class="n">the</span> <span class="n">environment</span> <span class="n">variable</span> <span class="n">OMNET_VERSION</span> <span class="n">defined</span> <span class="n">above</span>
+        <span class="n">path</span><span class="o">:</span> <span class="n">src</span><span class="o">/</span><span class="n">omnetpp</span>
+
+    <span class="o">-</span> <span class="n">name</span><span class="o">:</span> <span class="n">Preparing</span> <span class="n">Build</span> <span class="n">System</span>
+      <span class="n">run</span><span class="o">:</span> <span class="o">|</span>  <span class="err">#</span> <span class="n">define</span> <span class="n">a</span> <span class="n">custom</span> <span class="n">multi</span><span class="o">-</span><span class="n">line</span> <span class="n">command</span> <span class="o">(</span><span class="n">instead</span> <span class="n">of</span> <span class="n">a</span> <span class="n">reusable</span> <span class="n">action</span><span class="o">)</span> <span class="k">for</span> <span class="k">this</span> <span class="n">step</span>
+        <span class="k">if</span> <span class="o">[[</span> <span class="s2">&quot;${{ matrix.sumo_build }}&quot;</span> <span class="o">==</span> <span class="s2">&quot;ppa&quot;</span> <span class="o">]];</span> <span class="n">then</span> <span class="n">sudo</span> <span class="n">add</span><span class="o">-</span><span class="n">apt</span><span class="o">-</span><span class="n">repository</span> <span class="n">ppa</span><span class="o">:</span><span class="n">sumo</span><span class="o">/</span><span class="n">stable</span><span class="o">;</span> <span class="n">fi</span>
+        <span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="kd">get</span> <span class="n">update</span>
+        <span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="kd">get</span> <span class="n">install</span> <span class="n">build</span><span class="o">-</span><span class="n">essential</span> <span class="n">gcc</span> <span class="n">g</span><span class="o">++</span> <span class="n">bison</span> <span class="n">flex</span> <span class="n">perl</span> <span class="n">python3</span> <span class="n">libxml2</span><span class="o">-</span><span class="n">dev</span> <span class="n">zlib1g</span><span class="o">-</span><span class="n">dev</span> <span class="k">default</span><span class="o">-</span><span class="n">jre</span> <span class="n">doxygen</span> <span class="n">graphviz</span>
+
+    <span class="o">-</span> <span class="n">name</span><span class="o">:</span> <span class="n">Installing</span> <span class="n">SUMO</span> <span class="n">from</span> <span class="n">repo</span>
+      <span class="k">if</span><span class="o">:</span> <span class="n">matrix</span><span class="o">.</span><span class="na">sumo_build</span> <span class="o">!=</span> <span class="s1">&#39;nightly&#39;</span>  <span class="err">#</span> <span class="n">only</span> <span class="n">run</span> <span class="k">this</span> <span class="n">step</span> <span class="k">if</span> <span class="n">the</span> <span class="n">condition</span> <span class="k">is</span> <span class="kc">true</span>
+      <span class="n">run</span><span class="o">:</span> <span class="o">|</span>
+        <span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="kd">get</span> <span class="n">install</span> <span class="n">sumo</span> <span class="n">sumo</span><span class="o">-</span><span class="n">tools</span>
+        <span class="n">echo</span> <span class="s2">&quot;SUMO_HOME=/usr/share/sumo&quot;</span> <span class="o">&gt;&gt;</span> <span class="n">$GITHUB_ENV</span>
+
+    <span class="o">-</span> <span class="n">name</span><span class="o">:</span> <span class="n">Installing</span> <span class="n">SUMO</span> <span class="n">from</span> <span class="n">PyPI</span>
+      <span class="k">if</span><span class="o">:</span> <span class="n">matrix</span><span class="o">.</span><span class="na">sumo_build</span> <span class="o">==</span> <span class="s1">&#39;nightly&#39;</span>
+      <span class="n">run</span><span class="o">:</span> <span class="o">|</span>
+        <span class="n">python</span> <span class="o">-</span><span class="n">m</span> <span class="n">pip</span> <span class="n">install</span> <span class="o">--</span><span class="n">index</span><span class="o">-</span><span class="n">url</span> <span class="n">https</span><span class="o">://</span><span class="n">test</span><span class="o">.</span><span class="na">pypi</span><span class="o">.</span><span class="na">org</span><span class="sr">/simple/</span> <span class="n">eclipse</span><span class="o">-</span><span class="n">sumo</span>
+        <span class="n">python</span> <span class="o">-</span><span class="n">c</span> <span class="s2">&quot;import sumo; print(&#39;SUMO_HOME=&#39; + sumo.SUMO_HOME)&quot;</span> <span class="o">&gt;&gt;</span> <span class="n">$GITHUB_ENV</span>
+
+    <span class="o">-</span> <span class="n">name</span><span class="o">:</span> <span class="n">Adapting</span> <span class="n">PATH</span>
+      <span class="n">run</span><span class="o">:</span> <span class="o">|</span>
+        <span class="n">echo</span> <span class="s2">&quot;PATH=$PWD/src/omnetpp/bin:$SUMO_HOME/bin:$PATH&quot;</span> <span class="o">&gt;&gt;</span> <span class="n">$GITHUB_ENV</span>
+        <span class="n">cat</span> <span class="n">$GITHUB_ENV</span>
+
+    <span class="o">-</span> <span class="n">name</span><span class="o">:</span> <span class="n">Building</span> <span class="n">OMNeT</span>
+      <span class="n">run</span><span class="o">:</span> <span class="o">|</span>
+        <span class="n">cd</span> <span class="n">src</span><span class="o">/</span><span class="n">omnetpp</span>
+        <span class="n">cp</span> <span class="n">configure</span><span class="o">.</span><span class="na">user</span><span class="o">.</span><span class="na">dist</span> <span class="n">configure</span><span class="o">.</span><span class="na">user</span>
+        <span class="o">./</span><span class="n">configure</span> <span class="n">WITH_TKENV</span><span class="o">=</span><span class="n">no</span> <span class="n">WITH_QTENV</span><span class="o">=</span><span class="n">no</span> <span class="n">WITH_OSG</span><span class="o">=</span><span class="n">no</span> <span class="n">WITH_OSGEARTH</span><span class="o">=</span><span class="n">no</span>
+        <span class="n">make</span> <span class="o">-</span><span class="n">j4</span>
+
+    <span class="o">-</span> <span class="n">name</span><span class="o">:</span> <span class="n">Building</span> <span class="n">Veins</span>
+      <span class="n">run</span><span class="o">:</span> <span class="o">|</span>
+        <span class="n">cd</span> <span class="n">src</span><span class="o">/</span><span class="n">veins</span>
+        <span class="o">./</span><span class="n">configure</span>
+        <span class="n">make</span> <span class="o">-</span><span class="n">j4</span>
+
+    <span class="o">-</span> <span class="n">name</span><span class="o">:</span> <span class="n">Running</span> <span class="n">Veins</span> <span class="n">Test</span>
+      <span class="n">run</span><span class="o">:</span> <span class="o">|</span>
+        <span class="n">cd</span> <span class="n">src</span><span class="sr">/veins/examples/</span><span class="n">veins</span>
+        <span class="n">echo</span> <span class="n">$SUMO_HOME</span><span class="o">;</span> <span class="n">sumo</span>
+        <span class="o">../../</span><span class="n">bin</span><span class="o">/</span><span class="n">veins_launchd</span> <span class="o">-</span><span class="n">vv</span> <span class="o">--</span><span class="n">daemon</span> <span class="o">-</span><span class="n">L</span> <span class="n">veins_launchd</span><span class="o">.</span><span class="na">log</span>
+        <span class="o">./</span><span class="n">run</span> <span class="o">-</span><span class="n">u</span> <span class="n">Cmdenv</span>
+
+    <span class="o">-</span> <span class="n">name</span><span class="o">:</span> <span class="n">Upload</span> <span class="n">Test</span> <span class="n">log</span>
+      <span class="k">if</span><span class="o">:</span> <span class="n">$</span><span class="o">{{</span> <span class="n">always</span><span class="o">()</span> <span class="o">}}</span>
+      <span class="n">uses</span><span class="o">:</span> <span class="n">actions</span><span class="sr">/upload-artifact@v2  # see https://github.com/actions/</span><span class="n">upload</span><span class="o">-</span><span class="n">artifact</span>
+      <span class="k">with</span><span class="o">:</span>
+          <span class="n">name</span><span class="o">:</span> <span class="n">veins</span><span class="o">-</span><span class="n">$</span><span class="o">{{</span> <span class="n">matrix</span><span class="o">.</span><span class="na">sumo_build</span> <span class="o">}}.</span><span class="n">log</span>
+          <span class="n">path</span><span class="o">:</span> <span class="o">|</span>
+            <span class="n">src</span><span class="sr">/veins/examples/veins/</span><span class="n">veins_launchd</span><span class="o">.</span><span class="na">log</span>
+</pre></div>
+
+<p>To summarize, the basic structure of the workflow consists of the top-level code blocks <a href="https://docs.github.com/en/actions/reference/workflow-syntax-for-github-actions#name"><code>name</code></a>, <a href="https://docs.github.com/en/actions/reference/workflow-syntax-for-github-actions#on"><code>on</code></a>, and <a href="https://docs.github.com/en/actions/reference/workflow-syntax-for-github-actions#jobs"><code>jobs</code></a>, defining the workflow's name, trigger(s), and job(s), respectively.
+A CI test job for your project should then typically follow these steps:</p>
+<div class="codehilite"><pre><span></span>1. Clone required git repositories
+2. Set up build environment
+3. Build/Install
+4. Run test script(s)
+</pre></div>
+
+<p>While there are common steps useful for most (if not all) projects' CI test workflows in the example above, note that it includes some Veins-specific steps, which need to be adapted to your project's needs.</p>
+                </div>
+          </div>
+          <button onclick="goTopFunction()" id="goToTop" title="Go to top"><i class="fa fa-arrow-up"></i></button>
+        </div>
+
+        <footer class="col-md-12">
+          
+            <br><small><i>This page was last edited on: 15 June 2021</i></small>
+          
+          <hr>
+            <p>Copyright &copy; 2001-2021 German Aerospace Center (DLR) and others.</p>
+          <p>Follow us on <a class="no-arrow-link" href="https://www.twitter.com/eclipsesumo/"><i class="fa fa-twitter"></i></a> <a class="no-arrow-link" href="https://www.facebook.com/simulationofurbanmobility/"><i class="fa fa-facebook-square"></i></a> <a class="no-arrow-link" href="https://www.instagram.com/eclipse.sumo/"><i class="fa fa-instagram"></i></a>
+          | Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a></p>
+        </footer>
+
+      <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body" style="color: #495057 !important;">
+                <p>Enter your search terms:</p>
+                <script async src="https://cse.google.com/cse.js?cx=004302551366764109984:1kpgtzrm6kv"></script>
+                <div class="gcse-search"></div>
+            </div>
+            <div class="modal-footer" style="color: #495057 !important;">
+                or search the sumo-user mailing list archive&nbsp;<a class="no-arrow-link" href="http://sumo-user.90755.n8.nabble.com/template/NamlServlet.jtp?macro=search_page&node=1&query=">here</a>
+            </div>
+        </div>
+    </div>
+</div>
+      <script>
+        window.onscroll = function() {scrollFunction()};
+        
+        function scrollFunction() {
+          if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+            document.getElementById("goToTop").style.display = "block";
+          } else {
+            document.getElementById("goToTop").style.display = "none";
+          }
+        }
+    
+        function goTopFunction() {
+          document.body.scrollTop = 0;
+          document.documentElement.scrollTop = 0;
+        }
+
+        var base_url = "..",
+            shortcuts = {"help": 191, "search": 83, "edit": 69};
+        </script>
+        <script src="../js/base.js" defer></script>
+
+        <script>
+          const toggleSwitch = document.querySelector('#theme-switch input[type="checkbox"]');
+  
+          function switchTheme(e) {
+              if (e.target.checked) {
+                  localStorage.setItem('sumo-docs-theme', 'dark');
+                  document.documentElement.setAttribute('data-theme', 'dark');
+                  toggleSwitch.checked = true;
+              } else {
+                  localStorage.setItem('sumo-docs-theme', 'light');
+                  document.documentElement.setAttribute('data-theme', 'light');
+                  toggleSwitch.checked = false;
+              }    
+          }
+  
+          toggleSwitch.addEventListener('change', switchTheme, false);
+  
+          if (document.documentElement.getAttribute("data-theme") == "dark"){
+              toggleSwitch.checked = true;
+          }
+          </script>
+
+      <div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Key</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody style="color: #495057 !important;">
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help dialog</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search the Documentation</td>
+                  </tr>
+                  <tr>
+                    <td class="edit shortcut"><kbd>e</kbd></td>
+                    <td>Edit current page on GitHub</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+        </div>
+    </div>
+</div>
+    </body>
+</html>

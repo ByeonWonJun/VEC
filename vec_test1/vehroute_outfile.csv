@@ -1,0 +1,5 @@
+vehicle_arrival;vehicle_depart;vehicle_departLane;vehicle_id;vehicle_type;route_edges
+61.00;1.00;0;v1;Car;gneE0 gneE1 gneE2 gneE3 gneE4 gneE5 gneE6 gneE7 gneE8
+71.00;4.00;3;v4;Car;gneE0 gneE1 gneE2 gneE3 gneE4 gneE5 gneE6 gneE7 gneE8
+74.00;3.00;2;v3;Car;gneE0 gneE1 gneE2 gneE3 gneE4 gneE5 gneE6 gneE7 gneE8
+77.00;2.00;1;v2;Car;gneE0 gneE1 gneE2 gneE3 gneE4 gneE5 gneE6 gneE7 gneE8

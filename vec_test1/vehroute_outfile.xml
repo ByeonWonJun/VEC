@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- generated on 2021-10-20 16:28:55 by Eclipse SUMO sumo Version 1.10.0
+<configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/sumoConfiguration.xsd">
+
+    <input>
+        <net-file value="network.net.xml"/>
+        <route-files value="route.rou.xml"/>
+    </input>
+
+    <output>
+        <netstate-dump value="netstate_outfile.xml"/>
+        <fcd-output value="fcd_outfile.xml"/>
+        <queue-output value="queue_outfile.xml"/>
+        <vehroute-output value="vehroute_outfile.xml"/>
+        <lanechange-output value="lanechange_outfile.xml"/>
+        <statistic-output value="statistic_outfile.xml"/>
+    </output>
+
+    <time>
+        <begin value="0"/>
+        <end value="100"/>
+    </time>
+
+    <traci_server>
+        <remote-port value="58315"/>
+    </traci_server>
+
+</configuration>
+-->
+
+<routes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/routes_file.xsd">
+    <vehicle id="v1" type="Car" depart="1.00" departLane="0" arr-->
+
+<routes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/routes_file.xsd">
+</routes>
+4.00" departLane="3" arrival="71.00">
+        <route edges="gneE0 gneE1 gneE2 gneE3 gneE4 gneE5 gneE6 gneE7 gneE8"/>
+    </vehicle>
+
+    <vehicle id="v3" type="Car" depart="3.00" departLane="2" arrival="74.00">
+        <route edges="gneE0 gneE1 gneE2 gneE3 gneE4 gneE5 gneE6 gneE7 gneE8"/>
+    </vehicle>
+
+    <vehicle id="v2" type="Car" depart="2.00" departLane="1" arrival="77.00">
+        <route edges="gneE0 gneE1 gneE2 gneE3 gneE4 gneE5 gneE6 gneE7 gneE8"/>
+    </vehicle>
+
+</routes>

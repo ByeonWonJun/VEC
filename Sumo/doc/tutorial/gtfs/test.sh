@@ -1,0 +1,1 @@
+python tools/import/gtfs/gtfs2pt.py -n data/eichwalde.net.xml.gz --gtfs https://sumo.dlr.de/daily/GTFS_VBB_Juni-Dezember-2016.zip --date 20160713

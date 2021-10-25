@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <meta property="og:image" content="../images/image-facebook.jpg">
+        <meta property="og:image:type" content="image/jpeg">
+        <meta property="og:image:width" content="1080">
+        <meta property="og:image:height" content="1080">
+
+        
+        
+        <link rel="canonical" href="https://sumo.dlr.de/docs/Tutorials/TaxiService.html">
+        <link rel="shortcut icon" href="../images/favicon.ico">
+        <title>TaxiService - SUMO Documentation</title>
+        <link href="../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../css/font-awesome.min.css" rel="stylesheet">
+        <link href="../css/base.css" rel="stylesheet">
+        <link rel="apple-touch-icon" href="../images/apple-touch-icon.png">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+
+        <script src="../js/jquery-1.10.2.min.js" defer></script>
+        <script src="../js/bootstrap.min.js" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script> 
+
+      <script>
+        // DARK MODE
+        function detectColorScheme(){
+          var theme="light";
+
+          if(localStorage.getItem("sumo-docs-theme")){
+              if(localStorage.getItem("sumo-docs-theme") == "dark"){
+                  var theme = "dark";
+              }
+          } else if(!window.matchMedia) {
+              return false;
+          } else if(window.matchMedia("(prefers-color-scheme: dark)").matches) {
+              var theme = "dark";
+          }
+
+          if (theme=="dark") {
+              document.documentElement.setAttribute("data-theme", "dark");
+          }
+        }
+        detectColorScheme();
+      </script>
+
+    </head>
+
+    <body>
+
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary text-center">
+            <div class="container-fluid">
+                <!-- Collapsed navigation -->
+                <div class="navbar-header">
+                    <!-- Expander button -->
+                    <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                </div>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="navitem">
+                                <a href="../index.html" class="nav-link">Documentation</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="index.html" class="nav-link">Tutorials</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="../FAQ.html" class="nav-link">FAQ</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="../Downloads.html" class="nav-link">Downloads</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="../Publications.html" class="nav-link">Publications</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="../Developer/index.html" class="nav-link">Developer</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="../ChangeLog.html" class="nav-link">ChangeLog</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="https://github.com/eclipse/sumo/commits/master/docs/web" class="nav-link">Recent Changes</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="https://eclipse.org/sumo/contact/" class="nav-link">Contact</a>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-toggle="modal" data-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> <u>S</u>earch
+                            </a>
+                        </li>
+                            <li class="nav-item">
+                                <a rel="edit" href="https://github.com/eclipse/sumo/edit/master/docs/web/docs/Tutorials/TaxiService.md" class="nav-link"><i class="fa fa-github"></i> <u>E</u>dit on GitHub</a>
+                            </li>
+                      <li class="nav-item dropdown">
+                          <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+                            More <i class="fa fa-chevron-circle-down"></i>
+                          </a>
+                          <div class="dropdown-menu dropdown-menu-right">
+                            <a class="dropdown-item no-arrow-link" href="https://github.com/eclipse/sumo/issues">Report a Bug / Issue / Typo</a>
+                            <a class="dropdown-item" href="../Editing_Articles.html">Help on editing articles</a>
+                            <a class="dropdown-item" href="#" data-toggle="modal" data-target="#mkdocs_keyboard_modal">Keyboard Shortcuts</a>
+                            <a class="dropdown-item no-arrow-link" href="https://sumo.dlr.de/sumo_documentation.zip">Download the Documentation</a>
+                            <span class="dropdown-item" id="dark-mode-div">Dark mode <label id="theme-switch" class="theme-switch" for="checkbox_theme">
+                              <input type="checkbox" id="checkbox_theme">
+                          </label></span>
+                          </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container-fluid">
+          <div class="row">
+                <div class="col-md-3">
+                  <div class="text-center"><a href="../index.html" style="display: inline-block; margin-top: 5px;"><img src="../images/sumo-logo.png" class="sumoLogo" alt="SUMO Logo" width="120px"></a></div>
+                  
+<div class="navbar-light navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#toc-collapse" title="Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary toc-scroll toc">
+        <ul class="nav flex-column bs-sidenav">
+            <p style="margin-top:5px; color:#777777;" class="text-center">Contents</p>
+            <li class="nav-item main"><a href="#introduction">Introduction</a></li>
+                <li class="nav-item" style="text-indent: 5px;">
+                    <a href="#useful_links" class="nav-link">• Useful links</a>
+                </li>
+            <li class="nav-item main"><a href="#taxiservice">TaxiService</a></li>
+            <li class="nav-item main"><a href="#part_1">Part 1</a></li>
+                <li class="nav-item" style="text-indent: 5px;">
+                    <a href="#demand_and_creation" class="nav-link">• Demand and creation</a>
+                </li>
+                <li class="nav-item" style="text-indent: 25px;">
+                    <a href="#net_creation" class="nav-link">&rarr; Net creation</a>
+                </li>
+                <li class="nav-item" style="text-indent: 5px;">
+                    <a href="#demand" class="nav-link">• Demand</a>
+                </li>
+                <li class="nav-item" style="text-indent: 25px;">
+                    <a href="#creating_the_taxi_and_person" class="nav-link">&rarr; Creating the taxi and person</a>
+                </li>
+                <li class="nav-item" style="text-indent: 25px;">
+                    <a href="#dispatch_and_pickup" class="nav-link">&rarr; Dispatch and Pickup</a>
+                </li>
+            <li class="nav-item main"><a href="#part_2">Part 2</a></li>
+                <li class="nav-item" style="text-indent: 5px;">
+                    <a href="#reservations" class="nav-link">• Reservations</a>
+                </li>
+                <li class="nav-item" style="text-indent: 5px;">
+                    <a href="#fleet_and_dispatch" class="nav-link">• Fleet and dispatch</a>
+                </li>
+                <li class="nav-item" style="text-indent: 5px;">
+                    <a href="#sumocfg" class="nav-link">• sumocfg</a>
+                </li>
+        </ul>
+    </div>
+
+    <div class="admonition conference" style="position: sticky; margin-top: 20px; margin-bottom:10px;">
+        <p>visit <a href="https://eclipse.org/sumo">eclipse.org/sumo</a></p>
+        </div>
+
+</div>
+                  <!--  -->
+                </div>
+                <div class="col-md-9 main-area" role="main">
+                   <!-- page.is_homepage seems to be broken in Mkdocs > 1.1.0 -->
+                  <ul class="breadcrumbs">
+    <script>
+        var pagePath = "/docs/Tutorials/TaxiService.html";
+        var splitUrl = pagePath.split("/");
+        splitUrl.pop();
+        splitUrl.shift();
+        if (splitUrl[0] == 'docs') splitUrl.shift();
+        var homeLink = "../index.html";
+        document.write('<li class="breadcrumb-item"><a href="' + homeLink + '"><i class="fa fa-home"></i></a></li>');
+        var prev = '';
+        
+        var dirLink = splitUrl.map(function (el) {
+        el = prev + el; prev = el + '/'; return el;
+        });
+
+        for (i = 0; i < splitUrl.length; i++) {
+            document.write("<li class=\"breadcrumb-item\"><a class=\"no-arrow-link\" href=\"../" + dirLink[i] + "\">" + splitUrl[i] + "</a></li>");
+        }
+    </script>
+    <li class="breadcrumb-item active">TaxiService</li>
+</ul>
+                  <hTitles>TaxiService<hr style="border: 0.5px solid #338033; margin-top: 5px !important;"></hTitles>
+                  
+                  
+
+<h2 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">#</a></h2>
+<p>This tutorial is an example on how the taxi-service can be used in SUMO.   </p>
+<ul>
+<li>Main topics are<ul>
+<li>Vehicle-creation</li>
+<li>Bus stops</li>
+<li>Taxi-Reservations and pick up  </li>
+</ul>
+</li>
+</ul>
+<p>The tutorial itself is separated into two parts. <br />
+Part 1:
+Creation of a simple taxi-service, with net-creation and taxi dispatching. <br />
+Part 2:
+An addition of a small code part. Within this code the bus stops are being asked about the people waiting there.
+The tutorial can be used if a bus stop is overflowing with people. An emergency shuttle is dispatched to pick them up.   </p>
+<p>It would be very beneficial if you did take a look at the traci-beginner tutorials. This tutorial is an extension of those, showcasing a few operations with the traci taxi.</p>
+<h3 id="useful_links">Useful links<a class="headerlink" href="#useful_links" title="Permanent link">#</a></h3>
+<ul>
+<li><a href="index.html">Tutorials</a></li>
+</ul>
+<ul>
+<li>Documentation<ul>
+<li><a href="../Simulation/Taxi.html">Taxi</a></li>
+<li><a href="../Specification/Persons.html">Person</a></li>
+<li><a href="../TraCI/Vehicle_Value_Retrieval.html">Vehicle Value Retrieval</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>Pydoc<ul>
+<li><a href="https://sumo.dlr.de/pydoc/traci._person.html">traci._person</a></li>
+<li><a href="https://sumo.dlr.de/pydoc/traci._vehicle.html">traci._vehicle</a></li>
+<li><a href="https://sumo.dlr.de/pydoc/traci._busstop.html">traci._busstop</a></li>
+</ul>
+</li>
+</ul>
+<h2 id="taxiservice">TaxiService<a class="headerlink" href="#taxiservice" title="Permanent link">#</a></h2>
+<p>At the start of the simulation five people are created and heading to the nearby bus stop and waiting for a shuttle to pick them up. <br />
+In the same area some taxis are created after some steps. There is no additional bus planned for this area, hence there have to be a emergency pick ups for the people waiting. When the count of people waiting reaches a certain point, the taxis receive the reservations and pick up each customer individually.   </p>
+<p><img alt="" src="../images/TaxiTutorial01.gif" /></p>
+<h2 id="part_1">Part 1<a class="headerlink" href="#part_1" title="Permanent link">#</a></h2>
+<h3 id="demand_and_creation">Demand and creation<a class="headerlink" href="#demand_and_creation" title="Permanent link">#</a></h3>
+<h4 id="net_creation">Net creation<a class="headerlink" href="#net_creation" title="Permanent link">#</a></h4>
+<p>If you'd like to create the same net depicted or you want to revisit netedit you can
+use the following gifs as a guide. Otherwise you can skip this section.</p>
+<p><img alt="" src="../images/TaxiNetCreation01.gif" />
+<em>Creating the basic net.</em></p>
+<p><img alt="" src="../images/TaxiNetCreation02.gif" />
+<em>Adding a sidewalk.</em></p>
+<p><img alt="" src="../images/TaxiNetCreation03.gif" />
+<em>Making the connections. You can go ahead and add the connections to the other connecting streets as well.</em></p>
+<p><img alt="" src="../images/TaxiNetCreation04.gif" />
+<em>Creating routes. You can go ahead and add the other routes for the vehicles.</em>   </p>
+<h3 id="demand">Demand<a class="headerlink" href="#demand" title="Permanent link">#</a></h3>
+<h4 id="creating_the_taxi_and_person">Creating the taxi and person<a class="headerlink" href="#creating_the_taxi_and_person" title="Permanent link">#</a></h4>
+<p>Key participants within the simulation are people waiting and taxis. <br />
+To create a vehicle of type taxi you have to add the key parameter:   </p>
+<div class="codehilite"><pre><span></span><span class="c">&lt;!-- Route --&gt;</span>
+   <span class="nt">&lt;route</span> <span class="na">edges=</span><span class="s">&quot;-gneE2 gneE0 -gneE0 gneE2 -gneE2&quot;</span> <span class="na">color=</span><span class="s">&quot;yellow&quot;</span> <span class="na">id=</span><span class="s">&quot;route_0&quot;</span><span class="nt">/&gt;</span>
+
+<span class="c">&lt;!-- Taxi-Type --&gt;</span>
+   <span class="nt">&lt;vType</span> <span class="na">id=</span><span class="s">&quot;taxi&quot;</span> <span class="na">vClass=</span><span class="s">&quot;taxi&quot;</span> <span class="na">personCapacity=</span><span class="s">&quot;8&quot;</span><span class="nt">&gt;</span>
+       <span class="nt">&lt;param</span> <span class="na">key=</span><span class="s">&quot;has.taxi.device&quot;</span> <span class="na">value=</span><span class="s">&quot;true&quot;</span><span class="nt">/&gt;</span>
+   <span class="nt">&lt;/vType&gt;</span>
+</pre></div>
+
+<p>There are other option to define the taxis behavior. You can decide when the taxis are going to disappear or if they start circling the area. In this example the taxis will keep circling the area, even when there are no longer people in the simulation. This is done by choosing a dispatch-algorithm at the start of the simulation, which is discussed later in the tutorial.  </p>
+<p>Next you can create a person, which departs at the start and heads to the designated bus stop.
+Essential here is the third line, declaring the person wants to go by taxi to edge gneE2. Essential is the lines parameter.  </p>
+<div class="codehilite"><pre><span></span><span class="nt">&lt;person</span> <span class="na">id=</span><span class="s">&quot;HeadingBusstop1&quot;</span> <span class="na">depart=</span><span class="s">&quot;0.00&quot;</span> <span class="na">color=</span><span class="s">&quot;green&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;walk</span> <span class="na">from=</span><span class="s">&quot;-gneE1&quot;</span> <span class="na">busStop=</span><span class="s">&quot;busStop_gneE0_0_0&quot;</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;ride</span> <span class="na">from=</span><span class="s">&quot;gneE0&quot;</span> <span class="na">to=</span><span class="s">&quot;gneE2&quot;</span> <span class="na">lines=</span><span class="s">&quot;taxi&quot;</span><span class="nt">/&gt;</span>   
+<span class="nt">&lt;/person&gt;</span>
+</pre></div>
+
+<p>It is also possible to define personTrips for intermodal routing or group several people together. <br />
+Like in the beginner traci tutorials shown you can create a runner.py file to manage the taxi creation in your project.
+Within the example method, four taxis are created and dispatched at a given time.  </p>
+<div class="codehilite"><pre><span></span># Creating 4 taxis
+def createTaxi(time):
+    for i in range(0, 20, 5):
+        # declaring the name(unique), route(from demand.route.xml), type of vehicle(declared in demand.route.xml),
+        # depart time, and line
+        traci.vehicle.add(f&#39;taxiV{i}&#39;, &#39;route_0&#39;, &#39;taxi&#39;, depart=f&#39;{time}&#39;, line=&#39;taxi&#39;)
+</pre></div>
+
+<h4 id="dispatch_and_pickup">Dispatch and Pickup<a class="headerlink" href="#dispatch_and_pickup" title="Permanent link">#</a></h4>
+<p>For this example we are using "-device.taxi.dispatch-algorithm traci". Within this algorithm one has to declare which customers should be picked up by which taxi. Meaning you have to pass the existing reservations to the designated taxi you'd like to use for the pick up. There are other algorithms like greedy, greedyClosest etc. that work differently with the reservations. <br />
+Next the taxi fleet, containing all taxis in the map, are saved into "fleet", while all reservations are saved into "reservations". Afterwards the first taxi in the fleet is called and given the first reservation from "reservation_ids".</p>
+<div class="codehilite"><pre><span></span>fleet = traci.vehicle.getTaxiFleet(0)
+reservations = traci.person.getTaxiReservations(0)
+reservation_ids = [r.id for r in reservations]
+traci.vehicle.dispatchTaxi(fleet[0], reservation_ids[0])
+</pre></div>
+
+<p>For more output parameters take a look at the documentation and the Pydoc.</p>
+<h2 id="part_2">Part 2<a class="headerlink" href="#part_2" title="Permanent link">#</a></h2>
+<p>In the second part of the tutorial, a bus stop is overflowing with people waiting for their ride. Emergency taxis are deployed to pick up the customers.</p>
+<h3 id="reservations">Reservations<a class="headerlink" href="#reservations" title="Permanent link">#</a></h3>
+<p>For this part of the tutorial you can add another method to monitor the bus stops and start the emergency taxi function if needed.
+In this example we are targeting one bus stop with too many people waiting for a transport. <br />
+As you can see in the code below, for all the bus stops, where the personCount is equal or larger than four, the method emergencyTaxi(i) is called.</p>
+<div class="codehilite"><pre><span></span># checks if busstop is &quot;overflowing&quot;
+def busstopCheck():
+    # getting all bus stops on the map
+    busstops = traci.busstop.getIDList()
+    # checking the personcount of waiting people
+    for i in busstops:
+        if traci.busstop.getPersonCount(i) &gt;= 4:
+            emergencyTaxi(i)
+</pre></div>
+
+<h3 id="fleet_and_dispatch">Fleet and dispatch<a class="headerlink" href="#fleet_and_dispatch" title="Permanent link">#</a></h3>
+<p>The fleet consists only out of unoccupied taxis. Getting unoccupied taxis(0).
+If one wants to add further reservations to a assigned taxi, filter for the occupied(2) or those in pickup-modus(1).
+The id of the bus stop in question is given to the emergencyTaxi method, to specifically plan a pick up.</p>
+<div class="codehilite"><pre><span></span># Dispatching taxis to cater to people waiting at a bus stop
+def emergencyTaxi(busstopID):
+    # getting a Id-list of people waiting at the busstop
+    peopleWaiting = traci.busstop.getPersonIDs(busstopID)
+    pickup = []
+    # creating a list with the taxi reservations
+    for i, val in enumerate(peopleWaiting):
+        pickup.append(traci.person.getTaxiReservations(0)[i].id)
+    # if one Taxi should pick up all customers, the list needs to clarify the drop off
+    # hence the pickup is extended by the order of drop offs
+    # pickup.extend(pickup)
+    try:
+        fleet = traci.vehicle.getTaxiFleet(0)
+    except (traci.exceptions.FatalTraCIError):
+        print(&quot;No unoccupied taxi-fleet!&quot;)
+    # dispatching the unoccupied taxis to pick up their designated customers
+    for i, val in enumerate(peopleWaiting):
+        traci.vehicle.dispatchTaxi(fleet[i], pickup[i])
+</pre></div>
+
+<p>The taxi from the list with listposition i is dispatched to pick up the person from list "pickup" at position i.   </p>
+<p>It is also possible to let one taxi pick up and drop off all the people, if the vehicle capacity is sufficient.</p>
+<div class="codehilite"><pre><span></span>pickup.extend(pickup)
+</pre></div>
+
+<p>Might look like this:   </p>
+<div class="codehilite"><pre><span></span>pickup = [a,b,c,a,b,c]
+</pre></div>
+
+<p>The passengers are dropped of in the order of the extension.</p>
+<h3 id="sumocfg">sumocfg<a class="headerlink" href="#sumocfg" title="Permanent link">#</a></h3>
+<p>Additional lines are added to the config files:
+To be able to use traci.taxis one has to add a algorithm to the config files.
+Furthermore, to prevent the taxis to simply vanish after dropping of their person, the line declaring
+randomCircling has been added. After delivering the person to the right position the taxi starts
+driving around in the network after a short break.</p>
+<div class="codehilite"><pre><span></span><span class="nt">&lt;configuration&gt;</span>
+            <span class="nt">&lt;input&gt;</span>
+                <span class="nt">&lt;net-file</span> <span class="na">value=</span><span class="s">&quot;net.net.xml&quot;</span><span class="nt">/&gt;</span>
+                <span class="nt">&lt;route-files</span> <span class="na">value=</span><span class="s">&quot;demand.rou.xml&quot;</span><span class="nt">/&gt;</span>
+                <span class="nt">&lt;additional-files</span> <span class="na">value=</span><span class="s">&quot;add.add.xml&quot;</span><span class="nt">/&gt;</span>
+                <span class="nt">&lt;no-step-log</span> <span class="na">value=</span><span class="s">&quot;True&quot;</span><span class="nt">/&gt;</span>
+                <span class="nt">&lt;time-to-teleport</span> <span class="na">value=</span><span class="s">&quot;0&quot;</span><span class="nt">/&gt;</span>
+                <span class="nt">&lt;device.taxi.dispatch-algorithm</span> <span class="na">value=</span><span class="s">&quot;traci&quot;</span><span class="nt">/&gt;</span>
+                <span class="nt">&lt;device.taxi.idle-algorithm</span> <span class="na">value=</span><span class="s">&quot;randomCircling&quot;</span><span class="nt">/&gt;</span>
+            <span class="nt">&lt;/input&gt;</span>
+<span class="nt">&lt;/configuration&gt;</span>
+</pre></div>
+
+<p>Another way to use the algorithms is to add them to the traci.start in the script:</p>
+<div class="codehilite"><pre><span></span>sumoBinary = sumolib.checkBinary(&#39;sumo&#39;)
+traci.start([sumoBinary,
+            &quot;-c&quot;, &quot;sumo.sumocfg&quot;,
+             &quot;--tripinfo-output&quot;, &quot;tripinfos.xml&quot;,
+             &quot;--device.taxi.dispatch-algorithm&quot;, &quot;traci&quot;,
+             ] + sys.argv[1:])
+</pre></div>
+                </div>
+          </div>
+          <button onclick="goTopFunction()" id="goToTop" title="Go to top"><i class="fa fa-arrow-up"></i></button>
+        </div>
+
+        <footer class="col-md-12">
+          
+            <br><small><i>This page was last edited on: 14 April 2021</i></small>
+          
+          <hr>
+            <p>Copyright &copy; 2001-2021 German Aerospace Center (DLR) and others.</p>
+          <p>Follow us on <a class="no-arrow-link" href="https://www.twitter.com/eclipsesumo/"><i class="fa fa-twitter"></i></a> <a class="no-arrow-link" href="https://www.facebook.com/simulationofurbanmobility/"><i class="fa fa-facebook-square"></i></a> <a class="no-arrow-link" href="https://www.instagram.com/eclipse.sumo/"><i class="fa fa-instagram"></i></a>
+          | Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a></p>
+        </footer>
+
+      <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body" style="color: #495057 !important;">
+                <p>Enter your search terms:</p>
+                <script async src="https://cse.google.com/cse.js?cx=004302551366764109984:1kpgtzrm6kv"></script>
+                <div class="gcse-search"></div>
+            </div>
+            <div class="modal-footer" style="color: #495057 !important;">
+                or search the sumo-user mailing list archive&nbsp;<a class="no-arrow-link" href="http://sumo-user.90755.n8.nabble.com/template/NamlServlet.jtp?macro=search_page&node=1&query=">here</a>
+            </div>
+        </div>
+    </div>
+</div>
+      <script>
+        window.onscroll = function() {scrollFunction()};
+        
+        function scrollFunction() {
+          if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+            document.getElementById("goToTop").style.display = "block";
+          } else {
+            document.getElementById("goToTop").style.display = "none";
+          }
+        }
+    
+        function goTopFunction() {
+          document.body.scrollTop = 0;
+          document.documentElement.scrollTop = 0;
+        }
+
+        var base_url = "..",
+            shortcuts = {"help": 191, "search": 83, "edit": 69};
+        </script>
+        <script src="../js/base.js" defer></script>
+
+        <script>
+          const toggleSwitch = document.querySelector('#theme-switch input[type="checkbox"]');
+  
+          function switchTheme(e) {
+              if (e.target.checked) {
+                  localStorage.setItem('sumo-docs-theme', 'dark');
+                  document.documentElement.setAttribute('data-theme', 'dark');
+                  toggleSwitch.checked = true;
+              } else {
+                  localStorage.setItem('sumo-docs-theme', 'light');
+                  document.documentElement.setAttribute('data-theme', 'light');
+                  toggleSwitch.checked = false;
+              }    
+          }
+  
+          toggleSwitch.addEventListener('change', switchTheme, false);
+  
+          if (document.documentElement.getAttribute("data-theme") == "dark"){
+              toggleSwitch.checked = true;
+          }
+          </script>
+
+      <div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Key</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody style="color: #495057 !important;">
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help dialog</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search the Documentation</td>
+                  </tr>
+                  <tr>
+                    <td class="edit shortcut"><kbd>e</kbd></td>
+                    <td>Edit current page on GitHub</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+        </div>
+    </div>
+</div>
+    </body>
+</html>

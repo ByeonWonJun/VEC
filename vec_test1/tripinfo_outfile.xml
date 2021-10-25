@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- generated on 2021-10-20 13:49:53 by Eclipse SUMO sumo Version 1.10.0
+<configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/sumoConfiguration.xsd">
+
+    <input>
+        <net-file value="network.net.xml"/>
+        <route-files value="route.rou.xml"/>
+    </input>
+
+    <output>
+        <tripinfo-output value="tripinfo_outfile.xml"/>
+    </output>
+
+    <time>
+        <begin value="0"/>
+        <end value="100"/>
+    </time>
+
+    <traci_server>
+        <remote-port value="59531"/>
+    </traci_server>
+
+</configuration>
+-->
+
+<tripinfos xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/tripinfo_file.xsd">
+    <tripinfo id="v1" depart="1.00" departLane="gneE0_0" departPos="2.10" departSpeed="0.00" departDelay="0.00" arrival="61.00" arrivalLane="gneE8_0" arrivalPos="100.00" arrivalSpeed="15.00" duration="60.00" routeLength="898.70" waitingTime="0.00" waitingCount="0" stopTime="0.00" timeLoss="-1.13" rerouteNo="0" devices="tripinfo_v1 routing_v1" vType="Car" speedFactor="1.06" vaporized=""/>
+    <tripinfo id="v4" depart="4.00" departLane="gneE0_3" departPos="2.10" departSpeed="0.00" departDelay="0.00" arrival="71.00" arrivalLane="gneE8_1" arrivalPos="100.00" arrivalSpeed="15.04" duration="67.00" routeLength="898.70" waitingTime="0.00" waitingCount="0" stopTime="0.00" timeLoss="7.02" rerouteNo="0" devices="tripinfo_v4 routing_v4" vType="Car" speedFactor="1.08" vaporized=""/>
+    <tripinfo id="v3" depart="3.00" departLane="gneE0_2" departPos="2.10" departSpeed="0.00" departDelay="0.00" arrival="74.00" arrivalLane="gneE8_0" arrivalPos="100.00" arrivalSpeed="14.03" duration="71.00" routeLength="898.70" waitingTime="0.00" waitingCount="0" stopTime="0.00" timeLoss="6.52" rerouteNo="0" devices="tripinfo_v3 routing_v3" vType="Car" speedFactor="1.01" vaporized=""/>
+    <tripinfo id="v2" depart="2.00" departLane="gneE0_1" departPos="2.10" departSpeed="0.00" departDelay="0.00" arrival="77.00" arrivalLane="gneE8_0" arrivalPos="100.00" arrivalSpeed="13.03" duration="75.00" routeLength="898.70" waitingTime="0.00" waitingCount="0" stopTime="0.00" timeLoss="6.02" rerouteNo="0" devices="tripinfo_v2 routing_v2" vType="Car" speedFactor="0.94" vaporized=""/>
+</tripinfos>

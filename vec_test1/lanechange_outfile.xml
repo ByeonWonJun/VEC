@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- generated on 2021-10-20 16:28:55 by Eclipse SUMO sumo Version 1.10.0
+<configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/sumoConfiguration.xsd">
+
+    <input>
+        <net-file value="network.net.xml"/>
+        <route-files value="route.rou.xml"/>
+    </input>
+
+    <output>
+        <netstate-dump value="netstate_outfile.xml"/>
+        <fcd-output value="fcd_outfile.xml"/>
+        <queue-output value="queue_outfile.xml"/>
+        <vehroute-output value="vehroute_outfile.xml"/>
+        <lanechange-output value="lanechange_outfile.xml"/>
+        <statistic-output value="statistic_outfile.xml"/>
+    </output>
+
+    <time>
+        <begin value="0"/>
+        <end value="100"/>
+    </time>
+
+    <traci_server>
+        <remote-port value="58315"/>
+    </traci_server>
+
+</configuration>
+-->
+
+<lanechanges>
+    <change id="v2" type="Car" time="8.00" from="gneE0_1" to="gneE0_0" dir="-1" speed="6.00" pos="23.10" reason="keepRight" leaderGap="None" leaderSecureGap="None" leaderSpeed="None" f-->
+
+<lanechanges>
+</lanechanges>
+one" followerSpeed="None" origLeaderGap="None" origLeaderSecureGap="None" origLeaderSpeed="None"/>
+    <change id="v3" type="Car" time="13.00" from="gneE0_2" to="gneE0_1" dir="-1" speed="10.00" pos="57.10" reason="keepRight" leaderGap="None" leaderSecureGap="None" leaderSpeed="None" followerGap="None" followerSecureGap="None" followerSpeed="None" origLeaderGap="None" origLeaderSecureGap="None" origLeaderSpeed="None"/>
+    <change id="v4" type="Car" time="21.00" from="gneE1_3" to="gneE1_2" dir="-1" speed="15.04" pos="52.08" reason="keepRight" leaderGap="None" leaderSecureGap="None" leaderSpeed="None" followerGap="None" followerSecureGap="None" followerSpeed="None" origLeaderGap="None" origLeaderSecureGap="None" origLeaderSpeed="None"/>
+    <change id="v3" type="Car" time="45.00" from="gneE4_1" to="gneE4_0" dir="-1" speed="14.03" pos="99.66" reason="keepRight" leaderGap="None" leaderSecureGap="None" leaderSpeed="None" followerGap="13.97" followerSecureGap="11.03" followerSpeed="13.03" origLeaderGap="None" origLeaderSecureGap="None" origLeaderSpeed="None"/>
+    <change id="v4" type="Car" time="51.00" from="gneE6_2" to="gneE6_1" dir="-1" speed="15.04" pos="2.72" reason="keepRight" leaderGap="None" leaderSecureGap="None" leaderSpeed="None" followerGap="None" followerSecureGap="None" followerSpeed="None" origLeaderGap="None" origLeaderSecureGap="None" origLeaderSpeed="None"/>
+</lanechanges>

@@ -1,0 +1,264 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- generated on 2021-10-20 16:28:55 by Eclipse SUMO sumo Version 1.10.0
+<configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/sumoConfiguration.xsd">
+
+    <input>
+        <net-file value="network.net.xml"/>
+        <route-files value="route.rou.xml"/>
+    </input>
+
+    <output>
+        <netstate-dump value="netstate_outfile.xml"/>
+        <fcd-output value="fcd_outfile.xml"/>
+        <queue-output value="queue_outfile.xml"/>
+        <vehroute-output value="vehroute_outfile.xml"/>
+        <lanechange-output value="lanechange_outfile.xml"/>
+        <statistic-output value="statistic_outfile.xml"/>
+    </output>
+
+    <time>
+        <begin value="0"/>
+        <end value="100"/>
+    </time>
+
+    <traci_server>
+        <remote-port value="58315"/>
+    </traci_server>
+
+</configuration>
+-->
+
+<queue-export xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/queue_file.xsd">
+    <data timestep="0.00">
+        <lanes/>
+    </data>
+-->
+
+<queue-export xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/queue_file.xsd">
+    <data timestep="0.00">
+        <lanes/>
+    </data>
+    <data timestep="1.00">
+        <lanes/>
+    </data>
+    <data timestep="2.00">
+        <lanes/>
+    </data>
+    <data timestep="3.00">
+        <lanes/>
+    </data>
+    <data timestep="4.00">
+        <lanes/>
+    </data>
+    <data timestep="5.00">
+        <lanes/>
+    </data>
+    <data timestep="6.00">
+        <lanes/>
+    </data>
+    <data timestep="7.00">
+        <lanes/>
+    </data>
+    <data timestep="8.00">
+        <lanes/>
+    </data>
+    <data timestep="9.00">
+        <lanes/>
+    </data>
+    <data timestep="10.00">
+        <lanes/>
+    </data>
+    <data timestep="11.00">
+        <lanes/>
+    </data>
+    <data timestep="12.00">
+        <lanes/>
+    </data>
+    <data timestep="13.00">
+        <lanes/>
+    </data>
+    <data timestep="14.00">
+        <lanes/>
+    </data>
+    <data timestep="15.00">
+        <lanes/>
+    </data>
+    <data timestep="16.00">
+        <lanes/>
+    </data>
+    <data timestep="17.00">
+        <lanes/>
+    </data>
+    <data timestep="18.00">
+        <lanes/>
+    </data>
+    <data timestep="19.00">
+        <lanes/>
+    </data>
+    <data timestep="20.00">
+        <lanes/>
+    </data>
+</queue-export>
+/>
+    </data>
+    <data timestep="25.00">
+        <lanes/>
+    </data>
+    <data timestep="26.00">
+        <lanes/>
+    </data>
+    <data timestep="27.00">
+        <lanes/>
+    </data>
+    <data timestep="28.00">
+        <lanes/>
+    </data>
+    <data timestep="29.00">
+        <lanes/>
+    </data>
+    <data timestep="30.00">
+        <lanes/>
+    </data>
+    <data timestep="31.00">
+        <lanes/>
+    </data>
+    <data timestep="32.00">
+        <lanes/>
+    </data>
+    <data timestep="33.00">
+        <lanes/>
+    </data>
+    <data timestep="34.00">
+        <lanes/>
+    </data>
+    <data timestep="35.00">
+        <lanes/>
+    </data>
+    <data timestep="36.00">
+        <lanes/>
+    </data>
+    <data timestep="37.00">
+        <lanes/>
+    </data>
+    <data timestep="38.00">
+        <lanes/>
+    </data>
+    <data timestep="39.00">
+        <lanes/>
+    </data>
+    <data timestep="40.00">
+        <lanes/>
+    </data>
+    <data timestep="41.00">
+        <lanes/>
+    </data>
+    <data timestep="42.00">
+        <lanes/>
+    </data>
+    <data timestep="43.00">
+        <lanes/>
+    </data>
+    <data timestep="44.00">
+        <lanes/>
+    </data>
+    <data timestep="45.00">
+        <lanes/>
+    </data>
+    <data timestep="46.00">
+        <lanes/>
+    </data>
+    <data timestep="47.00">
+        <lanes/>
+    </data>
+    <data timestep="48.00">
+        <lanes/>
+    </data>
+    <data timestep="49.00">
+        <lanes/>
+    </data>
+    <data timestep="50.00">
+        <lanes/>
+    </data>
+    <data timestep="51.00">
+        <lanes/>
+    </data>
+    <data timestep="52.00">
+        <lanes/>
+    </data>
+    <data timestep="53.00">
+        <lanes/>
+    </data>
+    <data timestep="54.00">
+        <lanes/>
+    </data>
+    <data timestep="55.00">
+        <lanes/>
+    </data>
+    <data timestep="56.00">
+        <lanes/>
+    </data>
+    <data timestep="57.00">
+        <lanes/>
+    </data>
+    <data timestep="58.00">
+        <lanes/>
+    </data>
+    <data timestep="59.00">
+        <lanes/>
+    </data>
+    <data timestep="60.00">
+        <lanes/>
+    </data>
+    <data timestep="61.00">
+        <lanes/>
+    </data>
+    <data timestep="62.00">
+        <lanes/>
+    </data>
+    <data timestep="63.00">
+        <lanes/>
+    </data>
+    <data timestep="64.00">
+        <lanes/>
+    </data>
+    <data timestep="65.00">
+        <lanes/>
+    </data>
+    <data timestep="66.00">
+        <lanes/>
+    </data>
+    <data timestep="67.00">
+        <lanes/>
+    </data>
+    <data timestep="68.00">
+        <lanes/>
+    </data>
+    <data timestep="69.00">
+        <lanes/>
+    </data>
+    <data timestep="70.00">
+        <lanes/>
+    </data>
+    <data timestep="71.00">
+        <lanes/>
+    </data>
+    <data timestep="72.00">
+        <lanes/>
+    </data>
+    <data timestep="73.00">
+        <lanes/>
+    </data>
+    <data timestep="74.00">
+        <lanes/>
+    </data>
+    <data timestep="75.00">
+        <lanes/>
+    </data>
+    <data timestep="76.00">
+        <lanes/>
+    </data>
+    <data timestep="77.00">
+        <lanes/>
+    </data>
+</queue-export>

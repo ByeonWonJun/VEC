@@ -1,0 +1,24 @@
+<configuration>
+	<input>
+		<net-file value="network.net.xml"/>
+		<route-files value="route.rou.xml"/>
+		
+	</input>
+	
+	<time>
+		<begin value="0"/>
+		<end value="100"/>
+		
+	</time>
+	
+	<output>
+		<netstate-dump value="netstate_outfile.xml"/>
+		<vehroute-output value="vehroute_outfile.xml"/>
+		<fcd-output value="fcd_outfile.xml"/>
+		<lanechange-output value="lanechange_outfile.xml"/>
+		<queue-output value="queue_outfile.xml"/>
+		<statistic-output value="statistic_outfile.xml"/>
+	
+	</output>
+	
+</configuration>

@@ -1,0 +1,912 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <meta property="og:image" content="../images/image-facebook.jpg">
+        <meta property="og:image:type" content="image/jpeg">
+        <meta property="og:image:width" content="1080">
+        <meta property="og:image:height" content="1080">
+
+        
+        
+        <link rel="canonical" href="https://sumo.dlr.de/docs/Netedit/index.html">
+        <link rel="shortcut icon" href="../images/favicon.ico">
+        <title>netedit - SUMO Documentation</title>
+        <link href="../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../css/font-awesome.min.css" rel="stylesheet">
+        <link href="../css/base.css" rel="stylesheet">
+        <link rel="apple-touch-icon" href="../images/apple-touch-icon.png">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+
+        <script src="../js/jquery-1.10.2.min.js" defer></script>
+        <script src="../js/bootstrap.min.js" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script> 
+
+      <script>
+        // DARK MODE
+        function detectColorScheme(){
+          var theme="light";
+
+          if(localStorage.getItem("sumo-docs-theme")){
+              if(localStorage.getItem("sumo-docs-theme") == "dark"){
+                  var theme = "dark";
+              }
+          } else if(!window.matchMedia) {
+              return false;
+          } else if(window.matchMedia("(prefers-color-scheme: dark)").matches) {
+              var theme = "dark";
+          }
+
+          if (theme=="dark") {
+              document.documentElement.setAttribute("data-theme", "dark");
+          }
+        }
+        detectColorScheme();
+      </script>
+
+    </head>
+
+    <body>
+
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary text-center">
+            <div class="container-fluid">
+                <!-- Collapsed navigation -->
+                <div class="navbar-header">
+                    <!-- Expander button -->
+                    <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                </div>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="navitem">
+                                <a href="../index.html" class="nav-link">Documentation</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="../Tutorials/index.html" class="nav-link">Tutorials</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="../FAQ.html" class="nav-link">FAQ</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="../Downloads.html" class="nav-link">Downloads</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="../Publications.html" class="nav-link">Publications</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="../Developer/index.html" class="nav-link">Developer</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="../ChangeLog.html" class="nav-link">ChangeLog</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="https://github.com/eclipse/sumo/commits/master/docs/web" class="nav-link">Recent Changes</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="https://eclipse.org/sumo/contact/" class="nav-link">Contact</a>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-toggle="modal" data-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> <u>S</u>earch
+                            </a>
+                        </li>
+                            <li class="nav-item">
+                                <a rel="edit" href="https://github.com/eclipse/sumo/edit/master/docs/web/docs/Netedit/index.md" class="nav-link"><i class="fa fa-github"></i> <u>E</u>dit on GitHub</a>
+                            </li>
+                      <li class="nav-item dropdown">
+                          <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+                            More <i class="fa fa-chevron-circle-down"></i>
+                          </a>
+                          <div class="dropdown-menu dropdown-menu-right">
+                            <a class="dropdown-item no-arrow-link" href="https://github.com/eclipse/sumo/issues">Report a Bug / Issue / Typo</a>
+                            <a class="dropdown-item" href="../Editing_Articles.html">Help on editing articles</a>
+                            <a class="dropdown-item" href="#" data-toggle="modal" data-target="#mkdocs_keyboard_modal">Keyboard Shortcuts</a>
+                            <a class="dropdown-item no-arrow-link" href="https://sumo.dlr.de/sumo_documentation.zip">Download the Documentation</a>
+                            <span class="dropdown-item" id="dark-mode-div">Dark mode <label id="theme-switch" class="theme-switch" for="checkbox_theme">
+                              <input type="checkbox" id="checkbox_theme">
+                          </label></span>
+                          </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container-fluid">
+          <div class="row">
+                <div class="col-md-3">
+                  <div class="text-center"><a href="../index.html" style="display: inline-block; margin-top: 5px;"><img src="../images/sumo-logo.png" class="sumoLogo" alt="SUMO Logo" width="120px"></a></div>
+                  
+<div class="navbar-light navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#toc-collapse" title="Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary toc-scroll toc">
+        <ul class="nav flex-column bs-sidenav">
+            <p style="margin-top:5px; color:#777777;" class="text-center">Contents</p>
+            <li class="nav-item main"><a href="#from_30000_feet">From 30.000 feet</a></li>
+            <li class="nav-item main"><a href="#usage_description">Usage Description</a></li>
+                <li class="nav-item" style="text-indent: 5px;">
+                    <a href="#input" class="nav-link">• Input</a>
+                </li>
+                <li class="nav-item" style="text-indent: 5px;">
+                    <a href="#output" class="nav-link">• Output</a>
+                </li>
+                <li class="nav-item" style="text-indent: 5px;">
+                    <a href="#hotkeys" class="nav-link">• Hotkeys</a>
+                </li>
+                <li class="nav-item" style="text-indent: 5px;">
+                    <a href="#processing_menu_options" class="nav-link">• Processing Menu Options</a>
+                </li>
+                <li class="nav-item" style="text-indent: 5px;">
+                    <a href="#customizing_visualization" class="nav-link">• Customizing Visualization</a>
+                </li>
+                <li class="nav-item" style="text-indent: 25px;">
+                    <a href="#background_grid" class="nav-link">&rarr; Background Grid</a>
+                </li>
+                <li class="nav-item" style="text-indent: 5px;">
+                    <a href="#terminology" class="nav-link">• Terminology</a>
+                </li>
+            <li class="nav-item main"><a href="#editing_modes">Editing Modes</a></li>
+                <li class="nav-item" style="text-indent: 5px;">
+                    <a href="#common_modes" class="nav-link">• Common modes</a>
+                </li>
+                <li class="nav-item" style="text-indent: 5px;">
+                    <a href="#network_specific_modes" class="nav-link">• Network specific modes</a>
+                </li>
+                <li class="nav-item" style="text-indent: 5px;">
+                    <a href="#demand_specific_modes" class="nav-link">• Demand specific modes</a>
+                </li>
+                <li class="nav-item" style="text-indent: 5px;">
+                    <a href="#data_specific_modes" class="nav-link">• Data specific modes</a>
+                </li>
+            <li class="nav-item main"><a href="#elements">Elements</a></li>
+            <li class="nav-item main"><a href="#popup-menu_functions">Popup-Menu functions</a></li>
+            <li class="nav-item main"><a href="#usage_examples">Usage examples</a></li>
+            <li class="nav-item main"><a href="#planned_features">Planned Features</a></li>
+        </ul>
+    </div>
+
+    <div class="admonition conference" style="position: sticky; margin-top: 20px; margin-bottom:10px;">
+        <p>visit <a href="https://eclipse.org/sumo">eclipse.org/sumo</a></p>
+        </div>
+
+</div>
+                  <!--  -->
+                </div>
+                <div class="col-md-9 main-area" role="main">
+                   <!-- page.is_homepage seems to be broken in Mkdocs > 1.1.0 -->
+                  <ul class="breadcrumbs">
+    <script>
+        var pagePath = "/docs/Netedit/index.html";
+        var splitUrl = pagePath.split("/");
+        splitUrl.pop();
+        splitUrl.shift();
+        if (splitUrl[0] == 'docs') splitUrl.shift();
+        var homeLink = "../index.html";
+        document.write('<li class="breadcrumb-item"><a href="' + homeLink + '"><i class="fa fa-home"></i></a></li>');
+        var prev = '';
+        
+        var dirLink = splitUrl.map(function (el) {
+        el = prev + el; prev = el + '/'; return el;
+        });
+
+        for (i = 0; i < splitUrl.length; i++) {
+            document.write("<li class=\"breadcrumb-item\"><a class=\"no-arrow-link\" href=\"../" + dirLink[i] + "\">" + splitUrl[i] + "</a></li>");
+        }
+    </script>
+    
+</ul>
+                  <hTitles>netedit<hr style="border: 0.5px solid #338033; margin-top: 5px !important;"></hTitles>
+                  
+                  
+
+<h1 id="from_30000_feet">From 30.000 feet<a class="headerlink" href="#from_30000_feet" title="Permanent link">#</a></h1>
+<p><strong>netedit</strong> is a graphical network editor included in SUMO.</p>
+<ul>
+<li><strong>Purpose:</strong> create and modify SUMO networks</li>
+<li><strong>System:</strong> portable (Linux/Windows is tested); opens a window</li>
+<li><strong>Input (optional):</strong> road network definitions to import</li>
+<li><strong>Output:</strong> A generated SUMO-road network; optionally also other outputs</li>
+<li><strong>Programming Language:</strong> C++</li>
+</ul>
+<h1 id="usage_description">Usage Description<a class="headerlink" href="#usage_description" title="Permanent link">#</a></h1>
+<p><strong>netedit</strong> is a visual network editor. It can be used to create networks from scratch and to modify all aspects of existing networks. With a powerful selection and highlighting interface it can also be used to debug network attributes. <strong>netedit</strong> is built on top of <a href="../netconvert.html">netconvert</a>. As a general rule of thumb, anything <a href="../netconvert.html">netconvert</a> can do, <strong>netedit</strong> can do as well. <strong>netedit</strong> has unlimited undo/redo capabilities and thus allows editing mistakes to be quickly corrected. Editing commands are generally issued with a left-click (according to the current <a href="editModes.html">edit mode</a>). The user interface closely follows that of <a href="../sumo-gui.html#interaction_with_the_view">sumo-gui</a>. Additional keyboard hotkeys are documented in the <em>Help</em> menu.</p>
+<p><strong>netedit</strong> can also be used to define and edit:</p>
+<ul>
+<li><a href="elementsAdditional.html">additional simulation infrastructure</a></li>
+<li><a href="elementsDemand.html">traffic (vehicles, persons, vTypes, routes)</a></li>
+<li><a href="elementsData.html">network related data</a></li>
+<li><a href="elementsShape.html">shape data</a></li>
+</ul>
+<h2 id="input">Input<a class="headerlink" href="#input" title="Permanent link">#</a></h2>
+<p><strong>netedit</strong> is a GUI-Application and inputs are chosen via menus. The following input formats are supported:</p>
+<ul>
+<li>SUMO-net files</li>
+<li>OSM-files</li>
+<li><a href="../netconvert.html">netconvert</a>-configuration files</li>
+</ul>
+<h2 id="output">Output<a class="headerlink" href="#output" title="Permanent link">#</a></h2>
+<ul>
+<li>SUMO-net files</li>
+<li>plain-xml files</li>
+</ul>
+<h2 id="hotkeys">Hotkeys<a class="headerlink" href="#hotkeys" title="Permanent link">#</a></h2>
+<table>
+<thead>
+<tr>
+<th>File shortcuts</th>
+<th>Key</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>New Window</td>
+<td>Ctrl + Shift + N</td>
+<td>Open a new netedit window</td>
+</tr>
+<tr>
+<td>New Network</td>
+<td>Ctrl + N</td>
+<td>Create a new network</td>
+</tr>
+<tr>
+<td>Open Network</td>
+<td>Ctrl + O</td>
+<td>Open an existing network</td>
+</tr>
+<tr>
+<td>Open configuration</td>
+<td>Ctrl + T</td>
+<td>Open an existing SUMO configuration</td>
+</tr>
+<tr>
+<td>Import foreign network</td>
+<td>Ctrl + F</td>
+<td>Import a foreign network</td>
+</tr>
+<tr>
+<td>Reload</td>
+<td>Ctrl + R</td>
+<td>Reload network</td>
+</tr>
+<tr>
+<td>Save network</td>
+<td>Ctrl + S</td>
+<td>Save network</td>
+</tr>
+<tr>
+<td>Save network as</td>
+<td>Ctrl + Shift + S</td>
+<td>Save network in another file</td>
+</tr>
+<tr>
+<td>Save plain XML</td>
+<td>Ctrl + L</td>
+<td>Save network as plain XML</td>
+</tr>
+<tr>
+<td>Save joined junctions</td>
+<td>Ctrl + J</td>
+<td>Save joined junctions of network</td>
+</tr>
+<tr>
+<td>Load additionals and shapes</td>
+<td>Ctrl + A</td>
+<td>Load a file with additionals</td>
+</tr>
+<tr>
+<td>Save additionals and shapes</td>
+<td>Ctrl + Shift + A</td>
+<td>Save additionals in a file</td>
+</tr>
+<tr>
+<td>Load demand elements</td>
+<td>Ctrl + D</td>
+<td>Load a file with shapes</td>
+</tr>
+<tr>
+<td>Save demand elements</td>
+<td>Ctrl + Shift + D</td>
+<td>Save demand elements in a file</td>
+</tr>
+<tr>
+<td>Load TLS Programs</td>
+<td>Ctrl + K</td>
+<td>Load a file with shapes</td>
+</tr>
+<tr>
+<td>Save TLS Programs</td>
+<td>Ctrl + Shift + K</td>
+<td>Save Point Of Interest in a file</td>
+</tr>
+<tr>
+<td>Close</td>
+<td>Ctrl + W</td>
+<td>Close network</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Edit shortcuts</th>
+<th>Key</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Undo</td>
+<td>Ctrl + Z</td>
+<td>Undo the last change</td>
+</tr>
+<tr>
+<td>Redo</td>
+<td>Ctrl + Y</td>
+<td>Redo the last change</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Supermodes shortcuts</th>
+<th>Key</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Network</td>
+<td>F2</td>
+<td>Change to supermode Network (default )</td>
+</tr>
+<tr>
+<td>Demand</td>
+<td>F3</td>
+<td>Change to supermode Demand (implies recomputing)</td>
+</tr>
+<tr>
+<td>Data</td>
+<td>F4</td>
+<td>Change to supermode Data (implies recomputing)</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Common modes shortcuts</th>
+<th>Key</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Delete</td>
+<td>D</td>
+<td>Change to mode "Delete"</td>
+</tr>
+<tr>
+<td>Inspect</td>
+<td>I</td>
+<td>Change to mode "Inspect"</td>
+</tr>
+<tr>
+<td>Select</td>
+<td>S</td>
+<td>Change to mode "Select"</td>
+</tr>
+<tr>
+<td>Move</td>
+<td>M</td>
+<td>Change to mode "Move"</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Network mode shortcuts</th>
+<th>Key</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Create Edge</td>
+<td>E</td>
+<td>Change to mode "Create Edge"</td>
+</tr>
+<tr>
+<td>Connection</td>
+<td>C</td>
+<td>Change to mode "Connection"</td>
+</tr>
+<tr>
+<td>Prohibition</td>
+<td>W</td>
+<td>Change to mode "Prohibition"</td>
+</tr>
+<tr>
+<td>Traffic light</td>
+<td>T</td>
+<td>Change to mode "Traffic light"</td>
+</tr>
+<tr>
+<td>Additional</td>
+<td>A</td>
+<td>Change to mode "Additional"</td>
+</tr>
+<tr>
+<td>Crossing</td>
+<td>R</td>
+<td>Change to mode "Crossing"</td>
+</tr>
+<tr>
+<td>POI-Poly</td>
+<td>P</td>
+<td>Change to mode "POI-Poly"</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Demand mode shortcuts</th>
+<th>Key</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Create Route</td>
+<td>R</td>
+<td>Change to mode "Create Routes"</td>
+</tr>
+<tr>
+<td>Create Vehicle</td>
+<td>V</td>
+<td>Change to mode "Create Vehicles"</td>
+</tr>
+<tr>
+<td>Create Vehicle Type</td>
+<td>T</td>
+<td>Change to mode "Create Vehicle Type"</td>
+</tr>
+<tr>
+<td>Create Stop</td>
+<td>A</td>
+<td>Change to mode "Create Stops"</td>
+</tr>
+<tr>
+<td>Create person types</td>
+<td>W</td>
+<td>Change to mode "Create Person Types"</td>
+</tr>
+<tr>
+<td>Create persons</td>
+<td>P</td>
+<td>Change to mode "Create Persons"</td>
+</tr>
+<tr>
+<td>Create person plans</td>
+<td>C</td>
+<td>Change to mode "Create Person Plans"</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Data mode shortcuts</th>
+<th>Key</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Edge data</td>
+<td>E</td>
+<td>Change to mode "Create Edge Datas"</td>
+</tr>
+<tr>
+<td>Edge relation data</td>
+<td>E</td>
+<td>Change to mode "Create Edge Relation datas"</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Processing shortcuts</th>
+<th>Key</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Compute Junction</td>
+<td>F5</td>
+<td>Compute junctions of the network</td>
+</tr>
+<tr>
+<td>Clean Junction</td>
+<td>F6</td>
+<td>Clean junctions of the network</td>
+</tr>
+<tr>
+<td>Join selected Junctions</td>
+<td>F7</td>
+<td>Join selected junctions of the network</td>
+</tr>
+<tr>
+<td>Options</td>
+<td>F10</td>
+<td>Open options dialog</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Locate shortcuts</th>
+<th>Key</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Locate Junctions</td>
+<td>Shift + j</td>
+<td>Open dialog to locate junctions</td>
+</tr>
+<tr>
+<td>Locate Edges</td>
+<td>Shift + e</td>
+<td>Open dialog to locate edges</td>
+</tr>
+<tr>
+<td>Locate TLS</td>
+<td>Shift + t</td>
+<td>Open dialog to locate Traffic Lights</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Help shortcuts</th>
+<th>Key</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Online documentation</td>
+<td>F1</td>
+<td>Open the online documentation in the web browser</td>
+</tr>
+<tr>
+<td>About</td>
+<td>F12</td>
+<td>Open the about dialog</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Text edition shortcuts</th>
+<th>Key</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Cut</td>
+<td>Ctrl + X</td>
+<td>Cut selected text of a text field</td>
+</tr>
+<tr>
+<td>Copy</td>
+<td>Ctrl + C</td>
+<td>Copy selected text of a text field</td>
+</tr>
+<tr>
+<td>Paste</td>
+<td>Ctrl + V</td>
+<td>Paste previously cut/copied text in a text field</td>
+</tr>
+<tr>
+<td>Select all text</td>
+<td>Ctrl + A</td>
+<td>Select all text in a text field</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Toolbar shortcuts</strong> <br />
+The mode-depended option checkboxes (such as <em>Toggle grid</em> and others) located in the toolbar, can easily be checked an unchecked using the <code>Alt + NUMBER</code> shortcut, where NUMBER corresponds to its position within the options (e.g. <em>Toggle grid</em> is 1, and so on).</p>
+<hr />
+<p>In addition to these hotkeys, <a href="../sumo-gui.html#keyboard_shortcuts">all hotkeys for moving and zooming in
+sumo-gui</a> are supported.</p>
+<ul>
+<li>&lt;Button-Left>: Execute mode specific action</li>
+<li>&lt;Button-Right>: Open context-menu</li>
+<li>&lt;Button-Right-Drag>: Change zoom</li>
+<li>&lt;Button-Left-Drag>: Move the view around (<em>panning</em>)<ul>
+<li>in 'Move'-mode pointing at an edge: move or create geometry points</li>
+<li>in 'Move'-mode pointing at a junction: move the junction</li>
+<li>in 'Move'-mode pointing at a selected object: move all selected junctions and edges including geometry. If both junctions of an edge are selected, move the whole geometry. Otherwise, move only the geometry near the cursor</li>
+</ul>
+</li>
+<li>&lt;ESC><ul>
+<li>in 'Create Edge'-mode: clear the currently selected source junction</li>
+<li>in 'Select'-mode: clear the current selection; cancel rectangle selection</li>
+<li>in 'Connect'-mode: deselect current lane and cancel all changes</li>
+<li>in 'Traffic Light'-mode: revert changes to current traffic light</li>
+<li>when editing a junction shape: abort editing the current junction shape</li>
+</ul>
+</li>
+<li>&lt;DELETE>: delete all currently selected items</li>
+<li>&lt;SHIFT>:<ul>
+<li>in 'Select'-mode: hold &lt;SHIFT> and drag the mouse for rectangle selection</li>
+<li>in 'Select'-mode: &lt;SHIFT>-left-click selects lanes instead of edges</li>
+<li>in 'Inspect'-mode: &lt;SHIFT>-left-click inspects lanes instead of edges</li>
+<li>in 'Delete'-mode: &lt;SHIFT>-left-click deletes lanes instead of edges</li>
+</ul>
+</li>
+<li>&lt;CTRL>:<ul>
+<li>in 'Create Edge'-mode, allow moving the view without defining junctions</li>
+<li>in 'Create Additional'-mode, allow moving the view without adding additionals</li>
+<li>in 'POI-Poly'-mode, allow moving the view without adding POIs</li>
+</ul>
+</li>
+<li>&lt;Enter><ul>
+<li>in 'Inspect'-mode: confirm attribute changes</li>
+<li>in 'Connect'-mode: deselect current lane and save all changes</li>
+<li>in 'Traffic Light'-mode: save changes to current traffic light</li>
+<li>in 'TAZ'-mode: save changes to current traffic light</li>
+<li>when editing a junction shape: save the current junction shape</li>
+</ul>
+</li>
+</ul>
+<h2 id="processing_menu_options">Processing Menu Options<a class="headerlink" href="#processing_menu_options" title="Permanent link">#</a></h2>
+<ul>
+<li><strong>Compute Junctions</strong> (F5): recomputes the geometry and logic of all junctions. This is triggered automatically when entering modes which require this information (Connect, Traffic Lights).</li>
+<li><strong>Clean Junctions</strong> (F6): removes all junctions that do not have any adjacent edges (These junctions are not included when saving the network. They are kept in the editor until cleaned for potential reuse).</li>
+<li><strong>Join Selected Junctions</strong> (F7): joins the selected junctions into a single junction (See <a href="../Networks/PlainXML.html#joining_nodes">joining junctions</a>).</li>
+<li><strong>Options</strong> (F10): inspect and set all options. These are the same options that <a href="../netconvert.html">netconvert</a> accepts on the commandline or in a configuration.</li>
+</ul>
+<h2 id="customizing_visualization">Customizing Visualization<a class="headerlink" href="#customizing_visualization" title="Permanent link">#</a></h2>
+<p>Most of the visualization options that are available in <a href="../sumo-gui.html#changing_the_appearancevisualisation_of_the_simulation">sumo-gui</a> can also be set in netedit. This includes the facilities for <a href="../sumo-gui.html#showing_background_images">loading
+background images</a>. It is also possible to load <a href="elementsShape.html">POIs and Polygons</a> using the menu <em>File-&gt; Additionals and Shapes-&gt; Load Additionals</em>.</p>
+<h3 id="background_grid">Background Grid<a class="headerlink" href="#background_grid" title="Permanent link">#</a></h3>
+<p>When activating the background grid via the visualization settings dialog <img alt="" src="../images/Colorwheel.gif" /> or via the <em>show grid</em> option in <a href="editModesNetwork.html#create_edges">Create Edge Mode</a>, all clicks that create or move objects will snap to the nearest grid point. The resolution of the grid can be
+customized in the <em>Background</em>-Tab of the visualization settings dialog. By using hotkey <strong>Ctrl-PageUp</strong> the grid spacing is doubled and with <strong>Ctrl-PageDown</strong> the grid size is reduce by a factor of 2.</p>
+<h2 id="terminology">Terminology<a class="headerlink" href="#terminology" title="Permanent link">#</a></h2>
+<p>The main network elements that are used to represent a road network in SUMO are <a href="../Networks/SUMO_Road_Networks.html">edges, lanes, junctions, connections, traffic
+lights</a>. <a href="elementsAdditional.html">Additional infrastructure elements</a> such as bus stops, detectors and variable speed signs are kept in separate files and
+loaded at the start of the simulation. In SUMO the terms <strong>node</strong> and <strong>junction</strong> and <strong>intersection</strong> are used interchangeably (in netedit the term junction is used throughout).</p>
+<h1 id="editing_modes">Editing Modes<a class="headerlink" href="#editing_modes" title="Permanent link">#</a></h1>
+<p>Netedit can be switched between three major edit modes (also called <strong><em>supermodes</em></strong>) for editing <a href="editModesNetwork.html">network</a>-related objects, <a href="editModesDemand.html">traffic</a>-related objects and <a href="editModesData.html">data</a> objects.
+Each of these <a href="editModes.html">supermodes</a> has a number of sub-modes (simply called <strong><em>modes</em></strong>) for inspecting, deleting and adding the different objects.
+Some of these modes are common to all supermodes while others are specific to a particular supermode as listed below.</p>
+<h2 id="common_modes"><a href="editModesCommon.html">Common modes</a><a class="headerlink" href="#common_modes" title="Permanent link">#</a></h2>
+<p>This modes are present in all supermodes and have custom cursors:</p>
+<ul>
+<li><a href="editModesCommon.html#inspect">Inspect</a></li>
+<li><a href="editModesCommon.html#delete">Delete</a></li>
+<li><a href="editModesCommon.html#select">Select</a></li>
+<li><a href="editModesCommon.html#move">Move</a> (absent in <em>Data Supermode</em>)</li>
+</ul>
+<h2 id="network_specific_modes"><a href="editModesNetwork.html">Network specific modes</a><a class="headerlink" href="#network_specific_modes" title="Permanent link">#</a></h2>
+<p>Modes available in the <em>Network Supermode</em>:</p>
+<ul>
+<li><a href="editModesNetwork.html#create_edges">Edges</a></li>
+<li><a href="editModesNetwork.html#edit_connections">Connections</a></li>
+<li><a href="editModesNetwork.html#prohibitions">Prohibitions</a></li>
+<li><a href="editModesNetwork.html#traffic_lights">Traffic Lights</a></li>
+<li><a href="editModesNetwork.html#additionals">Additionals (busStops, detectors, ...)</a></li>
+<li><a href="editModesNetwork.html#crossings">Crossings</a></li>
+<li><a href="editModesNetwork.html#taz_traffic_analysis_zones">TAZ</a></li>
+<li><a href="editModesNetwork.html#shapes">Shapes (POI, Poly)</a></li>
+</ul>
+<h2 id="demand_specific_modes"><a href="editModesDemand.html">Demand specific modes</a><a class="headerlink" href="#demand_specific_modes" title="Permanent link">#</a></h2>
+<p>Modes available in the <em>Demand Supermode</em>:</p>
+<ul>
+<li><a href="editModesDemand.html#route_mode">Routes</a></li>
+<li><a href="editModesDemand.html#vehicle_mode">Vehicles</a></li>
+<li><a href="editModesDemand.html#vehicle_type_mode">Vehicle Types</a></li>
+<li><a href="editModesDemand.html#stop_mode">Stops</a></li>
+<li><a href="editModesDemand.html#person_type_mode">Person Types</a></li>
+<li><a href="editModesDemand.html#person_mode">Persons</a></li>
+<li><a href="editModesDemand.html#person_plan_mode">Person Plans</a></li>
+</ul>
+<h2 id="data_specific_modes"><a href="editModesData.html">Data specific modes</a><a class="headerlink" href="#data_specific_modes" title="Permanent link">#</a></h2>
+<p>Modes available in the <em>Data Supermode</em>:</p>
+<ul>
+<li><a href="editModesData.html#edge_data_mode">Edge Data</a></li>
+<li><a href="editModesData.html#edge_rel_data_mode">Edge Relation</a></li>
+<li><a href="editModesData.html#taz_relation_mode">TAZ Relation</a></li>
+</ul>
+<h1 id="elements"><a href="elements.html">Elements</a><a class="headerlink" href="#elements" title="Permanent link">#</a></h1>
+<p>Netedit is used to create and edit a variety of different objects. Each object may support additional functionality:</p>
+<ul>
+<li><a href="elementsNetwork.html">Network elements</a></li>
+<li><a href="elementsAdditional.html">Additional elements</a></li>
+<li><a href="elementsShape.html">Shape Elements</a></li>
+<li><a href="elementsTAZ.html">TAZ elements</a></li>
+<li><a href="elementsDemand.html">Demand elements</a></li>
+<li><a href="elementsData.html">Data elements</a></li>
+</ul>
+<h1 id="popup-menu_functions"><a href="neteditPopupFunctions.html">Popup-Menu functions</a><a class="headerlink" href="#popup-menu_functions" title="Permanent link">#</a></h1>
+<p>Right clicking over an element will open a popup-menu with functions and operations relevant to set element. You can right click on:</p>
+<ul>
+<li><a href="neteditPopupFunctions.html#edge_and_lane">Edge and Lane</a></li>
+<li><a href="neteditPopupFunctions.html#junction">Junction</a></li>
+<li><a href="neteditPopupFunctions.html#connection">Connection</a></li>
+<li><a href="neteditPopupFunctions.html#crossing">Crossing</a></li>
+<li><a href="neteditPopupFunctions.html#modifiable_poly">Modifiable Poly</a></li>
+<li><a href="neteditPopupFunctions.html#additionals">Additionals</a></li>
+<li><a href="neteditPopupFunctions.html#route">Route</a></li>
+</ul>
+<h1 id="usage_examples"><a href="neteditUsageExamples.html">Usage examples</a><a class="headerlink" href="#usage_examples" title="Permanent link">#</a></h1>
+<ul>
+<li><a href="neteditUsageExamples.html#reducing_the_extent_of_the_network">Reducing the extent of a network</a></li>
+<li><a href="neteditUsageExamples.html#specifying_the_complete_geometry_of_an_edge_including_endpoints">Specifying the complete geometry of an edge including endpoints</a></li>
+<li><a href="neteditUsageExamples.html#converting_an_intersection_into_a_roundabout">Converting an intersection into a roundabout</a></li>
+<li><a href="neteditUsageExamples.html#correcting_road_access_permissions">Correcting road access permissions</a></li>
+<li><a href="neteditUsageExamples.html#creating_bidirectional_railway_tracks">Creating bidirectional railway tracks</a></li>
+</ul>
+<p>And many <a href="neteditUsageExamples.html">others</a>.</p>
+<h1 id="planned_features">Planned Features<a class="headerlink" href="#planned_features" title="Permanent link">#</a></h1>
+<ul>
+<li>Support for editing features already supported by <a href="../netconvert.html">netconvert</a><ul>
+<li>Editing <code>&lt;neigh&gt;</code> information for <a href="../Simulation/OppositeDirectionDriving.html">Simulation/OppositeDirectionDriving</a></li>
+</ul>
+</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note<p>Currently, you may either switching on <strong>--opposites.guess</strong> via the <a href="#processing_menu_options">F10-menu</a> or set lane attribute 'oppositeID'.</p>
+</p>
+</div>
+<ul>
+<li>Editing <a href="../Networks/PlainXML.html#walking_areas">walkingarea shapes</a></li>
+<li>Integration of <a href="../netgenerate.html">netgenerate</a></li>
+<li>Integration of <a href="../Tools/Net.html#netdiffpy">netdiff</a></li>
+<li>Adding / merging of sub-networks to the existing network</li>
+</ul>
+                </div>
+          </div>
+          <button onclick="goTopFunction()" id="goToTop" title="Go to top"><i class="fa fa-arrow-up"></i></button>
+        </div>
+
+        <footer class="col-md-12">
+          
+            <br><small><i>This page was last edited on: 19 April 2021</i></small>
+          
+          <hr>
+            <p>Copyright &copy; 2001-2021 German Aerospace Center (DLR) and others.</p>
+          <p>Follow us on <a class="no-arrow-link" href="https://www.twitter.com/eclipsesumo/"><i class="fa fa-twitter"></i></a> <a class="no-arrow-link" href="https://www.facebook.com/simulationofurbanmobility/"><i class="fa fa-facebook-square"></i></a> <a class="no-arrow-link" href="https://www.instagram.com/eclipse.sumo/"><i class="fa fa-instagram"></i></a>
+          | Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a></p>
+        </footer>
+
+      <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body" style="color: #495057 !important;">
+                <p>Enter your search terms:</p>
+                <script async src="https://cse.google.com/cse.js?cx=004302551366764109984:1kpgtzrm6kv"></script>
+                <div class="gcse-search"></div>
+            </div>
+            <div class="modal-footer" style="color: #495057 !important;">
+                or search the sumo-user mailing list archive&nbsp;<a class="no-arrow-link" href="http://sumo-user.90755.n8.nabble.com/template/NamlServlet.jtp?macro=search_page&node=1&query=">here</a>
+            </div>
+        </div>
+    </div>
+</div>
+      <script>
+        window.onscroll = function() {scrollFunction()};
+        
+        function scrollFunction() {
+          if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+            document.getElementById("goToTop").style.display = "block";
+          } else {
+            document.getElementById("goToTop").style.display = "none";
+          }
+        }
+    
+        function goTopFunction() {
+          document.body.scrollTop = 0;
+          document.documentElement.scrollTop = 0;
+        }
+
+        var base_url = "..",
+            shortcuts = {"help": 191, "search": 83, "edit": 69};
+        </script>
+        <script src="../js/base.js" defer></script>
+
+        <script>
+          const toggleSwitch = document.querySelector('#theme-switch input[type="checkbox"]');
+  
+          function switchTheme(e) {
+              if (e.target.checked) {
+                  localStorage.setItem('sumo-docs-theme', 'dark');
+                  document.documentElement.setAttribute('data-theme', 'dark');
+                  toggleSwitch.checked = true;
+              } else {
+                  localStorage.setItem('sumo-docs-theme', 'light');
+                  document.documentElement.setAttribute('data-theme', 'light');
+                  toggleSwitch.checked = false;
+              }    
+          }
+  
+          toggleSwitch.addEventListener('change', switchTheme, false);
+  
+          if (document.documentElement.getAttribute("data-theme") == "dark"){
+              toggleSwitch.checked = true;
+          }
+          </script>
+
+      <div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Key</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody style="color: #495057 !important;">
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help dialog</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search the Documentation</td>
+                  </tr>
+                  <tr>
+                    <td class="edit shortcut"><kbd>e</kbd></td>
+                    <td>Edit current page on GitHub</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+        </div>
+    </div>
+</div>
+    </body>
+</html>

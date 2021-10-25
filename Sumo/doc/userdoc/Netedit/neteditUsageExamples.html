@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <meta property="og:image" content="../images/image-facebook.jpg">
+        <meta property="og:image:type" content="image/jpeg">
+        <meta property="og:image:width" content="1080">
+        <meta property="og:image:height" content="1080">
+
+        
+        
+        <link rel="canonical" href="https://sumo.dlr.de/docs/Netedit/neteditUsageExamples.html">
+        <link rel="shortcut icon" href="../images/favicon.ico">
+        <title>neteditUsageExamples - SUMO Documentation</title>
+        <link href="../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../css/font-awesome.min.css" rel="stylesheet">
+        <link href="../css/base.css" rel="stylesheet">
+        <link rel="apple-touch-icon" href="../images/apple-touch-icon.png">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+
+        <script src="../js/jquery-1.10.2.min.js" defer></script>
+        <script src="../js/bootstrap.min.js" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script> 
+
+      <script>
+        // DARK MODE
+        function detectColorScheme(){
+          var theme="light";
+
+          if(localStorage.getItem("sumo-docs-theme")){
+              if(localStorage.getItem("sumo-docs-theme") == "dark"){
+                  var theme = "dark";
+              }
+          } else if(!window.matchMedia) {
+              return false;
+          } else if(window.matchMedia("(prefers-color-scheme: dark)").matches) {
+              var theme = "dark";
+          }
+
+          if (theme=="dark") {
+              document.documentElement.setAttribute("data-theme", "dark");
+          }
+        }
+        detectColorScheme();
+      </script>
+
+    </head>
+
+    <body>
+
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary text-center">
+            <div class="container-fluid">
+                <!-- Collapsed navigation -->
+                <div class="navbar-header">
+                    <!-- Expander button -->
+                    <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                </div>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="navitem">
+                                <a href="../index.html" class="nav-link">Documentation</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="../Tutorials/index.html" class="nav-link">Tutorials</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="../FAQ.html" class="nav-link">FAQ</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="../Downloads.html" class="nav-link">Downloads</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="../Publications.html" class="nav-link">Publications</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="../Developer/index.html" class="nav-link">Developer</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="../ChangeLog.html" class="nav-link">ChangeLog</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="https://github.com/eclipse/sumo/commits/master/docs/web" class="nav-link">Recent Changes</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="https://eclipse.org/sumo/contact/" class="nav-link">Contact</a>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-toggle="modal" data-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> <u>S</u>earch
+                            </a>
+                        </li>
+                            <li class="nav-item">
+                                <a rel="edit" href="https://github.com/eclipse/sumo/edit/master/docs/web/docs/Netedit/neteditUsageExamples.md" class="nav-link"><i class="fa fa-github"></i> <u>E</u>dit on GitHub</a>
+                            </li>
+                      <li class="nav-item dropdown">
+                          <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+                            More <i class="fa fa-chevron-circle-down"></i>
+                          </a>
+                          <div class="dropdown-menu dropdown-menu-right">
+                            <a class="dropdown-item no-arrow-link" href="https://github.com/eclipse/sumo/issues">Report a Bug / Issue / Typo</a>
+                            <a class="dropdown-item" href="../Editing_Articles.html">Help on editing articles</a>
+                            <a class="dropdown-item" href="#" data-toggle="modal" data-target="#mkdocs_keyboard_modal">Keyboard Shortcuts</a>
+                            <a class="dropdown-item no-arrow-link" href="https://sumo.dlr.de/sumo_documentation.zip">Download the Documentation</a>
+                            <span class="dropdown-item" id="dark-mode-div">Dark mode <label id="theme-switch" class="theme-switch" for="checkbox_theme">
+                              <input type="checkbox" id="checkbox_theme">
+                          </label></span>
+                          </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container-fluid">
+          <div class="row">
+                <div class="col-md-3">
+                  <div class="text-center"><a href="../index.html" style="display: inline-block; margin-top: 5px;"><img src="../images/sumo-logo.png" class="sumoLogo" alt="SUMO Logo" width="120px"></a></div>
+                  
+<div class="navbar-light navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#toc-collapse" title="Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary toc-scroll toc">
+        <ul class="nav flex-column bs-sidenav">
+            <p style="margin-top:5px; color:#777777;" class="text-center">Contents</p>
+            <li class="nav-item main"><a href="#usage_examples">Usage Examples</a></li>
+                <li class="nav-item" style="text-indent: 5px;">
+                    <a href="#reducing_the_extent_of_the_network" class="nav-link">• Reducing the extent of the network</a>
+                </li>
+                <li class="nav-item" style="text-indent: 25px;">
+                    <a href="#adapting_additional_objects_to_a_reduced_network" class="nav-link">&rarr; Adapting additional objects to a reduced network</a>
+                </li>
+                <li class="nav-item" style="text-indent: 5px;">
+                    <a href="#specifying_the_complete_geometry_of_an_edge_including_endpoints" class="nav-link">• Specifying the complete geometry of an edge including endpoints</a>
+                </li>
+                <li class="nav-item" style="text-indent: 25px;">
+                    <a href="#using_set_geometry_endpoint" class="nav-link">&rarr; Using 'Set geometry endpoint'</a>
+                </li>
+                <li class="nav-item" style="text-indent: 25px;">
+                    <a href="#entering_the_position_manually" class="nav-link">&rarr; Entering the Position manually</a>
+                </li>
+                <li class="nav-item" style="text-indent: 25px;">
+                    <a href="#using_join_selected_junctions" class="nav-link">&rarr; Using 'Join Selected Junctions'</a>
+                </li>
+                <li class="nav-item" style="text-indent: 5px;">
+                    <a href="#setting_connection_attributes" class="nav-link">• Setting connection attributes</a>
+                </li>
+                <li class="nav-item" style="text-indent: 5px;">
+                    <a href="#converting_an_intersection_into_a_roundabout" class="nav-link">• Converting an intersection into a roundabout</a>
+                </li>
+                <li class="nav-item" style="text-indent: 5px;">
+                    <a href="#converting_an_intersection_into_a_roundabout_old_manual_method" class="nav-link">• Converting an intersection into a roundabout (old manual method)</a>
+                </li>
+                <li class="nav-item" style="text-indent: 5px;">
+                    <a href="#correcting_road_access_permissions" class="nav-link">• Correcting road access permissions</a>
+                </li>
+                <li class="nav-item" style="text-indent: 5px;">
+                    <a href="#changing_all_traffic_lights_to_right_on_red" class="nav-link">• Changing all traffic lights to right_on_red</a>
+                </li>
+                <li class="nav-item" style="text-indent: 5px;">
+                    <a href="#creating_joined_traffic_lights" class="nav-link">• Creating joined traffic lights</a>
+                </li>
+                <li class="nav-item" style="text-indent: 5px;">
+                    <a href="#adapting_visualization_settings_to_help_editing_complicated_intersections" class="nav-link">• Adapting Visualization Settings to help editing complicated intersections</a>
+                </li>
+                <li class="nav-item" style="text-indent: 5px;">
+                    <a href="#defining_a_linear_referencing_scheme_kilometrage_mileage_chainage" class="nav-link">• Defining a linear referencing scheme (kilometrage / mileage/ chainage)</a>
+                </li>
+                <li class="nav-item" style="text-indent: 5px;">
+                    <a href="#creating_bidirectional_railway_tracks" class="nav-link">• Creating bidirectional railway tracks</a>
+                </li>
+                <li class="nav-item" style="text-indent: 25px;">
+                    <a href="#make_an_existing_track_bidirectional" class="nav-link">&rarr; Make an existing track bidirectional</a>
+                </li>
+                <li class="nav-item" style="text-indent: 25px;">
+                    <a href="#creating_bidirectional_tracks_from_scratch" class="nav-link">&rarr; Creating bidirectional tracks from scratch</a>
+                </li>
+                <li class="nav-item" style="text-indent: 5px;">
+                    <a href="#creating_a_zipper_merge" class="nav-link">• Creating a zipper merge</a>
+                </li>
+        </ul>
+    </div>
+
+    <div class="admonition conference" style="position: sticky; margin-top: 20px; margin-bottom:10px;">
+        <p>visit <a href="https://eclipse.org/sumo">eclipse.org/sumo</a></p>
+        </div>
+
+</div>
+                  <!--  -->
+                </div>
+                <div class="col-md-9 main-area" role="main">
+                   <!-- page.is_homepage seems to be broken in Mkdocs > 1.1.0 -->
+                  <ul class="breadcrumbs">
+    <script>
+        var pagePath = "/docs/Netedit/neteditUsageExamples.html";
+        var splitUrl = pagePath.split("/");
+        splitUrl.pop();
+        splitUrl.shift();
+        if (splitUrl[0] == 'docs') splitUrl.shift();
+        var homeLink = "../index.html";
+        document.write('<li class="breadcrumb-item"><a href="' + homeLink + '"><i class="fa fa-home"></i></a></li>');
+        var prev = '';
+        
+        var dirLink = splitUrl.map(function (el) {
+        el = prev + el; prev = el + '/'; return el;
+        });
+
+        for (i = 0; i < splitUrl.length; i++) {
+            document.write("<li class=\"breadcrumb-item\"><a class=\"no-arrow-link\" href=\"../" + dirLink[i] + "\">" + splitUrl[i] + "</a></li>");
+        }
+    </script>
+    <li class="breadcrumb-item active">neteditUsageExamples</li>
+</ul>
+                  <hTitles>neteditUsageExamples<hr style="border: 0.5px solid #338033; margin-top: 5px !important;"></hTitles>
+                  
+                  
+
+<h1 id="usage_examples">Usage Examples<a class="headerlink" href="#usage_examples" title="Permanent link">#</a></h1>
+<h2 id="reducing_the_extent_of_the_network">Reducing the extent of the network<a class="headerlink" href="#reducing_the_extent_of_the_network" title="Permanent link">#</a></h2>
+<ol>
+<li>switch to <a href="editModesCommon.html#select">selection mode</a></li>
+<li>enable the <em>auto-select junctions</em> checkbox in the top menu bar</li>
+<li>select the portion of the network you wish to keep (i.e. by holding <em>&lt;SHIFT></em> and performing a rectangle-selection)</li>
+<li>invert the selection with the <em>Invert</em> button</li>
+<li>delete the inverted selection using the <em>&lt;DELETE></em> key</li>
+</ol>
+<div class="admonition caution">
+<p class="admonition-title">Caution</p>
+<p>If the checkbox <em>auto-select junctions</em> is not set, and connections are not visible during the rectangle selection, all connections will be removed during the <em>invert+delete</em> steps.</p>
+</div>
+<h3 id="adapting_additional_objects_to_a_reduced_network">Adapting additional objects to a reduced network<a class="headerlink" href="#adapting_additional_objects_to_a_reduced_network" title="Permanent link">#</a></h3>
+<p>Either</p>
+<ul>
+<li>load the additional file when cutting and then save the reduced additional file or</li>
+<li>open the reduced network and load the original additional file. All objects outside the reduced network will be discarded with a warning.</li>
+</ul>
+<h2 id="specifying_the_complete_geometry_of_an_edge_including_endpoints">Specifying the complete geometry of an edge including endpoints<a class="headerlink" href="#specifying_the_complete_geometry_of_an_edge_including_endpoints" title="Permanent link">#</a></h2>
+<p>By default, the geometry of an edge starts with the position of the source junction and ends at the position of the destination junction. However, this sometimes leads to undesired junction shapes when dealing with roads that have a large green median strip or when modeling edges that meet at a sharp angle such as highway ramps. Also, when edges in opposite directions have unequal number of lanes (i.e. due to added left-turn lanes) and the road shapes do not line up. The solution is to define an edge geometry with custom endpoints. Below are three alternative methods of accomplishing this.</p>
+<h3 id="using_set_geometry_endpoint">Using 'Set geometry endpoint'<a class="headerlink" href="#using_set_geometry_endpoint" title="Permanent link">#</a></h3>
+<ol>
+<li>switch to <a href="editModesCommon.html#move">move mode</a></li>
+<li>shift-click near the start or the end of the edge to create/remove a custom geometry endpoint (marked with 'S' at the start and 'E' and the end).</li>
+<li>once create these special geometry points can be moved around like normal geometry points</li>
+</ol>
+<div class="admonition caution">
+<p class="admonition-title">Caution</p>
+<p>When right-clicking the geometry point the click must be within the edge shape for this too work.</p>
+</div>
+<p>Afterwards, you will have to recompute the junction shape to see how it looks (F5). If you want to modify the edge and it's reverse edge at once this works almost the same way:</p>
+<ol>
+<li>switch to <a href="editModesCommon.html#select">select mode</a></li>
+<li>select both edges</li>
+<li>switch to <a href="editModesCommon.html#move">move mode</a></li>
+<li>create/move geometry points for that edge</li>
+<li>create new geometry points where the endpoints of the edge should be</li>
+<li>switch to <a href="editModesCommon.html#select">select mode</a></li>
+<li>deselect both edges</li>
+<li>right-click on the new endpoints and select Set geometry endpoint here twice (once for each edge)</li>
+</ol>
+<h3 id="entering_the_position_manually">Entering the Position manually<a class="headerlink" href="#entering_the_position_manually" title="Permanent link">#</a></h3>
+<ol>
+<li>switch to <a href="editModesCommon.html#inspect">inspect mode</a></li>
+<li>click on the edge that shall be modified</li>
+<li>enter new values for attributes <em>shapeStart</em> or <em>shapeEnd</em></li>
+</ol>
+<h3 id="using_join_selected_junctions">Using 'Join Selected Junctions'<a class="headerlink" href="#using_join_selected_junctions" title="Permanent link">#</a></h3>
+<ol>
+<li>create new junctions where the endpoints of the edge should be<ul>
+<li>Either split an existing edge (right-click and select <em>Split edge here</em>)</li>
+<li>Or <a href="editModesNetwork.html#create_edges">create a new edge with new junctions in create-edge mode</a></li>
+</ul>
+</li>
+<li>switch to <a href="editModesCommon.html#select">select mode</a></li>
+<li>select the original junction and the new junction near it</li>
+<li>Menu <em>Processing -&gt; Join Selected Junctions (F7)</em></li>
+</ol>
+<p>This will create a single joined junction but keep the endpoints at the original junction positions.</p>
+<h2 id="setting_connection_attributes">Setting connection attributes<a class="headerlink" href="#setting_connection_attributes" title="Permanent link">#</a></h2>
+<ol>
+<li>after opening the network press F5 to compute connection objects</li>
+<li>in inspect-mode enable the <em>Show Connections</em> checkbox in the menu bar</li>
+<li>click on a connection to inspect it and edit its attributes</li>
+</ol>
+<h2 id="converting_an_intersection_into_a_roundabout">Converting an intersection into a roundabout<a class="headerlink" href="#converting_an_intersection_into_a_roundabout" title="Permanent link">#</a></h2>
+<ol>
+<li>set junction attribute 'radius' to the desired roundabout radius</li>
+<li>right-click on junction and select 'Convert to roundabout'</li>
+</ol>
+<h2 id="converting_an_intersection_into_a_roundabout_old_manual_method">Converting an intersection into a roundabout (old manual method)<a class="headerlink" href="#converting_an_intersection_into_a_roundabout_old_manual_method" title="Permanent link">#</a></h2>
+<ol>
+<li>For each of the 'legs' of the intersection do a right click and select 'split edges in both directions' at some distance from the
+    intersection (this will be the radius of the roundabout)</li>
+<li>Delete the central intersection</li>
+<li>Connect the new intersections with one-way roads going in a circle</li>
+<li>Tweak the geometry of the roundabout by creating additional geometry points in <a href="editModesCommon.html#move">move mode</a> to make it more rounded. 
+    You can also use the function 'smooth edge' from the edge context menu.</li>
+<li>Check for correct right of way (the inside edge should have priority over the entering edges). This should work by default but may fail if the shape of the roundabout is not 'round' enough. Either correct the geometry or assign a higher priority value to the roundabout roads (compared to the adjoining roads)</li>
+</ol>
+<p>Assuming you have a regular intersection</p>
+<ul>
+<li><strong>Visual example</strong></li>
+</ul>
+<p><img alt="" src="../images/RoundAbout1.png" />We have a intersection (Junction) with four edges.
+<img alt="" src="../images/RoundAbout2.png" />Split edges in both direction in every edge to create new junctions.</p>
+<p><img alt="" src="../images/RoundAbout3.png" />Intersection with the new junctions.
+<img alt="" src="../images/RoundAbout4.png" />Remove central Junction.</p>
+<p><img alt="" src="../images/RoundAbout5.png" />Connect new junctions circularly.
+<img alt="" src="../images/RoundAbout6.png" />Move shape of new edges to obtain a circular shape.</p>
+<p><img alt="" src="../images/RoundAbout7.png" />Roundabout in Simulator.</p>
+<h2 id="correcting_road_access_permissions">Correcting <a href="../Simulation/VehiclePermissions.html">road access permissions</a><a class="headerlink" href="#correcting_road_access_permissions" title="Permanent link">#</a></h2>
+<p>In this example we wish to modify a multi-modal road network (i.e. imported from <a href="../Networks/Import/OpenStreetMap.html">OpenStreetMap</a>) in the following way: <strong>All dedicated bus lanes should allow bicycle access</strong>.</p>
+<ol>
+<li>in <em>select-mode</em>, use the Match Attribute panel to select all <strong>Lanes</strong> with attribute <strong>allow</strong> that match the string <strong>=bus</strong> (the '=' forces exact matches). All dedicated bus lanes are now selected</li>
+<li>in <em>inspect-mode</em>, click on one of the selected lanes and modify the allow attribute from <em>bus</em> to <em>bus bicycle</em></li>
+</ol>
+<h2 id="changing_all_traffic_lights_to_right_on_red">Changing all traffic lights to <em>right_on_red</em><a class="headerlink" href="#changing_all_traffic_lights_to_right_on_red" title="Permanent link">#</a></h2>
+<ol>
+<li>in <em>select-mode</em>, use the Match Attribute panel to select all <strong>Junctions</strong> with attribute <strong>type</strong> that match the string <strong>traffic_light</strong></li>
+<li>in <em>inspect-mode</em>, click on one of the selected junctions and set the type attribute to <em>right_on_red</em></li>
+</ol>
+<h2 id="creating_joined_traffic_lights">Creating joined traffic lights<a class="headerlink" href="#creating_joined_traffic_lights" title="Permanent link">#</a></h2>
+<ol>
+<li>make sure all junctions that shall be jointly controlled are of type <em>traffic_light</em></li>
+<li>(optionally) select all of the above junctions</li>
+<li>use inspect mode to set the same value for the 'tl' attribute of all junctions that shall be jointly controlled (if the junctions are selected, you can set the 'tl' value for all of them at the same time, otherwise you must set the value individually)</li>
+</ol>
+<h2 id="adapting_visualization_settings_to_help_editing_complicated_intersections">Adapting Visualization Settings to help editing complicated intersections<a class="headerlink" href="#adapting_visualization_settings_to_help_editing_complicated_intersections" title="Permanent link">#</a></h2>
+<p>Editing complex intersection clusters with many short edges can be difficult with the default visualization settings. The following
+settings may help</p>
+<ul>
+<li>Junction settings<ul>
+<li>lower value for <em>exaggerate by</em> (junction shapes drawn with reduced size)</li>
+<li>deactivate <em>draw junction shapes</em> (alternatively to reduced size, do not draw junction shapes at all)</li>
+<li>color <em>by selection</em></li>
+</ul>
+</li>
+<li>Streets<ul>
+<li>lower value for <em>exaggerate by</em> (draw thin edges)</li>
+<li>deactivate <em>show right of way rules</em> (to avoid hiding short edges)</li>
+<li>color <em>by selection</em></li>
+</ul>
+</li>
+</ul>
+<p>When setting coloring to <em>by selection</em> it may also help to modify transparency for selected or unselected edges.</p>
+<h2 id="defining_a_linear_referencing_scheme_kilometrage_mileage_chainage">Defining a linear referencing scheme <a href="../Simulation/Railways.html#kilometrage_mileage_chainage">(kilometrage / mileage/ chainage)</a><a class="headerlink" href="#defining_a_linear_referencing_scheme_kilometrage_mileage_chainage" title="Permanent link">#</a></h2>
+<ol>
+<li><a href="editModesDemand.html#route_mode">Define a route</a> through your network along which you want to define kilometrage (in forward direction)</li>
+<li>(optional) Use inspect mode to et the initial distance value of the first edge of the route (default 0)
+3) Right click the route element (in demand mode) and select 'Apply distance along route'</li>
+</ol>
+<h2 id="creating_bidirectional_railway_tracks">Creating <a href="../Simulation/Railways.html">bidirectional railway tracks</a><a class="headerlink" href="#creating_bidirectional_railway_tracks" title="Permanent link">#</a></h2>
+<h3 id="make_an_existing_track_bidirectional">Make an existing track bidirectional<a class="headerlink" href="#make_an_existing_track_bidirectional" title="Permanent link">#</a></h3>
+<p>Using <a href="../Simulation/Railways.html#working_with_bidirectional_tracks_in_netedit">visualization options or attribute selection</a> you can check whether an existing railway track can be used in both
+directions. To make a unidirectional track usable in both directions,</p>
+<ol>
+<li>set the edge attribute <em>spreadType</em> to the value <em>center</em> (in many cases this value is already set as it is the default value when
+    importing tracks).</li>
+<li>right-click the edge and select <em>edge operations->add reverse direction for edge</em></li>
+</ol>
+<h3 id="creating_bidirectional_tracks_from_scratch">Creating bidirectional tracks from scratch<a class="headerlink" href="#creating_bidirectional_tracks_from_scratch" title="Permanent link">#</a></h3>
+<ol>
+<li>use <a href="editModesNetwork.html#create_edges">Create Edges</a> to create an edge</li>
+<li>use <a href="editModesCommon.html#inspect">Inspect</a> to set the edge attribute <em>allow</em> to <em>rail</em> (or a combination of one or more railway vehicle classes)</li>
+<li>set edge attribute <em>spreadType</em> to <em>center</em></li>
+<li>set the new edge as <a href="editModesCommon.html#edge_template">Edge template</a></li>
+<li>make the edge bidirectional as explained above in <a href="#make_an_existing_track_bidirectional">Make an existing track bidirectional</a></li>
+<li>in <a href="editModesNetwork.html#create_edges">Create Edges</a>, set the checkbox to <em>Two-way</em> and optionally to <em>Chain</em></li>
+<li>continue to created edges. Each click will create bidirectional track</li>
+</ol>
+<h2 id="creating_a_zipper_merge">Creating a zipper merge<a class="headerlink" href="#creating_a_zipper_merge" title="Permanent link">#</a></h2>
+<ol>
+<li>use inspect mode to set junction type to 'zipper'</li>
+<li>use connection mode to add 2 connections which enter the zipper junction with the same target lane. The second connection must be created with CTRL+Click to override conflict protection.</li>
+<li>optionally: use inspect mode and enable 'show connections' (Alt+5). Click on the zipper connections (brown) and customize 'visibilityDistance' to set the range where vehicles start zipper merging.</li>
+</ol>
+<p><img alt="" src="../images/neteditZipper.png" /></p>
+                </div>
+          </div>
+          <button onclick="goTopFunction()" id="goToTop" title="Go to top"><i class="fa fa-arrow-up"></i></button>
+        </div>
+
+        <footer class="col-md-12">
+          
+            <br><small><i>This page was last edited on: 22 April 2021</i></small>
+          
+          <hr>
+            <p>Copyright &copy; 2001-2021 German Aerospace Center (DLR) and others.</p>
+          <p>Follow us on <a class="no-arrow-link" href="https://www.twitter.com/eclipsesumo/"><i class="fa fa-twitter"></i></a> <a class="no-arrow-link" href="https://www.facebook.com/simulationofurbanmobility/"><i class="fa fa-facebook-square"></i></a> <a class="no-arrow-link" href="https://www.instagram.com/eclipse.sumo/"><i class="fa fa-instagram"></i></a>
+          | Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a></p>
+        </footer>
+
+      <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body" style="color: #495057 !important;">
+                <p>Enter your search terms:</p>
+                <script async src="https://cse.google.com/cse.js?cx=004302551366764109984:1kpgtzrm6kv"></script>
+                <div class="gcse-search"></div>
+            </div>
+            <div class="modal-footer" style="color: #495057 !important;">
+                or search the sumo-user mailing list archive&nbsp;<a class="no-arrow-link" href="http://sumo-user.90755.n8.nabble.com/template/NamlServlet.jtp?macro=search_page&node=1&query=">here</a>
+            </div>
+        </div>
+    </div>
+</div>
+      <script>
+        window.onscroll = function() {scrollFunction()};
+        
+        function scrollFunction() {
+          if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+            document.getElementById("goToTop").style.display = "block";
+          } else {
+            document.getElementById("goToTop").style.display = "none";
+          }
+        }
+    
+        function goTopFunction() {
+          document.body.scrollTop = 0;
+          document.documentElement.scrollTop = 0;
+        }
+
+        var base_url = "..",
+            shortcuts = {"help": 191, "search": 83, "edit": 69};
+        </script>
+        <script src="../js/base.js" defer></script>
+
+        <script>
+          const toggleSwitch = document.querySelector('#theme-switch input[type="checkbox"]');
+  
+          function switchTheme(e) {
+              if (e.target.checked) {
+                  localStorage.setItem('sumo-docs-theme', 'dark');
+                  document.documentElement.setAttribute('data-theme', 'dark');
+                  toggleSwitch.checked = true;
+              } else {
+                  localStorage.setItem('sumo-docs-theme', 'light');
+                  document.documentElement.setAttribute('data-theme', 'light');
+                  toggleSwitch.checked = false;
+              }    
+          }
+  
+          toggleSwitch.addEventListener('change', switchTheme, false);
+  
+          if (document.documentElement.getAttribute("data-theme") == "dark"){
+              toggleSwitch.checked = true;
+          }
+          </script>
+
+      <div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Key</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody style="color: #495057 !important;">
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help dialog</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search the Documentation</td>
+                  </tr>
+                  <tr>
+                    <td class="edit shortcut"><kbd>e</kbd></td>
+                    <td>Edit current page on GitHub</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+        </div>
+    </div>
+</div>
+    </body>
+</html>

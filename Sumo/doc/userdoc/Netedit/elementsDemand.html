@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <meta property="og:image" content="../images/image-facebook.jpg">
+        <meta property="og:image:type" content="image/jpeg">
+        <meta property="og:image:width" content="1080">
+        <meta property="og:image:height" content="1080">
+
+        
+        
+        <link rel="canonical" href="https://sumo.dlr.de/docs/Netedit/elementsDemand.html">
+        <link rel="shortcut icon" href="../images/favicon.ico">
+        <title>elementsDemand - SUMO Documentation</title>
+        <link href="../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../css/font-awesome.min.css" rel="stylesheet">
+        <link href="../css/base.css" rel="stylesheet">
+        <link rel="apple-touch-icon" href="../images/apple-touch-icon.png">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+
+        <script src="../js/jquery-1.10.2.min.js" defer></script>
+        <script src="../js/bootstrap.min.js" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script> 
+
+      <script>
+        // DARK MODE
+        function detectColorScheme(){
+          var theme="light";
+
+          if(localStorage.getItem("sumo-docs-theme")){
+              if(localStorage.getItem("sumo-docs-theme") == "dark"){
+                  var theme = "dark";
+              }
+          } else if(!window.matchMedia) {
+              return false;
+          } else if(window.matchMedia("(prefers-color-scheme: dark)").matches) {
+              var theme = "dark";
+          }
+
+          if (theme=="dark") {
+              document.documentElement.setAttribute("data-theme", "dark");
+          }
+        }
+        detectColorScheme();
+      </script>
+
+    </head>
+
+    <body>
+
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary text-center">
+            <div class="container-fluid">
+                <!-- Collapsed navigation -->
+                <div class="navbar-header">
+                    <!-- Expander button -->
+                    <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                </div>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="navitem">
+                                <a href="../index.html" class="nav-link">Documentation</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="../Tutorials/index.html" class="nav-link">Tutorials</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="../FAQ.html" class="nav-link">FAQ</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="../Downloads.html" class="nav-link">Downloads</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="../Publications.html" class="nav-link">Publications</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="../Developer/index.html" class="nav-link">Developer</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="../ChangeLog.html" class="nav-link">ChangeLog</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="https://github.com/eclipse/sumo/commits/master/docs/web" class="nav-link">Recent Changes</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="https://eclipse.org/sumo/contact/" class="nav-link">Contact</a>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-toggle="modal" data-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> <u>S</u>earch
+                            </a>
+                        </li>
+                            <li class="nav-item">
+                                <a rel="edit" href="https://github.com/eclipse/sumo/edit/master/docs/web/docs/Netedit/elementsDemand.md" class="nav-link"><i class="fa fa-github"></i> <u>E</u>dit on GitHub</a>
+                            </li>
+                      <li class="nav-item dropdown">
+                          <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+                            More <i class="fa fa-chevron-circle-down"></i>
+                          </a>
+                          <div class="dropdown-menu dropdown-menu-right">
+                            <a class="dropdown-item no-arrow-link" href="https://github.com/eclipse/sumo/issues">Report a Bug / Issue / Typo</a>
+                            <a class="dropdown-item" href="../Editing_Articles.html">Help on editing articles</a>
+                            <a class="dropdown-item" href="#" data-toggle="modal" data-target="#mkdocs_keyboard_modal">Keyboard Shortcuts</a>
+                            <a class="dropdown-item no-arrow-link" href="https://sumo.dlr.de/sumo_documentation.zip">Download the Documentation</a>
+                            <span class="dropdown-item" id="dark-mode-div">Dark mode <label id="theme-switch" class="theme-switch" for="checkbox_theme">
+                              <input type="checkbox" id="checkbox_theme">
+                          </label></span>
+                          </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container-fluid">
+          <div class="row">
+                <div class="col-md-3">
+                  <div class="text-center"><a href="../index.html" style="display: inline-block; margin-top: 5px;"><img src="../images/sumo-logo.png" class="sumoLogo" alt="SUMO Logo" width="120px"></a></div>
+                  
+<div class="navbar-light navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#toc-collapse" title="Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary toc-scroll toc">
+        <ul class="nav flex-column bs-sidenav">
+            <p style="margin-top:5px; color:#777777;" class="text-center">Contents</p>
+            <li class="nav-item main"><a href="#demand_elements">Demand elements</a></li>
+                <li class="nav-item" style="text-indent: 5px;">
+                    <a href="#route" class="nav-link">• Route</a>
+                </li>
+                <li class="nav-item" style="text-indent: 5px;">
+                    <a href="#vehicles" class="nav-link">• Vehicles</a>
+                </li>
+                <li class="nav-item" style="text-indent: 25px;">
+                    <a href="#trip" class="nav-link">&rarr; Trip</a>
+                </li>
+                <li class="nav-item" style="text-indent: 25px;">
+                    <a href="#vehicle_over_route" class="nav-link">&rarr; Vehicle over route</a>
+                </li>
+                <li class="nav-item" style="text-indent: 25px;">
+                    <a href="#vehicle_with_embedded_route" class="nav-link">&rarr; Vehicle with embedded route</a>
+                </li>
+                <li class="nav-item" style="text-indent: 25px;">
+                    <a href="#flow" class="nav-link">&rarr; Flow</a>
+                </li>
+                <li class="nav-item" style="text-indent: 25px;">
+                    <a href="#flow_over_route" class="nav-link">&rarr; Flow over route</a>
+                </li>
+                <li class="nav-item" style="text-indent: 25px;">
+                    <a href="#flow_over_embedded_route" class="nav-link">&rarr; Flow over embedded route</a>
+                </li>
+                <li class="nav-item" style="text-indent: 5px;">
+                    <a href="#vehicle_types" class="nav-link">• Vehicle Types</a>
+                </li>
+                <li class="nav-item" style="text-indent: 5px;">
+                    <a href="#stops" class="nav-link">• Stops</a>
+                </li>
+                <li class="nav-item" style="text-indent: 5px;">
+                    <a href="#persons" class="nav-link">• Persons</a>
+                </li>
+        </ul>
+    </div>
+
+    <div class="admonition conference" style="position: sticky; margin-top: 20px; margin-bottom:10px;">
+        <p>visit <a href="https://eclipse.org/sumo">eclipse.org/sumo</a></p>
+        </div>
+
+</div>
+                  <!--  -->
+                </div>
+                <div class="col-md-9 main-area" role="main">
+                   <!-- page.is_homepage seems to be broken in Mkdocs > 1.1.0 -->
+                  <ul class="breadcrumbs">
+    <script>
+        var pagePath = "/docs/Netedit/elementsDemand.html";
+        var splitUrl = pagePath.split("/");
+        splitUrl.pop();
+        splitUrl.shift();
+        if (splitUrl[0] == 'docs') splitUrl.shift();
+        var homeLink = "../index.html";
+        document.write('<li class="breadcrumb-item"><a href="' + homeLink + '"><i class="fa fa-home"></i></a></li>');
+        var prev = '';
+        
+        var dirLink = splitUrl.map(function (el) {
+        el = prev + el; prev = el + '/'; return el;
+        });
+
+        for (i = 0; i < splitUrl.length; i++) {
+            document.write("<li class=\"breadcrumb-item\"><a class=\"no-arrow-link\" href=\"../" + dirLink[i] + "\">" + splitUrl[i] + "</a></li>");
+        }
+    </script>
+    <li class="breadcrumb-item active">elementsDemand</li>
+</ul>
+                  <hTitles>elementsDemand<hr style="border: 0.5px solid #338033; margin-top: 5px !important;"></hTitles>
+                  
+                  
+
+<h1 id="demand_elements">Demand elements<a class="headerlink" href="#demand_elements" title="Permanent link">#</a></h1>
+<p><em>Demand elements</em> are the elements that <a href="index.html">netedit</a> uses to define vehicular demand for SUMO. All of this elements can be created, inspected and selected in supermode <em>Demand</em> (F3).</p>
+<h2 id="route">Route<a class="headerlink" href="#route" title="Permanent link">#</a></h2>
+<p><img alt="" src="../images/GNERoute.png" /></p>
+<h2 id="vehicles">Vehicles<a class="headerlink" href="#vehicles" title="Permanent link">#</a></h2>
+<p>Vehicles are the representation in NETEDIT of any mobile element that runs through a street (edge or lane) following a certain path.</p>
+<h3 id="trip">Trip<a class="headerlink" href="#trip" title="Permanent link">#</a></h3>
+<p>A trip is defined clicking over a start and a end edge. NETEDIT automatically calculate the shorted minimum path between clicked edges. If user defines a list of "via" edges, then the path is calculated using also the via edges. The path is drawn while trip is inspected.</p>
+<p><img alt="" src="../images/GNETrip.png" /></p>
+<h3 id="vehicle_over_route">Vehicle over route<a class="headerlink" href="#vehicle_over_route" title="Permanent link">#</a></h3>
+<p>A vehicle defined over a route follow the path defined by the give route. To create it, just click over the route.</p>
+<p><img alt="" src="../images/GNEVehicle.png" /></p>
+<h3 id="vehicle_with_embedded_route">Vehicle with embedded route<a class="headerlink" href="#vehicle_with_embedded_route" title="Permanent link">#</a></h3>
+<p>A vehicle with embedded route is defined clicking over a list of edges in the network. NETEDIT automatically calculate the shorted minimum path between clicked edges.</p>
+<p><img alt="" src="../images/GNEVehicleEmbeddedRoute.png" /></p>
+<h3 id="flow">Flow<a class="headerlink" href="#flow" title="Permanent link">#</a></h3>
+<p>A flow is defined clicking over a start and a end edge. NETEDIT automatically calculate the shorted minimum path between clicked edges. If user defines a list of "via" edges, then the path is calculated using also the via edges. The path is drawn while flow is inspected.</p>
+<p><img alt="" src="../images/GNEFlow.png" /></p>
+<h3 id="flow_over_route">Flow over route<a class="headerlink" href="#flow_over_route" title="Permanent link">#</a></h3>
+<p>A flow defined over a route follow the path defined by the give route.  To create it, just click over the route.</p>
+<p><img alt="" src="../images/GNEFlowRoute.png" /></p>
+<h3 id="flow_over_embedded_route">Flow over embedded route<a class="headerlink" href="#flow_over_embedded_route" title="Permanent link">#</a></h3>
+<p>A flow with embedded route is defined clicking over a list of edges in the network. NETEDIT automatically calculate the shorted minimum path between clicked edges.</p>
+<p><img alt="" src="../images/GNEFlowEmbeddedRoute.png" /></p>
+<h2 id="vehicle_types">Vehicle Types<a class="headerlink" href="#vehicle_types" title="Permanent link">#</a></h2>
+<p>A vehicle is defined using the Vehicle Type element as parent. There is two way to edit vehicles. The first one is the frame, in which can be created and edited their basic attributes, and the second one is the "Attribute editor", in which all attributes can be edited.</p>
+<p><img alt="" src="../images/GNEVehicleType.png" /></p>
+<p><img alt="" src="../images/GNEVehicleTypeDialog.png" /></p>
+<h2 id="stops">Stops<a class="headerlink" href="#stops" title="Permanent link">#</a></h2>
+<p>A stop pauses the vehicle in a given position of the lane's stop. A Stop can be defined either over a Lane or over a Stopping Place (BusStop, ContainerStop, ChargingStation or Parking Area), and is always defined within a parent element (Either a Route or a vehicle)</p>
+<p><img alt="" src="../images/GNEStops.png" /></p>
+<h2 id="persons">Persons<a class="headerlink" href="#persons" title="Permanent link">#</a></h2>
+<p>Persons represent pedestrians in NETEDIT networks. All persons need a person plan, and this person plan can be either a Walk, a person trip, a ride or a stop. A  person plan can start or end from an edge or a busStop.</p>
+<p><img alt="" src="../images/GNEPedestrian.png" /></p>
+                </div>
+          </div>
+          <button onclick="goTopFunction()" id="goToTop" title="Go to top"><i class="fa fa-arrow-up"></i></button>
+        </div>
+
+        <footer class="col-md-12">
+          
+            <br><small><i>This page was last edited on: 02 March 2021</i></small>
+          
+          <hr>
+            <p>Copyright &copy; 2001-2021 German Aerospace Center (DLR) and others.</p>
+          <p>Follow us on <a class="no-arrow-link" href="https://www.twitter.com/eclipsesumo/"><i class="fa fa-twitter"></i></a> <a class="no-arrow-link" href="https://www.facebook.com/simulationofurbanmobility/"><i class="fa fa-facebook-square"></i></a> <a class="no-arrow-link" href="https://www.instagram.com/eclipse.sumo/"><i class="fa fa-instagram"></i></a>
+          | Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a></p>
+        </footer>
+
+      <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body" style="color: #495057 !important;">
+                <p>Enter your search terms:</p>
+                <script async src="https://cse.google.com/cse.js?cx=004302551366764109984:1kpgtzrm6kv"></script>
+                <div class="gcse-search"></div>
+            </div>
+            <div class="modal-footer" style="color: #495057 !important;">
+                or search the sumo-user mailing list archive&nbsp;<a class="no-arrow-link" href="http://sumo-user.90755.n8.nabble.com/template/NamlServlet.jtp?macro=search_page&node=1&query=">here</a>
+            </div>
+        </div>
+    </div>
+</div>
+      <script>
+        window.onscroll = function() {scrollFunction()};
+        
+        function scrollFunction() {
+          if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+            document.getElementById("goToTop").style.display = "block";
+          } else {
+            document.getElementById("goToTop").style.display = "none";
+          }
+        }
+    
+        function goTopFunction() {
+          document.body.scrollTop = 0;
+          document.documentElement.scrollTop = 0;
+        }
+
+        var base_url = "..",
+            shortcuts = {"help": 191, "search": 83, "edit": 69};
+        </script>
+        <script src="../js/base.js" defer></script>
+
+        <script>
+          const toggleSwitch = document.querySelector('#theme-switch input[type="checkbox"]');
+  
+          function switchTheme(e) {
+              if (e.target.checked) {
+                  localStorage.setItem('sumo-docs-theme', 'dark');
+                  document.documentElement.setAttribute('data-theme', 'dark');
+                  toggleSwitch.checked = true;
+              } else {
+                  localStorage.setItem('sumo-docs-theme', 'light');
+                  document.documentElement.setAttribute('data-theme', 'light');
+                  toggleSwitch.checked = false;
+              }    
+          }
+  
+          toggleSwitch.addEventListener('change', switchTheme, false);
+  
+          if (document.documentElement.getAttribute("data-theme") == "dark"){
+              toggleSwitch.checked = true;
+          }
+          </script>
+
+      <div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Key</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody style="color: #495057 !important;">
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help dialog</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search the Documentation</td>
+                  </tr>
+                  <tr>
+                    <td class="edit shortcut"><kbd>e</kbd></td>
+                    <td>Edit current page on GitHub</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+        </div>
+    </div>
+</div>
+    </body>
+</html>
